@@ -35,8 +35,7 @@ module lab1_GA (
         .count(count)
     );
 
-    // counter-LED logic: led[2] is high for the second half of each count
-    // period, giving the same blink effect without a second FSM.
+    // counter-LED logic
     assign led[2] = count >= MAX_COUNT / 2;
 
     // switch/LED CL
