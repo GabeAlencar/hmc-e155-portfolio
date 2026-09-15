@@ -112,4 +112,6 @@ FPGA. I spent a total of 20 hours working on this lab.
 
 ## AI Prototype Summary
 
+The quality of the output was good in some ways and bad in others. First, the logic was correct. The clock-division, toggle, and logic in place of wire/reg was all perfect. What failed was specific knowledge about the lab. For example, it forgot to negate the output of the counter and left it as positive to light the LED. The model also used very different formatting and naming conventions. The model used .CLKHF_DIV to request a divided-down 12 MHz clock straight from the oscillator. This is a feature the datasheet describes but every example I've seen always takes the oscillator's raw 48 MHz output and does the division itself, which is what my own counter module does. 
 
+Something worth mentioning was initializing registers at declaration rather than relying on an external reset signal. That a bug I had to fix when I forgot to instantiate the registers and got a bunch of x's in my simulation. Seeing the LLM independently do this made me realize that the kinds of mistakes people and AI make are very different. AI tends to assume it knows everything and will make mistakes based on these assumptions. Humans tend to make smaller and more stupid mistakes. Next time, I'd state the target toolchain explicitly in the prompt by saying "using Lattice Radiant". 
