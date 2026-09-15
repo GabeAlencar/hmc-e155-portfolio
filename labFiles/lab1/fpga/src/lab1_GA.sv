@@ -9,13 +9,13 @@ module lab1_GA (
     output logic [2:0] led,
     output logic [6:0] seg
 );
+    logic                   clk;
+    logic                   reset_b;
+    logic                   enable;
+    logic [WIDTH-1:0]       count;
 
-    logic clk;
-    logic reset;
-    logic en;
-
-    assign reset = 1'b0;
-    assign en = 1'b1;
+    assign reset_b = 1'b0;
+    assign enable  = 1'b1;
 
     // clock
     HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
@@ -24,7 +24,10 @@ module lab1_GA (
     sevenseg_decoder u_sevenseg (.s(s), .seg(seg));
 
     // counter
-    counter u_counter (.clk(clk), .reset(reset), .en(en), .blink(led[2]));
+    counter #(.WIDTH(WIDTH), .MAX(MAX_COUNT)) u_counter (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
+
+    // counter-LED logic
+    assign led[2] = count >= MAX_COUNT / 2;
 
     // switch/LED CL
     assign led[0] = s[1] ^ s[0];
