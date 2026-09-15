@@ -19,7 +19,7 @@ module counter #(
 );
 
     logic [WIDTH-1:0] count = '0;
-    logic             blink_r = 1'b0;
+    logic blink_r = 1'b0;
 
     assign blink = blink_r;
 
