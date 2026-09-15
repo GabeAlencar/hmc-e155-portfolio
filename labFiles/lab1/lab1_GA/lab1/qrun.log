@@ -1,0 +1,32 @@
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 14:35:35 on Sep 15,2026
+# Loading sv_std.std
+# Loading work.counter_tb(fast)
+# Loading work.counter(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! The counter resets as desired at time: 22.
+restart -f
+# Loading work.counter_tb(fast)
+# Loading work.counter(fast)
+run -all
+# PASSED! The counter resets as desired at time: 22.
+# PASSED! The counter holds while disabled at time: 166.
+# PASSED! The counter counts up at time: 216.
+# PASSED! The counter wraps at time: 266.
+# PASSED! The counter stops when disabled at time: 396.
+# PASSED! The counter resets while running at time: 427.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/fpga/sim/counter_tb.sv(86)
+#    Time: 527 ns  Iteration: 0  Instance: /counter_tb
+# Break in Module counter_tb at C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/fpga/sim/counter_tb.sv line 86
+# Causality operation skipped due to absence of debug database file
+# End time: 14:38:24 on Sep 15,2026, Elapsed time: 0:02:49
+# Errors: 0, Warnings: 0
