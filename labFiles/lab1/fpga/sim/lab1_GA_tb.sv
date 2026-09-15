@@ -25,7 +25,6 @@ module lab1_GA_tb();
         $display("PASSED! The HSOSC produces a clock at time: %0t.", $time);
       end
       begin
-        // 1000 ns is very generous next to a 48 MHz period (~20.8 ns)
         #1000;
         $error("FAILED! The HSOSC produces no clock by time: %0t.", $time);
       end
