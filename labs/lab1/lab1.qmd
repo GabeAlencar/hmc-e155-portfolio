@@ -1,0 +1,5 @@
+---
+title: "Lab 1: FPGA and MCU Setup and Testing"
+---
+
+Write-up for Lab 1 goes here.

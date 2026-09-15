@@ -1,0 +1,28 @@
+---
+title: "MicroPs First Post!"
+description: "Lab1 First Blog Post"
+author: "Gabe Alencar"
+date: "9/09/2026"
+categories:
+  - reflection
+draft: false
+---
+
+Welcome to my E155 portfolio! I'll be using this blog to document lab work, debugging, and reflections as the semester goes on.
+
+For this first post, I wanted to lay out what I'm hoping to get out of MicroPs.
+
+### Why I'm taking this course?
+
+I've done plenty of (vibecoded) software projects, but I've always felt a little removed from the hardware. MicroPs is my chance to finally close that gap.
+
+### Goals for the semester
+
+- **Build good lab habits.** 
+    - Reading datasheets, using oscilloscopes/logic analysers, and systematic debugging. 
+- **Documents things and add to my GitHub.**
+- **Work on a super interesting final project!**
+
+Looking forward to the semester!
+
+--  Gabe
