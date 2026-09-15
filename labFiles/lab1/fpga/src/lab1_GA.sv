@@ -9,12 +9,16 @@ module lab1_GA (
     output logic [2:0] led,
     output logic [6:0] seg
 );
+
+    localparam int WIDTH     = 24;
+    localparam int MAX_COUNT = 9_999_999;
+
     logic                   clk;
     logic                   reset_b;
     logic                   enable;
     logic [WIDTH-1:0]       count;
 
-    assign reset_b = 1'b0;
+    assign reset_b = 1'b1;
     assign enable  = 1'b1;
 
     // clock
@@ -24,9 +28,15 @@ module lab1_GA (
     sevenseg_decoder u_sevenseg (.s(s), .seg(seg));
 
     // counter
-    counter #(.WIDTH(WIDTH), .MAX(MAX_COUNT)) u_counter (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
+    counter #(.WIDTH(WIDTH), .MAX(MAX_COUNT)) u_counter (
+        .clk(clk),
+        .reset_b(reset_b),
+        .enable(enable),
+        .count(count)
+    );
 
-    // counter-LED logic
+    // counter-LED logic: led[2] is high for the second half of each count
+    // period, giving the same blink effect without a second FSM.
     assign led[2] = count >= MAX_COUNT / 2;
 
     // switch/LED CL
