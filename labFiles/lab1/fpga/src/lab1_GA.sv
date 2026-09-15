@@ -10,7 +10,7 @@ module lab1_GA (
     output logic [6:0] seg
 );
 
-    localparam int WIDTH     = 26;
+    localparam int WIDTH     = 25;
     localparam int MAX_COUNT = 19_999_999;
 
     logic                   clk;
