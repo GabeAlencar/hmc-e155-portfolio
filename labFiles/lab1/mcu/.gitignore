@@ -1,6 +1,0 @@
-# SEGGER Embedded Studio project outputs
-segger_project/Output/
-segger_project/*.user
-
-# J-Link / debugger artifacts
-*.jlink
