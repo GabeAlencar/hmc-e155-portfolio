@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/lab1_GA.sv" "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/sevenseg_decoder.sv" "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/counter.sv"
+-path "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA" "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA"
+-top lab1_GA
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"
