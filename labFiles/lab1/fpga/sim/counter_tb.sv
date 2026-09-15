@@ -27,11 +27,11 @@ module counter_tb();
 
   // apply stimuli and check outputs
   initial begin
-    // test 1: reset drives blink low
+    // test 1: reset drives blink and count to 0
     reset = 1;
     en = 0;
     #22 reset = 0;
-    assert (blink == 1'b0)
+    assert (dut.count == 4'd0 && blink == 1'b0)
       $display("PASSED! The counter resets as desired at time: %0t.", $time);
     else
       $error("FAILED! The counter resets incorrectly at time: %0t.", $time);
@@ -39,7 +39,7 @@ module counter_tb();
     // test 2: with en low, the counter holds and blink never toggles
     repeat (15) @(posedge clk);
     #1;
-    assert (blink == 1'b0)
+    assert (dut.count == 4'd0)
       $display("PASSED! The counter holds while disabled at time: %0t.", $time);
     else
       $error("FAILED! The counter counts while disabled at time: %0t.", $time);
@@ -48,7 +48,7 @@ module counter_tb();
     en = 1;
     repeat (10) @(posedge clk);
     #1;
-    assert (blink == 1'b1)
+    assert (dut.count == 4'd3)
       $display("PASSED! The counter wraps and toggles at time: %0t.", $time);
     else
       $error("FAILED! The counter fails to wrap/toggle at time: %0t.", $time);
@@ -56,7 +56,7 @@ module counter_tb();
     // test 4: it wraps again on the next 10 counts, toggling back
     repeat (10) @(posedge clk);
     #1;
-    assert (blink == 1'b0)
+    assert (dut.count == 4'd3)
       $display("PASSED! The counter wraps a second time at time: %0t.", $time);
     else
       $error("FAILED! The counter fails to wrap a second time at time: %0t.", $time);
@@ -65,7 +65,7 @@ module counter_tb();
     en = 0;
     repeat (15) @(posedge clk);
     #1;
-    assert (blink == 1'b0)
+    assert (dut.count == 4'd9 && blink == 1'b0)
       $display("PASSED! The counter stops when disabled at time: %0t.", $time);
     else
       $error("FAILED! The counter keeps counting when disabled at time: %0t.", $time);
@@ -75,7 +75,7 @@ module counter_tb();
     repeat (3) @(posedge clk);
     reset = 1;
     #12;
-    assert (blink == 1'b0)
+    assert (dut.count == 4'd0 && blink == 1'b1)
       $display("PASSED! The counter resets while running at time: %0t.", $time);
     else
       $error("FAILED! The counter fails to reset while running at time: %0t.", $time);
