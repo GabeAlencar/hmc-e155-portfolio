@@ -28,12 +28,7 @@ module lab1_GA (
     sevenseg_decoder u_sevenseg (.s(s), .seg(seg));
 
     // counter
-    counter #(.WIDTH(WIDTH), .MAX(MAX_COUNT)) u_counter (
-        .clk(clk),
-        .reset_b(reset_b),
-        .enable(enable),
-        .count(count)
-    );
+    counter #(.WIDTH(WIDTH), .MAX(MAX_COUNT)) u_counter (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
 
     // counter-LED logic
     assign led[2] = count >= MAX_COUNT / 2;
