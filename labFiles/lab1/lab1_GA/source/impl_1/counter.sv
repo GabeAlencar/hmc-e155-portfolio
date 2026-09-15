@@ -8,8 +8,8 @@
  */
 
 module counter #(
-    parameter int WIDTH = 24,
-    parameter int MAX   = 9_999_999
+    parameter int WIDTH = 26,
+    parameter int MAX   = 19_999_999
 ) (
     input  logic             clk,
     input  logic             reset_b, 

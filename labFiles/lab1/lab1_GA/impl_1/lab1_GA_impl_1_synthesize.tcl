@@ -5,11 +5,11 @@ source [file join {C:/lscc/radiant/2026.1} scripts tcl flow run_engine.tcl]
 # define global variables
 global para
 set para(gui_mode) "1"
-set para(prj_dir) "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA"
-if {![file exists {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}]} {
-  file mkdir {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}
+set para(prj_dir) "C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA"
+if {![file exists {C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}]} {
+  file mkdir {C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}
 }
-cd {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}
+cd {C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1}
 # synthesize IPs
 # synthesize VMs
 # propgate constraints
@@ -17,7 +17,7 @@ file delete -force -- lab1_GA_impl_1_cpe.ldc
 ::radiant::runengine::run_engine_newmsg cpe -syn lse -f "lab1_GA_impl_1.cprj" -a "iCE40UP"  -o lab1_GA_impl_1_cpe.ldc
 # synthesize top design
 file delete -force -- lab1_GA_impl_1.vm lab1_GA_impl_1.ldc
-::radiant::runengine::run_engine_newmsg synthesis -f "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1/lab1_GA_impl_1_lattice.synproj" -logfile "lab1_GA_impl_1_lattice.srp"
+::radiant::runengine::run_engine_newmsg synthesis -f "C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/impl_1/lab1_GA_impl_1_lattice.synproj" -logfile "lab1_GA_impl_1_lattice.srp"
 ::radiant::runengine::run_postsyn [list -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o lab1_GA_impl_1_syn.udb lab1_GA_impl_1.vm] [list lab1_GA_impl_1.ldc]
 
 } out]} {

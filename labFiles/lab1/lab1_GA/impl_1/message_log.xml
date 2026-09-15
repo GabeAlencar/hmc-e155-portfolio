@@ -769,25 +769,25 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/lab1_GA.sv(7): </Dynamic>
+            <Dynamic>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/lab1_GA.sv(7): </Dynamic>
             <Dynamic>lab1_GA</Dynamic>
-            <Navigation>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/lab1_GA.sv</Navigation>
+            <Navigation>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/lab1_GA.sv</Navigation>
             <Navigation>7</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/sevenseg_decoder.sv(7): </Dynamic>
+            <Dynamic>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/sevenseg_decoder.sv(7): </Dynamic>
             <Dynamic>sevenseg_decoder</Dynamic>
-            <Navigation>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/sevenseg_decoder.sv</Navigation>
+            <Navigation>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/sevenseg_decoder.sv</Navigation>
             <Navigation>7</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/counter.sv(10): </Dynamic>
+            <Dynamic>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/counter.sv(10): </Dynamic>
             <Dynamic>counter</Dynamic>
-            <Navigation>C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/counter.sv</Navigation>
+            <Navigation>C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/source/impl_1/counter.sv</Navigation>
             <Navigation>10</Navigation>
         </Message>
         <Message>

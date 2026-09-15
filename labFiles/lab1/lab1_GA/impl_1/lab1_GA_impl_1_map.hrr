@@ -3,28 +3,28 @@ Report for cell lab1_GA
    Instance path: lab1_GA
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         52        100.0
-                               LUTGATE	         26        100.0
-                                LUTCCU	         26        100.0
+                                  LUT4	         56        100.0
+                               LUTGATE	         28        100.0
+                                LUTCCU	         28        100.0
                                  IOBUF	         14        100.0
-                                PFUREG	         24        100.0
+                                PFUREG	         26        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                               counter	          1        65.4
-                      sevenseg_decoder	          1        13.5
+                               counter	          1        66.1
+                      sevenseg_decoder	          1        12.5
 ---------------------------------------------------
 Report for cell sevenseg_decoder
    Instance path: lab1_GA/u_sevenseg
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	          7        13.5
-                               LUTGATE	          7        26.9
+                                  LUT4	          7        12.5
+                               LUTGATE	          7        25.0
 ---------------------------------------------------
 Report for cell counter
    Instance path: lab1_GA/u_counter
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         34        65.4
-                               LUTGATE	          8        30.8
-                                LUTCCU	         26        100.0
-                                PFUREG	         24        100.0
+                                  LUT4	         37        66.1
+                               LUTGATE	          9        32.1
+                                LUTCCU	         28        100.0
+                                PFUREG	         26        100.0
