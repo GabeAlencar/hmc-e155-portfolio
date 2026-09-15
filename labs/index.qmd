@@ -1,0 +1,5 @@
+---
+title: "Labs"
+---
+
+## [Lab 1: FPGA and MCU Setup and Testing](lab1/lab1.qmd)

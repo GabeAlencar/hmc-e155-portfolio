@@ -1,0 +1,12 @@
+# Quarto build artifacts
+/.quarto/
+/_site/
+/_freeze/
+**/*.quarto_ipynb
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
