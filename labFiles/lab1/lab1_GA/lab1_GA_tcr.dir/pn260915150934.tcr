@@ -1,0 +1,6 @@
+#Start recording tcl command: 9/15/2026 14:47:17
+#Project Location: C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA; Project name: lab1_GA
+prj_open "C:/Users/GMENENDEZDEALENCAR/Documents/GitHub/hmc-e155-portfolio/labFiles/lab1/lab1_GA/lab1_GA.rdf"
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+#Stop recording: 9/15/2026 15:09:34
