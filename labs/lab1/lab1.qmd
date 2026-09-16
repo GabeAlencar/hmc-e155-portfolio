@@ -23,10 +23,9 @@ The design was split into three modules:
 - **sevenseg_decoder.sv** - combinational logic that maps a 4-bit hex value to
   a common-anode display.
 - **counter.sv** - a parameterized counter with synchronous enable and asynchronous
-  reset. It counts to a settable MAX value, wraps to zero, and toggles its
-  blink output on each wrap.
-- **lab1_GA.sv** - the top-level module, which instantiates the HSOSC, the
-  decoder, and the counter, and contains only the switch-to-LED assign statements.
+  reset. It counts to a settable MAX value and wraps to zero.
+- **lab1_GA.sv** - the top-level module, which instantiates the HSOSC, decoder, counter, and contains the switch-to-LED assign statements
+  along with the combinational logic for the LED from the counter's count value.
 
 Each module was verified with its own testbench, with the scope of each testbench
 chosen to match the kind of module under test:
@@ -34,8 +33,7 @@ chosen to match the kind of module under test:
 - **sevenseg_decoder_tb.sv** - all 16 possible input combinations were exercised and the segment
   output checked against the expected pattern for each.
 - **counter_tb.sv** - the counter is sequential and was tested for the following behavior: reset returns the count to zero, enable input starts and
-  stops counting, and the counter wraps at MAX and toggles blink each time.
-  time.
+  stops counting, and the counter wraps at MAX.
 - **lab1_GA_tb.sv** - since the submodules were already verified individually, the
   top-level testbench only covers the clock, that the submodules are wired correctly,
   and that the top-level assign statements behave correctly.
@@ -92,10 +90,8 @@ digit, verifying the combinational logic.
 
 Figure 5 shows the counter's behavior with WIDTH = 4 and MAX = 9. The count
 holds at zero while the enable input is low, counts from 0 to 9 when enabled,
-wraps back to zero at the maximum count, and toggles blink each time it wraps.
-blink holds its value between wraps, producing a square wave whose period is
-twice the counter period. The asynchronous reset is also shown returning the
-count to zero mid-count.
+and wraps back to zero at the maximum count. The asynchronous reset is also
+shown returning the count to zero mid-count.
 
 ![Figure 6: top level lab1_GA testbench trace](images/lab1_GA_Trace.png)
 
