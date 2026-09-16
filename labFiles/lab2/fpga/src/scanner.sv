@@ -4,7 +4,7 @@
  * Date:   9/13/26
  * Parameters:
  *   DIV   - clock cycles each row stays active.
- *   DIV_W - number of bits in the prescaler count register.
+ *   DIV_W - number of bits needed to count to DIV.
  */
 
 module scanner #(
@@ -17,20 +17,18 @@ module scanner #(
     output logic [3:0] rows
 );
 
-    logic [DIV_W-1:0] div_count;
-    logic             tick;
-    logic [1:0]       state;
+    // single counter spans all 4 rows so no second counter is needed
+    localparam int TOTAL_W = DIV_W + 2;
 
-    // prescaler counter
-    counter #(.WIDTH(DIV_W), .MAX(DIV - 1)) u_prescaler (.clk(clk), .reset_b(reset_b), .enable(enable), .count(div_count));
+    logic [TOTAL_W-1:0] count;
 
-    // prescaler-tick logic
-    assign tick = enable & (div_count == DIV - 1);
+    // scan counter
+    counter #(.WIDTH(TOTAL_W), .MAX(4 * DIV - 1)) u_scan_ctr (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
 
-    // row state counter
-    counter #(.WIDTH(2), .MAX(3)) u_state_ctr (.clk(clk), .reset_b(reset_b), .enable(tick), .count(state));
-
-    // row decoder OL
-    assign rows = 4'b0001 << state;
+    // row decoder: pick the active row straight from the raw count
+    assign rows = (count < DIV)     ? 4'b0001 :
+                  (count < 2 * DIV) ? 4'b0010 :
+                  (count < 3 * DIV) ? 4'b0100 :
+                                      4'b1000;
 
 endmodule
