@@ -3,3 +3,5 @@ title: "Labs"
 ---
 
 ## [Lab 1: FPGA and MCU Setup and Testing](lab1/lab1.qmd)
+
+## [Lab 2: Multiplexed Seven-Segment Display and Keypad Scanner](lab2/lab2.qmd)
