@@ -49,7 +49,7 @@ module lab2_GA_tb();
     // hold reset until stimuli begin
     reset_b = 0;
     s1 = 4'h0;
-    s2 = 4'hF;
+    s2 = 4'hC;
     cols = 4'b0000;
     #22 reset_b = 1;
     #10;

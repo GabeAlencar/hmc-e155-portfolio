@@ -1,0 +1,1 @@
+C:/lscc/radiant/2026.1/bin/nt64/moduleparser.exe -PROJ sim2 -pf C:/lscc/radiant/2026.1/cae_library/synthesis/verilog/iCE40UP.v -lib iCE40UP -sort -lst C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA/sim2/source_files.lst

@@ -34,3 +34,5 @@ run -all
 #    Time: 617 ns  Iteration: 0  Instance: /scanner_tb
 # Break in Module scanner_tb at C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/fpga/sim/scanner_tb.sv line 107
 # Causality operation skipped due to absence of debug database file
+# End time: 10:06:59 on Sep 16,2026, Elapsed time: 0:03:55
+# Errors: 0, Warnings: 0

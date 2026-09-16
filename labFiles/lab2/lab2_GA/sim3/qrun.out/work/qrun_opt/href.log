@@ -1,0 +1,3 @@
+BEGIN 1:lab2_GA:fast:work
+    clk :  1:lab2_GA_tb:fast:work
+END 

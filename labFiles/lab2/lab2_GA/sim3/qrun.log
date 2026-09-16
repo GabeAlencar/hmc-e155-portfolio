@@ -1,0 +1,78 @@
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   2
+#   Totals: Errors:   0, Warnings:   2
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 10:15:53 on Sep 16,2026
+# Loading sv_std.std
+# Loading work.lab2_GA_tb(fast)
+# Loading work.lab2_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.counter(fast)
+# Loading work.sevenseg_decoder(fast)
+# Loading work.scanner(fast)
+# Loading work.counter(fast__1)
+# Loading work.counter(fast__2)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! The HSOSC produces a clock at time: 10000.
+# PASSED! The anode mux selects digit 1 at time: 32000.
+# PASSED! The decoder is wired correctly for digit 1 at time: 32000.
+# PASSED! The column LED logic behaves as desired at time: 42000.
+# PASSED! The column LED logic behaves as desired at time: 52000.
+restart -f
+# Loading work.lab2_GA_tb(fast)
+# Loading work.lab2_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.counter(fast)
+# Loading work.sevenseg_decoder(fast)
+# Loading work.scanner(fast)
+# Loading work.counter(fast__1)
+# Loading work.counter(fast__2)
+add wave -position insertpoint  \
+sim:/lab2_GA_tb/MUX_W \
+sim:/lab2_GA_tb/MUX_MAX \
+sim:/lab2_GA_tb/SCAN_DIV \
+sim:/lab2_GA_tb/SCAN_DIV_W \
+sim:/lab2_GA_tb/s1 \
+sim:/lab2_GA_tb/s2 \
+sim:/lab2_GA_tb/cols \
+sim:/lab2_GA_tb/reset_b \
+sim:/lab2_GA_tb/seg \
+sim:/lab2_GA_tb/anode_n \
+sim:/lab2_GA_tb/rows \
+sim:/lab2_GA_tb/col_led \
+sim:/lab2_GA_tb/prev_rows
+add wave -position insertpoint  \
+sim:/lab2_GA_tb/dut/clk
+add wave -position insertpoint  \
+sim:/lab2_GA_tb/dut/mux_count
+add wave -position insertpoint  \
+sim:/lab2_GA_tb/dut/digit_sel
+add wave -position insertpoint  \
+sim:/lab2_GA_tb/dut/nibble
+run - all
+# Expected option after '-'
+# ** UI-Msg (Error): (vsim-4005) Invalid argument '-'.
+# Usage: run [<timesteps> [<time_units>]] | -all | -continue | -next | -step | -over | -out | -init | -final
+run -all
+# PASSED! The HSOSC produces a clock at time: 10000.
+# PASSED! The anode mux selects digit 1 at time: 32000.
+# PASSED! The decoder is wired correctly for digit 1 at time: 32000.
+# PASSED! The column LED logic behaves as desired at time: 42000.
+# PASSED! The column LED logic behaves as desired at time: 52000.
+# PASSED! The anode mux selects digit 2 at time: 199000.
+# ** Error: FAILED! The decoder is wired incorrectly for digit 2 at time: 199000.
+#    Time: 198904 ps  Scope: lab2_GA_tb File: C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/fpga/sim/lab2_GA_tb.sv Line: 93
+# PASSED! The anode mux wraps back to digit 1 at time: 366000.
+# PASSED! The scanner advances to the next row at time: 470000.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/fpga/sim/lab2_GA_tb.sv(112)
+#    Time: 569720 ps  Iteration: 0  Instance: /lab2_GA_tb
+# Break in Module lab2_GA_tb at C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/fpga/sim/lab2_GA_tb.sv line 112
+# Causality operation skipped due to absence of debug database file
+# End time: 10:19:34 on Sep 16,2026, Elapsed time: 0:03:41
+# Errors: 1, Warnings: 0
