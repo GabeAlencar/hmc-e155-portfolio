@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabe Alencar">
-<meta name="dcterms.date" content="2026-09-14">
+<meta name="dcterms.date" content="2026-09-16">
 
-<title>Lab 1: FPGA and MCU Setup and Testing – E155 Portfolio</title>
+<title>Lab 2: Multiplexed Seven-Segment Display and Keypad Scanner – E155 Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,35 +76,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -180,7 +151,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 1: FPGA and MCU Setup and Testing</h1>
+<h1 class="title">Lab 2: Multiplexed Seven-Segment Display and Keypad Scanner</h1>
 </div>
 
 
@@ -197,7 +168,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 14, 2026</p>
+      <p class="date">September 16, 2026</p>
     </div>
   </div>
   
@@ -211,36 +182,34 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this lab, a design was implemented on the FPGA that reads four DIP switches and drives both a seven-segment display and three individual LEDs. The display shows the hexadecimal digit corresponding to the switch value, two LEDs are driven by combinational logic on the switches, and a third LED blinks at 2.4 Hz using a counter clocked by the FPGA’s internal high-speed oscillator.</p>
-<p>The design was developed in SystemVerilog and verified in simulation using Siemens QuestaSim before being synthesized in Lattice Radiant and programmed onto the FPGA.</p>
+<p>In this lab, a design was implemented on the FPGA that drives two digits of a dual common-anode seven-segment display using a single, shared decoder module, and scans a 4x4 keypad by rotating an active row signal while reading the columns back through a bank of LEDs. Two 4-bit DIP switch banks set the hex digit shown on each display digit. The digits are multiplexed in time onto a shared set of segment lines, with only one digit’s anode enabled at any instant, switching fast enough that both digits appear to be lit continuously. A row scanner rotates a single one-hot active signal through the four keypad rows at 2 Hz, and whichever column line is pulled low by a pressed key is inverted onto an LED so the keypress is visible.</p>
+<p>As in Lab 1, the design was developed in SystemVerilog, verified in simulation with Siemens QuestaSim, then synthesized in Lattice Radiant and programmed onto the FPGA.</p>
 </section>
 <section id="design-and-testing-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
-<p>The design was split into three modules:</p>
+<p>The design reuses counter.sv and sevenseg_decoder.sv from Lab 1, and adds one new module:</p>
 <ul>
-<li><strong>sevenseg_decoder.sv</strong> - combinational logic that maps a 4-bit hex value to a common-anode display.</li>
-<li><strong>counter.sv</strong> - a parameterized counter with synchronous enable and asynchronous reset. It counts to a settable MAX value and wraps to zero.</li>
-<li><strong>lab1_GA.sv</strong> - the top-level module, which instantiates the HSOSC, decoder, counter, and contains the switch-to-LED assign statements along with the combinational logic for the LED from the counter’s count value.</li>
+<li><strong>sevenseg_decoder.sv</strong> - Combinational logic that maps a 4-bit hex value to an active-low common-anode segment pattern.</li>
+<li><strong>counter.sv</strong> - A parameterized counter with synchronous enable and asynchronous active-low reset that counts to a settable MAX and wraps to zero. It is instantiated three times in this lab: once as the digit-multiplexing counter, and twice inside scanner.sv.</li>
+<li><strong>scanner.sv</strong> - A DIV-cycle prescaler counter produces a tick pulse once every DIV clock cycles; that tick enables a second 2-bit counter that runs through states 0-3. The current state is decoded into a one-hot, rotating 4-bit pattern (rows = 4’b0001 &lt;&lt; state) that drives the keypad rows. Both counters share the module’s reset_b and enable inputs, so the whole scanner is resettable and can be gated on or off from the top level.</li>
+<li><strong>lab2_GA.sv</strong> - the top-level module containing only lower level module and assign statements.</li>
 </ul>
-<p>Each module was verified with its own testbench, with the scope of each testbench chosen to match the kind of module under test:</p>
+<p>Each new piece of logic was verified with its own testbench, and per the spec no Lab 1 testbenches (sevenseg_decoder_tb.sv, counter_tb.sv) were rerun, since those modules are unchanged:</p>
 <ul>
-<li><strong>sevenseg_decoder_tb.sv</strong> - all 16 possible input combinations were exercised and the segment output checked against the expected pattern for each.</li>
-<li><strong>counter_tb.sv</strong> - the counter is sequential and was tested for the following behavior: reset returns the count to zero, enable input starts and stops counting, and the counter wraps at MAX.</li>
-<li><strong>lab1_GA_tb.sv</strong> - since the submodules were already verified individually, the top-level testbench only covers the clock, that the submodules are wired correctly, and that the top-level assign statements behave correctly.</li>
+<li><strong>scanner_tb.sv</strong> - drives the module directly with small DIV/DIV_W parameters and checks, reset drives rows to row 0; holding enable low keeps the scanner on row 0, the scanner advances row 0 -&gt; 1 -&gt; 2 -&gt; 3 and wraps back to row 0. It also checks that disabling en mid-scan freezes the current row and reset correctly returns the scanner to row 0 even while it is actively running.</li>
+<li><strong>lab2_GA_tb.sv</strong> - since counter and sevenseg_decoder were already verified individually, this testbench covers the new top-level wiring. It confirms the HSOSC instance produces a toggling clock, that digit 1 is selected out of reset with the decoder wired correctly, that col_led correctly inverts two different cols patterns, that the anode mux switches to digit 2 after half of MUX_MAX cycles with the decoder still wired correctly, that the mux wraps back to digit 1 after a full period, and that the row scanner advances by one row after SCAN_DIV cycles.</li>
 </ul>
-<p>After simulation, the design was synthesized in Lattice Radiant, pin assignments were made, and the bitstream was programmed to the FPGA’s SPI flash using openFPGALoader. The design was then verified on hardware by stepping through all sixteen switch positions and confirming each hexadecimal digit was displayed clearly, the two combinational LEDs followed their truth tables, and that the third LED blinked at approximately 2.4 Hz.</p>
+<p>After simulation, the design was synthesized in Lattice Radiant, pin assignments were made and the bitstream was programmed to the FPGA’s SPI flash using openFPGALoader.</p>
 </section>
 <section id="technical-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
-<p>The source code, block diagram, and schematic for this lab can be found in this <a href="https://github.com/GabeAlencar/hmc-e155-portfolio/labFiles/lab1">GitHub repository</a>.</p>
+<p>The source code, testbenches, and pin constraints for this lab can be found in this <a href="https://github.com/GabeAlencar/hmc-e155-portfolio/tree/main/labFiles/lab2">GitHub repository</a>.</p>
 <section id="equations" class="level3">
 <h3 class="anchored" data-anchor-id="equations">Equations</h3>
-<p>The resistor value was calculated by taking <span class="math inline">\(V_{cc}\)</span> and <span class="math inline">\(V_{on}\)</span> and dividing by <span class="math inline">\(5\text{mA}\)</span> to get a resistance of around <span class="math inline">\(220 \Omega\)</span>.</p>
-<p>The <span class="math inline">\(2.4 \text{Hz}\)</span> blink was produced by choosing MAX and WIDTH so that one counter period equals half a blink period.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab1eqns.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 1: Calcultions used to find resistor value and MAX counter value</figcaption>
+<p><img src="images/lab2Equations.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: hand-derived timing parameters and current-limiting resistor calculations</figcaption>
 </figure>
 </div>
 </section>
@@ -248,58 +217,51 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="block-diagram">Block Diagram</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab1BlockDiagram.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 2: Block diagram for lab1_GA</figcaption>
+<p><img src="images/lab2BlockDiagram.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: <code>lab2_GA</code> top-level block diagram</figcaption>
 </figure>
 </div>
+<p>Figure 2 shows the top-level module’s block diagram.</p>
 </section>
 <section id="schematic" class="level3">
 <h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab1Schematic.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 3: Circuit schematic for lab1_GA</figcaption>
+<p><img src="images/lab2Schematic.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: full board-level schematic</figcaption>
 </figure>
 </div>
+<p>Figure 3 shows the complete board-level schematic.</p>
 </section>
 </section>
 <section id="results-and-discussion" class="level2">
 <h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
-<p>The design met all of the prescribed objectives. All sixteen hexadecimal values were displayed clearly on the seven-segment display. The two combinational LEDs responded correctly to the switch inputs in all cases and the third LED blinked at the intended 2.4 Hz rate.</p>
+<p>The design was programmed onto the FPGA and verified on hardware. Both seven-segment digits displayed the hex values set on switch banks s1 and s2 simultaneously with no visible flicker or bleed-through between digits, and pressing a key on the keypad lit the corresponding column LED during that key’s row’s active scan slot.</p>
 <section id="testbench-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="testbench-simulation">Testbench Simulation</h3>
 <p>The following simulations were run in QuestaSim to verify the design before programming it onto hardware.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab1sevenSegTrace.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4: Seven-segment decoder testbench trace</figcaption>
+<p><img src="images/scannerTrace.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: scanner testbench trace</figcaption>
 </figure>
 </div>
-<p>Figure 4 shows the decoder being driven through all sixteen possible input values. The seg output matches the expected active-low pattern for every digit, verifying the combinational logic.</p>
+<p>Figure 4 shows the scanner being reset, held while enable is low, and then advancing through rows 1 -&gt; 2 -&gt; 4 -&gt; 8 -&gt; 1 every DIV clock cycles once enabled, confirming the one-hot row rotation and reset behavior.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab1counterTrace.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 5: Counter testbench trace</figcaption>
+<p><img src="images/lab2_GA_Trace.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: top level lab2_GA testbench trace</figcaption>
 </figure>
 </div>
-<p>Figure 5 shows the counter’s behavior with WIDTH = 4 and MAX = 9. The count holds at zero while the enable input is low, counts from 0 to 9 when enabled, and wraps back to zero at the maximum count. The asynchronous reset is also shown returning the count to zero mid-count.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/lab1_GA_Trace.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 6: top level lab1_GA testbench trace</figcaption>
-</figure>
-</div>
-<p>Figure 6 shows the top-level module. The internally generated HSOSC clock is visible toggling, s steps through several test values, and seg and led respond accordingly.</p>
+<p>Figure 5 shows the top-level module. The internally generated HSOSC clock toggles throughout, mux_count free-runs and its MSB selects between s1 and ~s2 at the decoder input, anode_n and seg switch between digits 1 and 2 in lockstep with digit_sel, and col_led tracks the inverse of cols throughout.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The design successfully displayed all sixteen hexadecimal digits on a seven-segment display, drove two LEDs with combinational logic from four input switches, and blinked a third LED at 2.4 Hz using the FPGA’s internal oscillator. The MCU was also programmed and verified to communicate with the FPGA. I spent a total of 20 hours working on this lab.</p>
+<p>The design successfully multiplexed two hexadecimal digits onto a shared seven-segment decoder and scanned a keypad’s rows at 2 Hz while reflecting column presses onto LEDs, reusing the counter and decoder modules built in Lab 1. I spent a total of 25 hours working on this lab.</p>
 </section>
 <section id="ai-prototype-summary" class="level2">
 <h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
-<p>The quality of the output was good in some ways and bad in others. First, the logic was correct. The clock-division, toggle, and logic in place of wire/reg was all perfect. What failed was specific knowledge about the lab. For example, it forgot to negate the output of the counter and left it as positive to light the LED. The model also used very different formatting and naming conventions. The model used .CLKHF_DIV to request a divided-down 12 MHz clock straight from the oscillator. This is a feature the datasheet describes but every example I’ve seen always takes the oscillator’s raw 48 MHz output and does the division itself, which is what my own counter module does.</p>
-<p>Something worth mentioning was initializing registers at declaration rather than relying on an external reset signal. That a bug I had to fix when I forgot to instantiate the registers and got a bunch of x’s in my simulation. Seeing the LLM independently do this made me realize that the kinds of mistakes people and AI make are very different. AI tends to assume it knows everything and will make mistakes based on these assumptions. Humans tend to make smaller and more stupid mistakes. Next time, I’d state the target toolchain explicitly in the prompt by saying “using Lattice Radiant”.</p>
 
 
 </section>
