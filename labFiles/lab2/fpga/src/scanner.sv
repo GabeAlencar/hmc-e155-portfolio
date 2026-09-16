@@ -16,16 +16,14 @@ module scanner #(
     input  logic       enable,
     output logic [3:0] rows
 );
-
-    // single counter spans all 4 rows so no second counter is needed
     localparam int TOTAL_W = DIV_W + 2;
 
     logic [TOTAL_W-1:0] count;
 
-    // scan counter
+    // counter
     counter #(.WIDTH(TOTAL_W), .MAX(4 * DIV - 1)) u_scan_ctr (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
 
-    // row decoder: pick the active row straight from the raw count
+    // row decoder
     assign rows = (count < DIV)     ? 4'b0001 :
                   (count < 2 * DIV) ? 4'b0010 :
                   (count < 3 * DIV) ? 4'b0100 :
