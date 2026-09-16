@@ -1,0 +1,5 @@
+#Start recording tcl command: 9/16/2026 10:31:56
+#Project Location: C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA; Project name: lab2_GA
+prj_open "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA/lab2_GA.rdf"
+prj_add_source "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA//sim/sim.spf"
+#Stop recording: 9/16/2026 11:06:12
