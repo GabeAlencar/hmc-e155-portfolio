@@ -1,0 +1,63 @@
+----------------------------------------------------------------------
+Report for cell lab2_GA.TECH
+Register bits:  42 of 5280 (0.795%)
+I/O cells:      30
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2        21          100.0
+                            FD1P3XZ        42          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB        13          100.0
+                               LUT4        54          100.0
+                                 OB        17          100.0
+SUB MODULES
+       counter(WIDTH=17,MAX=131071)         1
+             counter(WIDTH=2,MAX=3)         1
+      counter(WIDTH=23,MAX=5999999)         1
+                            scanner         1
+                   sevenseg_decoder         1
+                              TOTAL       153
+----------------------------------------------------------------------
+Report for cell counter(WIDTH=17,MAX=131071).v1
+Instance Path : u_mux_counter
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           42.9
+                            FD1P3XZ        17           40.5
+                              TOTAL        26
+----------------------------------------------------------------------
+Report for cell scanner.v1
+Instance Path : u_scanner
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        12           57.1
+                            FD1P3XZ        25           59.5
+                               LUT4        38           70.4
+SUB MODULES
+             counter(WIDTH=2,MAX=3)         1
+      counter(WIDTH=23,MAX=5999999)         1
+                              TOTAL        77
+----------------------------------------------------------------------
+Report for cell counter(WIDTH=2,MAX=3).v1
+Instance Path : u_scanner.u_state_ctr
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         2            4.8
+                               LUT4         3            5.6
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell counter(WIDTH=23,MAX=5999999).v1
+Instance Path : u_scanner.u_prescaler
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        12           57.1
+                            FD1P3XZ        23           54.8
+                               LUT4        23           42.6
+                              TOTAL        58
+----------------------------------------------------------------------
+Report for cell sevenseg_decoder.v1
+Instance Path : u_sevenseg
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         7           13.0
+                              TOTAL         7

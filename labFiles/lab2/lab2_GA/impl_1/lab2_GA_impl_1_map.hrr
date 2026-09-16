@@ -1,0 +1,60 @@
+---------------------------------------------------
+Report for cell lab2_GA
+   Instance path: lab2_GA
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         97        100.0
+                               LUTGATE	         55        100.0
+                                LUTCCU	         42        100.0
+                                 IOBUF	         30        100.0
+                                PFUREG	         42        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+          counter(WIDTH=17,MAX=131071)	          1        18.6
+                               scanner	          1        63.9
+                      sevenseg_decoder	          1         7.2
+---------------------------------------------------
+Report for cell counter(WIDTH=17,MAX=131071)
+   Instance path: lab2_GA/u_mux_counter
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         18        18.6
+                                LUTCCU	         18        42.9
+                                PFUREG	         17        40.5
+---------------------------------------------------
+Report for cell scanner
+   Instance path: lab2_GA/u_scanner
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         62        63.9
+                               LUTGATE	         38        69.1
+                                LUTCCU	         24        57.1
+                                PFUREG	         25        59.5
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                counter(WIDTH=2,MAX=3)	          1         3.1
+         counter(WIDTH=23,MAX=5999999)	          1        48.5
+---------------------------------------------------
+Report for cell counter(WIDTH=2,MAX=3)
+   Instance path: lab2_GA/u_scanner/u_state_ctr
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         3.1
+                               LUTGATE	          3         5.5
+                                PFUREG	          2         4.8
+---------------------------------------------------
+Report for cell counter(WIDTH=23,MAX=5999999)
+   Instance path: lab2_GA/u_scanner/u_prescaler
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         47        48.5
+                               LUTGATE	         23        41.8
+                                LUTCCU	         24        57.1
+                                PFUREG	         23        54.8
+---------------------------------------------------
+Report for cell sevenseg_decoder
+   Instance path: lab2_GA/u_sevenseg
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         7.2
+                               LUTGATE	          7        12.7

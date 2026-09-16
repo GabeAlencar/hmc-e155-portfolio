@@ -1,0 +1,258 @@
+synthesis:  version Radiant Software (64-bit) 2026.1.0.37.0
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
+Tue Sep 15 23:01:39 2026
+
+
+Command Line:  C:\lscc\radiant\2026.1\ispfpga\bin\nt64\synthesis.exe -f C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA/impl_1/lab2_GA_impl_1_lattice.synproj -logfile lab2_GA_impl_1_lattice.srp -gui -msgset C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab2/lab2_GA/promote.xml 
+
+Lattice Synthesis Engine launched.
+
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+
+###################### Device Information ######################
+----------------------------------------------------------------
+Lattice Family        | iCE40UP
+----------------------------------------------------------------
+Device                | iCE40UP5K
+----------------------------------------------------------------
+Package               | SG48
+----------------------------------------------------------------
+Performance Grade     | High-Performance_1.2V
+----------------------------------------------------------------
+################################################################
+
+####################### Device Resources #######################
+----------------------------------------------------------------
+Logic Cells           | 5280
+----------------------------------------------------------------
+RAM Blocks            | 30
+----------------------------------------------------------------
+DSP Blocks            | 8
+----------------------------------------------------------------
+PLLs                  | 1
+----------------------------------------------------------------
+I/O Pins              | 56
+----------------------------------------------------------------
+################################################################
+
+Resolving user-selected strategy settings...
+
+INFO <35001797> - synthesis: Use DCC Insertion disabled by default.
+
+###################### Strategy Settings #######################
+----------------------------------------------------------------
+Optimization Goal     | Area
+----------------------------------------------------------------
+Top-level Module Name | lab2_GA
+----------------------------------------------------------------
+Target Frequency      | 200.000 MHz
+----------------------------------------------------------------
+Maximum Fanout        | 1000
+----------------------------------------------------------------
+Timing Path Count     | 3
+----------------------------------------------------------------
+RAM Read/Write Check  | False
+----------------------------------------------------------------
+BRAM Utilization      | 100.0%
+----------------------------------------------------------------
+DSP Usage             | True
+----------------------------------------------------------------
+DSP Utilization       | 100.0%
+----------------------------------------------------------------
+FSM Encoding Style    | Auto
+----------------------------------------------------------------
+Resolve Mixed Drivers | False
+----------------------------------------------------------------
+Fix Gated Clocks      | True
+----------------------------------------------------------------
+Mux Style             | Auto
+----------------------------------------------------------------
+Use Carry Chain       | True
+----------------------------------------------------------------
+Carry Chain Length    | Infinite
+----------------------------------------------------------------
+Loop Limit            | 1950
+----------------------------------------------------------------
+Use I/O Insertion     | True
+----------------------------------------------------------------
+Use I/O Registers     | True
+----------------------------------------------------------------
+Resource Sharing      | True
+----------------------------------------------------------------
+Propagate Constants   | True
+----------------------------------------------------------------
+Remove Duplicate Reg  | True
+----------------------------------------------------------------
+Force GSR             | False
+----------------------------------------------------------------
+ROM Style             | Auto
+----------------------------------------------------------------
+RAM Style             | Auto
+----------------------------------------------------------------
+Remove LOC Properties | False
+----------------------------------------------------------------
+Partition Flow        | False
+----------------------------------------------------------------
+Use DCC Insertion     | None
+----------------------------------------------------------------
+################################################################
+
+
+The -comp option is FALSE.
+The -syn option is FALSE.
+
+Output HDL filename: lab2_GA_impl_1.vm
+-sdc option: SDC file input is lab2_GA_impl_1_cpe.ldc.
+-path . (searchpath added)
+-path .. (searchpath added)
+-path ../source/impl_1 (searchpath added)
+-path C:/lscc/radiant/2026.1/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file: C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v
+Verilog design file: ../source/impl_1/lab2_GA.sv
+Verilog design file: ../source/impl_1/scanner.sv
+Verilog design file: ../source/impl_1/counter.sv
+Verilog design file: ../source/impl_1/sevenseg_decoder.sv
+VHDL library: pmi
+VHDL design file: C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd
+
+Compiling design...
+
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\generic.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\iCE40UP.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\iCE40UP.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\simulation\verilog\iCE40UP\iCE40UP_sp.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v. VERI-1482
+Analyzing Verilog file ../source/impl_1/lab2_GA.sv. VERI-1482
+Analyzing Verilog file ../source/impl_1/scanner.sv. VERI-1482
+Analyzing Verilog file ../source/impl_1/counter.sv. VERI-1482
+Analyzing Verilog file ../source/impl_1/sevenseg_decoder.sv. VERI-1482
+Top module name (Verilog): lab2_GA
+INFO <35901018> - synthesis: ../source/impl_1/lab2_GA.sv(14): compiling module lab2_GA. VERI-1018
+INFO <35901018> - synthesis: ../source/impl_1/counter.sv(10): compiling module counter(WIDTH=17,MAX=131071). VERI-1018
+INFO <35901018> - synthesis: ../source/impl_1/sevenseg_decoder.sv(7): compiling module sevenseg_decoder. VERI-1018
+INFO <35901018> - synthesis: ../source/impl_1/scanner.sv(10): compiling module scanner. VERI-1018
+INFO <35901018> - synthesis: ../source/impl_1/counter.sv(10): compiling module counter(WIDTH=23,MAX=5999999). VERI-1018
+INFO <35901018> - synthesis: ../source/impl_1/counter.sv(10): compiling module counter(WIDTH=2,MAX=3). VERI-1018
+[Parameter Setting Section Start]
+
+	[Parameter Settings for top-level module]
+	(Module: lab2_GA)
+		MUX_W                     17
+		MUX_MAX                   131071
+		SCAN_DIV                  6000000
+		SCAN_DIV_W                23
+
+	[Parameter Settings for Instance(s): hf_osc]
+	(Module: HSOSC)
+		CLKHF_DIV                 "0b00"
+
+	[Parameter Settings for Instance(s): u_mux_counter]
+	(Module: counter)
+		WIDTH                     17
+		MAX                       131071
+
+	[Parameter Settings for Instance(s): u_scanner]
+	(Module: scanner)
+		DIV                       6000000
+		DIV_W                     23
+
+	[Parameter Settings for Instance(s): u_prescaler]
+	(Module: counter)
+		WIDTH                     23
+		MAX                       5999999
+
+	[Parameter Settings for Instance(s): u_state_ctr]
+	(Module: counter)
+		WIDTH                     2
+		MAX                       3
+
+[Parameter Setting Section End]
+
+
+
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s1[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s1[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s1[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s1[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s2[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s2[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s2[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: s2[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: cols[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: cols[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: cols[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: cols[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: reset_b
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[6]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[5]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[4]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: seg[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: anode_n[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: anode_n[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: rows[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: rows[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: rows[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: rows[0]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: col_led[3]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: col_led[2]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: col_led[1]
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: col_led[0]
+
+################### Begin Area Report (lab2_GA)######################
+Number of register bits => 42 of 5280 (0 % )
+CCU2 => 21
+FD1P3XZ => 42
+HSOSC_CORE => 1
+IB => 13
+LUT4 => 54
+OB => 17
+################### End Area Report ##################
+Number of odd-length carry chains : 2
+Number of even-length carry chains : 0
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 1
+  Net : clk, loads : 0
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : u_scanner/u_state_ctr/anode_n_c_N_77, loads : 40
+  Net : u_scanner/tick_N_85, loads : 32
+  Net : u_scanner/u_prescaler/div_count_22__N_19[21], loads : 14
+  Net : u_scanner/u_prescaler/div_count_22__N_19[22], loads : 14
+  Net : u_scanner/u_prescaler/div_count_22__N_19[20], loads : 13
+  Net : u_scanner/u_prescaler/div_count_22__N_19[19], loads : 13
+  Net : u_scanner/u_prescaler/n97[21], loads : 13
+  Net : u_scanner/u_prescaler/n301, loads : 13
+  Net : u_scanner/u_prescaler/n97[22], loads : 13
+  Net : u_scanner/u_prescaler/n97[19], loads : 12
+################### End Clock Report ##################
+
+################### Begin Constraint Report ######################
+Constraint Summary:
+  Total number of constraints: 0
+  Total number of constraints dropped: 0
+###################  End Constraint Report  ######################
+
+Peak Memory Usage: 88 MB
+
+--------------------------------------------------------------
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+--------------------------------------------------------------
+Checksum -- synthesis -- netlist: 13e651a896a1a7ab8c7ee19249be346c8e379cf6
