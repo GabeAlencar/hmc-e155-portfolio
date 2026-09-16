@@ -190,9 +190,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The design reuses counter.sv and sevenseg_decoder.sv from Lab 1, and adds one new module:</p>
 <ul>
 <li><strong>sevenseg_decoder.sv</strong> - Combinational logic that maps a 4-bit hex value to an active-low common-anode segment pattern.</li>
-<li><strong>counter.sv</strong> - A parameterized counter with synchronous enable and asynchronous active-low reset that counts to a settable MAX and wraps to zero. It is instantiated three times in this lab: once as the digit-multiplexing counter, and twice inside scanner.sv.</li>
-<li><strong>scanner.sv</strong> - A DIV-cycle prescaler counter produces a tick pulse once every DIV clock cycles; that tick enables a second 2-bit counter that runs through states 0-3. The current state is decoded into a one-hot, rotating 4-bit pattern (rows = 4’b0001 &lt;&lt; state) that drives the keypad rows. Both counters share the module’s reset_b and enable inputs, so the whole scanner is resettable and can be gated on or off from the top level.</li>
-<li><strong>lab2_GA.sv</strong> - the top-level module containing only lower level module and assign statements.</li>
+<li><strong>counter.sv</strong> - A parameterized counter with synchronous enable and asynchronous active-low reset that counts to a settable MAX and wraps to zero. It is instantiated twice in this lab. Once as the digit-multiplexing counter in lab2_GA, and once inside scanner.sv.</li>
+<li><strong>scanner.sv</strong> - A single free-running counter counts up to 4<em>DIV - 1 clock cycles. The count is compared against DIV, 2</em>DIV, and 3*DIV to decode a one-hot pattern that drives the keypad rows.</li>
+<li><strong>lab2_GA.sv</strong> - the top-level module, containing only lower-level module instantiations and assign statements.</li>
 </ul>
 <p>Each new piece of logic was verified with its own testbench, and per the spec no Lab 1 testbenches (sevenseg_decoder_tb.sv, counter_tb.sv) were rerun, since those modules are unchanged:</p>
 <ul>
@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/lab2BlockDiagram.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 2: <code>lab2_GA</code> top-level block diagram</figcaption>
+<figcaption>Figure 2: lab2_GA top-level block diagram</figcaption>
 </figure>
 </div>
 <p>Figure 2 shows the top-level module’s block diagram.</p>
@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Figure 3: full board-level schematic</figcaption>
 </figure>
 </div>
-<p>Figure 3 shows the complete board-level schematic.</p>
+<p>Figure 3 shows the complete board-level schematic. s1[3:0] is wired to one bank of the board’s onboard DIP switches. See the E155 course schematic for the full detail on how the switches, connectors, and power rails on the board are wired.</p>
 </section>
 </section>
 <section id="results-and-discussion" class="level2">
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Figure 5: top level lab2_GA testbench trace</figcaption>
 </figure>
 </div>
-<p>Figure 5 shows the top-level module. The internally generated HSOSC clock toggles throughout, mux_count free-runs and its MSB selects between s1 and ~s2 at the decoder input, anode_n and seg switch between digits 1 and 2 in lockstep with digit_sel, and col_led tracks the inverse of cols throughout.</p>
+<p>Figure 5 shows the top-level module. The internally generated HSOSC clock toggles throughout, mux_count is counting and selecting between s1 and ~s2 at the decoder input, anode_n and seg switch between digits 1 and 2 in lockstep with digit_sel, and col_led tracks the inverse of cols throughout.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
@@ -262,6 +262,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ai-prototype-summary" class="level2">
 <h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>For this lab, I prompted an AI twice to generate the two-digit multiplexing logic that lab2_GA implements. Both attempts got the high-level idea right. The first attempt reinvented the toggle and decoder from scratch instead of reusing my existing counter.sv and sevenseg_decoder.sv. After I told it to reuse the existing modules, the second attempt correctly instantiated both counter and sevenseg_decoder, and even repurposed counter with WIDTH=1, MAX=1 as a one-bit toggling oscillator to drive the select signal, which was a clever reuse of code.</p>
+<p>What both attempts got wrong, and what neither prompt fixed, was the physical structure of the display. Both models assumed each digit had its own dedicated seg0 and seg1 output bus, decoding each nibble into its own registered seven-segment word. On the actual board the two common-anode digits share a single seg bus, so the real design has to mux the nibble into one decoder before decoding, then use anode_n to pick which physical digit is illuminated with that value. Neither model had this board-specific detail. The second attempt also introduced a new bug while fixing the first. It triggered on the rising edge of reset_b and reset the registers whenever reset_b was high, inverting the active-low convention (like what I did in lab1). Next time I’d give the AI the board’s physical pin and multiplexing structure up front to give it a better idea and chance of getting it right the first time.</p>
 
 
 </section>
