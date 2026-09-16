@@ -103,8 +103,7 @@ this [GitHub repository](https://github.com/GabeAlencar/hmc-e155-portfolio/tree/
 
 ### Equations
 
-<!-- TODO: add resistor current-limiting calculations and figure, matching
-     the style of Figure 1 in the Lab 1 report -->
+![Figure 1: hand-derived timing parameters and current-limiting resistor calculations](images/lab2Equations.jpg)
 
 Two timing parameters drive the visible behavior of the design, both derived
 from the FPGA's internal 48 MHz `HSOSC` clock:
@@ -128,16 +127,38 @@ f_{\text{rotation}} = \frac{f_{\text{tick}}}{4} = 2\text{ Hz}$$
 
 This lands exactly on the 2 Hz row-rotation rate called for in the spec.
 
-*(Resistor value calculations for the segment and column LEDs will be added
-here once the schematic is finalized.)*
+**Current-limiting resistors.** Figure 1 also shows the resistor sizing for
+the segment and column LEDs, each targeting roughly 8 mA of LED current:
+$R = (V_{CC} - V_{ON}) / I_{LED} = (3.3\text{V} - 2\text{V}) / 8\text{mA}
+\approx 162.5\,\Omega$ for the column LEDs and $\approx 177.5\,\Omega$ for
+the display segments, both rounded up to the nearest available 220 $\Omega$
+resistor. The 2N3904 row-driver and 2N3906 anode/segment-driver transistors
+use base resistors sized from $R = (V_{CC} - V_{BE})/I_B$, giving a
+375 $\Omega$ minimum that was rounded up to a 10 k$\Omega$ base resistor for
+current headroom, and confirming the 2N3906's collector current rating
+comfortably exceeds the ~47.7 mA worst-case load of driving all seven
+segments at once ($I_{max} = 7 \times I_{seg} \ll I_C$).
 
 ### Block Diagram
 
-*(To be added.)*
+![Figure 2: `lab2_GA` top-level block diagram](images/lab2BlockDiagram.jpg)
+
+Figure 2 shows the top-level module's structure: the `HSOSC` primitive
+clocks the `mux_counter`, whose MSB (`digit_sel`) selects between `s1` and
+inverted `s2` at the shared `sevenseg_decoder`'s input and drives the
+`anode_n` outputs, while the free-running `scanner` instance drives the
+`rows` outputs independently and `cols` is inverted directly onto `col_led`.
 
 ### Schematic
 
-*(To be added.)*
+![Figure 3: full board-level schematic](images/lab2Schematic.jpg)
+
+Figure 3 shows the complete board-level schematic: the `s1`/`s2` DIP switch
+banks (with pull-up resistors on `s2`) feeding the FPGA directly, the 4x4
+keypad matrix with pull-up resistors on the columns and 2N3904 NPN
+transistors driving each row, the 2N3906 PNP transistors switching the
+common-anode digit supply, and 220 $\Omega$ current-limiting resistors on
+both the seven-segment LEDs and the column-indicator LEDs.
 
 ## Requirement Compliance
 
@@ -156,9 +177,9 @@ here once the schematic is finalized.)*
   requirements. Lab 1's testbenches were not rerun, per spec.
 - **Hardware:** the shared-decoder multiplexing scheme, 366 Hz digit refresh
   rate, and 2 Hz row scan rate are all in place in the design and confirmed
-  in simulation; final confirmation of current-limiting resistor values and
-  the open-drain/pull-up wiring needed for simultaneous keypresses is pending
-  the schematic and equations above.
+  in simulation, and the schematic (Figure 3) shows the current-limiting
+  resistor values and pull-up wiring for the keypad columns needed to read
+  keypresses correctly.
 
 ## Results and Discussion
 
@@ -173,15 +194,15 @@ key's row's active scan slot.
 The following simulations were run in QuestaSim to verify the design before
 programming it onto hardware.
 
-![Figure 1: scanner testbench trace](images/scannerTrace.png)
+![Figure 4: scanner testbench trace](images/scannerTrace.png)
 
-Figure 1 shows the scanner being reset, held while `enable` is low, and then
+Figure 4 shows the scanner being reset, held while `enable` is low, and then
 advancing through rows `1 -> 2 -> 4 -> 8 -> 1` every `DIV` clock cycles once
 enabled, confirming the one-hot row rotation and reset behavior.
 
-![Figure 2: top level lab2_GA testbench trace](images/lab2_GA_Trace.png)
+![Figure 5: top level lab2_GA testbench trace](images/lab2_GA_Trace.png)
 
-Figure 2 shows the top-level module. The internally generated HSOSC clock
+Figure 5 shows the top-level module. The internally generated HSOSC clock
 toggles throughout, `mux_count` free-runs and its MSB (`digit_sel`) selects
 between `s1` and `~s2` at the decoder input (`nibble`), `anode_n` and `seg`
 switch between digits 1 and 2 in lockstep with `digit_sel`, and `col_led`
