@@ -5,8 +5,6 @@
  * Parameters:
  *   MUX_W      - number of bits in the multiplexing count register.
  *   MUX_MAX    - multiplexing count value at which the counter wraps back to 0.
- *                Must be (2**MUX_W)-1 so that the MSB tap below gives an
- *                exact 50% duty cycle.
  *   SCAN_DIV   - clock cycles each keypad row stays active.
  *   SCAN_DIV_W - number of bits in the scanner prescaler.
  */
