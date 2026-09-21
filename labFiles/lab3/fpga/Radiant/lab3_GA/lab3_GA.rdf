@@ -36,6 +36,9 @@
         <Source name="lab3_GA.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>
+        <Source name="sim/sim.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
         <Source name="source/impl_1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>

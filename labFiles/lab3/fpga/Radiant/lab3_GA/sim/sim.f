@@ -13,7 +13,7 @@
 "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/source/impl_1/debouncer.sv" 
 "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/source/impl_1/counter.sv" 
 "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/source/impl_1/sevenseg_decoder.sv" 
-"C:/Users/gmenendezdealencar/Downloads/digit_reg_tb.sv" 
+"C:/Users/gmenendezdealencar/Downloads/lab3_GA_tb.sv" 
 -sv
 -optionset VOPTDEBUG
 +noacc+pmi_work.*
@@ -24,7 +24,7 @@
 -end
 
 -gui
--top digit_reg_tb
+-top lab3_GA_tb
 -vsim.options
   -suppress vsim-7033,vsim-8630,3009,3389
 -end

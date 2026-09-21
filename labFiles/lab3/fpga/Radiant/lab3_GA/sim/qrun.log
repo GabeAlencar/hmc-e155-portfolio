@@ -54,3 +54,374 @@ run -all
 # Causality operation skipped due to absence of debug database file
 # End time: 16:15:16 on Sep 21,2026, Elapsed time: 0:00:54
 # Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:17:51 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.key_decoder_tb(fast)
+# Loading work.key_decoder(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! No column asserted yields any_key/one_key low at time: 5.
+# PASSED! row 0, col 0 decodes to key 1 at time: 10.
+# PASSED! row 0, col 1 decodes to key 2 at time: 15.
+# PASSED! row 0, col 2 decodes to key 3 at time: 20.
+# PASSED! row 0, col 3 decodes to key a at time: 25.
+# PASSED! row 1, col 0 decodes to key 4 at time: 30.
+# PASSED! row 1, col 1 decodes to key 5 at time: 35.
+# PASSED! row 1, col 2 decodes to key 6 at time: 40.
+# PASSED! row 1, col 3 decodes to key b at time: 45.
+# PASSED! row 2, col 0 decodes to key 7 at time: 50.
+# PASSED! row 2, col 1 decodes to key 8 at time: 55.
+# PASSED! row 2, col 2 decodes to key 9 at time: 60.
+# PASSED! row 2, col 3 decodes to key c at time: 65.
+# PASSED! row 3, col 0 decodes to key e at time: 70.
+# PASSED! row 3, col 1 decodes to key 0 at time: 75.
+# PASSED! row 3, col 2 decodes to key f at time: 80.
+# PASSED! row 3, col 3 decodes to key d at time: 85.
+# PASSED! Multiple columns asserted correctly deassert one_key at time: 90.
+# PASSED! All columns asserted correctly deassert one_key at time: 95.
+add wave -position insertpoint  \
+sim:/key_decoder_tb/dut/rows \
+sim:/key_decoder_tb/dut/cols \
+sim:/key_decoder_tb/dut/key \
+sim:/key_decoder_tb/dut/one_key \
+sim:/key_decoder_tb/dut/any_key \
+sim:/key_decoder_tb/dut/row_index \
+sim:/key_decoder_tb/dut/col_index
+restart -f
+# Loading work.key_decoder_tb(fast)
+# Loading work.key_decoder(fast)
+run -all
+# PASSED! No column asserted yields any_key/one_key low at time: 5.
+# PASSED! row 0, col 0 decodes to key 1 at time: 10.
+# PASSED! row 0, col 1 decodes to key 2 at time: 15.
+# PASSED! row 0, col 2 decodes to key 3 at time: 20.
+# PASSED! row 0, col 3 decodes to key a at time: 25.
+# PASSED! row 1, col 0 decodes to key 4 at time: 30.
+# PASSED! row 1, col 1 decodes to key 5 at time: 35.
+# PASSED! row 1, col 2 decodes to key 6 at time: 40.
+# PASSED! row 1, col 3 decodes to key b at time: 45.
+# PASSED! row 2, col 0 decodes to key 7 at time: 50.
+# PASSED! row 2, col 1 decodes to key 8 at time: 55.
+# PASSED! row 2, col 2 decodes to key 9 at time: 60.
+# PASSED! row 2, col 3 decodes to key c at time: 65.
+# PASSED! row 3, col 0 decodes to key e at time: 70.
+# PASSED! row 3, col 1 decodes to key 0 at time: 75.
+# PASSED! row 3, col 2 decodes to key f at time: 80.
+# PASSED! row 3, col 3 decodes to key d at time: 85.
+# PASSED! Multiple columns asserted correctly deassert one_key at time: 90.
+# PASSED! All columns asserted correctly deassert one_key at time: 95.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/key_decoder_tb.sv(90)
+#    Time: 195 ns  Iteration: 0  Instance: /key_decoder_tb
+# Break in Module key_decoder_tb at C:/Users/gmenendezdealencar/Downloads/key_decoder_tb.sv line 90
+# Causality operation skipped due to absence of debug database file
+# End time: 16:19:35 on Sep 21,2026, Elapsed time: 0:01:44
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:20:01 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.key_control_tb(fast)
+# Loading work.key_control(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! key_control resets with key_valid low at time: 23.
+# PASSED! key_valid stays low without a fresh reading at time: 24.
+# PASSED! A fresh single press registers from IDLE at time: 25.
+# PASSED! SINGLE does not re-register the same held key at time: 36.
+# PASSED! SINGLE registers a fresh, different key at time: 46.
+# PASSED! A multi-key reading does not register from SINGLE at time: 56.
+# PASSED! MULTI does not register while multiple keys are held at time: 66.
+# PASSED! Rolling off from MULTI to a single key registers at time: 76.
+# PASSED! Releasing all keys does not register a press at time: 86.
+# PASSED! IDLE registers a fresh press after returning from MULTI at time: 96.
+add wave -position insertpoint  \
+sim:/key_control_tb/dut/clk \
+sim:/key_control_tb/dut/reset_b \
+sim:/key_control_tb/dut/updated \
+sim:/key_control_tb/dut/stable \
+sim:/key_control_tb/dut/one_key \
+sim:/key_control_tb/dut/any_key \
+sim:/key_control_tb/dut/key_is_new \
+sim:/key_control_tb/dut/key_valid \
+sim:/key_control_tb/dut/state \
+sim:/key_control_tb/dut/nextstate \
+sim:/key_control_tb/dut/fresh
+restart -f
+# Loading work.key_control_tb(fast)
+# Loading work.key_control(fast)
+run -all
+# PASSED! key_control resets with key_valid low at time: 23.
+# PASSED! key_valid stays low without a fresh reading at time: 24.
+# PASSED! A fresh single press registers from IDLE at time: 25.
+# PASSED! SINGLE does not re-register the same held key at time: 36.
+# PASSED! SINGLE registers a fresh, different key at time: 46.
+# PASSED! A multi-key reading does not register from SINGLE at time: 56.
+# PASSED! MULTI does not register while multiple keys are held at time: 66.
+# PASSED! Rolling off from MULTI to a single key registers at time: 76.
+# PASSED! Releasing all keys does not register a press at time: 86.
+# PASSED! IDLE registers a fresh press after returning from MULTI at time: 96.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/key_control_tb.sv(156)
+#    Time: 196 ns  Iteration: 0  Instance: /key_control_tb
+# Break in Module key_control_tb at C:/Users/gmenendezdealencar/Downloads/key_control_tb.sv line 156
+# Causality operation skipped due to absence of debug database file
+# End time: 16:21:19 on Sep 21,2026, Elapsed time: 0:01:18
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:22:15 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.debouncer_tb(fast)
+# Loading work.debouncer(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! The debouncer resets cleanly at time: 23.
+# PASSED! The debouncer accepts a steady candidate at time: 76.
+# PASSED! updated deasserts one cycle after acceptance at time: 86.
+# PASSED! Releasing the candidate deasserts stable at time: 96.
+restart -f
+# Loading work.debouncer_tb(fast)
+# Loading work.debouncer(fast)
+view -new wave
+# .main_pane.wave1.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/debouncer_tb/dut/WIDTH \
+sim:/debouncer_tb/dut/WAIT_W \
+sim:/debouncer_tb/dut/clk \
+sim:/debouncer_tb/dut/reset_b \
+sim:/debouncer_tb/dut/d \
+sim:/debouncer_tb/dut/q \
+sim:/debouncer_tb/dut/stable \
+sim:/debouncer_tb/dut/updated \
+sim:/debouncer_tb/dut/state \
+sim:/debouncer_tb/dut/nextstate \
+sim:/debouncer_tb/dut/candidate \
+sim:/debouncer_tb/dut/counter
+run -all
+# PASSED! The debouncer resets cleanly at time: 23.
+# PASSED! The debouncer accepts a steady candidate at time: 76.
+# PASSED! updated deasserts one cycle after acceptance at time: 86.
+# PASSED! Releasing the candidate deasserts stable at time: 96.
+# PASSED! A bounce restarts debouncing instead of registering at time: 176.
+# PASSED! The debouncer recovers and accepts the next steady candidate at time: 236.
+# PASSED! Changing d away from candidate exits PRESSED at time: 246.
+# PASSED! updated never pulses for a value that stays at 0 at time: 306.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/debouncer_tb.sv(121)
+#    Time: 406 ns  Iteration: 0  Instance: /debouncer_tb
+# Break in Module debouncer_tb at C:/Users/gmenendezdealencar/Downloads/debouncer_tb.sv line 121
+restart -f
+# Loading work.debouncer_tb(fast)
+# Loading work.debouncer(fast)
+add wave -position insertpoint  \
+sim:/debouncer_tb/dut/WIDTH \
+sim:/debouncer_tb/dut/WAIT_W \
+sim:/debouncer_tb/dut/clk \
+sim:/debouncer_tb/dut/reset_b \
+sim:/debouncer_tb/dut/d \
+sim:/debouncer_tb/dut/q \
+sim:/debouncer_tb/dut/stable \
+sim:/debouncer_tb/dut/updated \
+sim:/debouncer_tb/dut/state \
+sim:/debouncer_tb/dut/nextstate \
+sim:/debouncer_tb/dut/candidate \
+sim:/debouncer_tb/dut/counter
+add wave  \
+sim:/debouncer_tb/dut/WIDTH \
+sim:/debouncer_tb/dut/WAIT_W \
+sim:/debouncer_tb/dut/clk \
+sim:/debouncer_tb/dut/reset_b \
+sim:/debouncer_tb/dut/d \
+sim:/debouncer_tb/dut/q \
+sim:/debouncer_tb/dut/stable \
+sim:/debouncer_tb/dut/updated \
+sim:/debouncer_tb/dut/state \
+sim:/debouncer_tb/dut/nextstate \
+sim:/debouncer_tb/dut/candidate \
+sim:/debouncer_tb/dut/counter
+run -all
+# PASSED! The debouncer resets cleanly at time: 23.
+# PASSED! The debouncer accepts a steady candidate at time: 76.
+# PASSED! updated deasserts one cycle after acceptance at time: 86.
+# PASSED! Releasing the candidate deasserts stable at time: 96.
+# PASSED! A bounce restarts debouncing instead of registering at time: 176.
+# PASSED! The debouncer recovers and accepts the next steady candidate at time: 236.
+# PASSED! Changing d away from candidate exits PRESSED at time: 246.
+# PASSED! updated never pulses for a value that stays at 0 at time: 306.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/debouncer_tb.sv(121)
+#    Time: 406 ns  Iteration: 0  Instance: /debouncer_tb
+# Break in Module debouncer_tb at C:/Users/gmenendezdealencar/Downloads/debouncer_tb.sv line 121
+# Causality operation skipped due to absence of debug database file
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 16:25:38 on Sep 21,2026, Elapsed time: 0:03:23
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:26:10 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.synchronizer_tb(fast)
+# Loading work.synchronizer(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! The synchronizer resets both stages to 0 at time: 23.
+# PASSED! The first stage captures d after one edge, q still lags at time: 36.
+# PASSED! q reflects d after two clock edges at time: 46.
+# PASSED! Bits propagate independently through stage one at time: 56.
+# PASSED! Bits propagate independently through to q at time: 66.
+# PASSED! The synchronizer resets mid-propagation at time: 87.
+add wave -position insertpoint  \
+sim:/synchronizer_tb/dut/WIDTH \
+sim:/synchronizer_tb/dut/clk \
+sim:/synchronizer_tb/dut/reset_b \
+sim:/synchronizer_tb/dut/d \
+sim:/synchronizer_tb/dut/q \
+sim:/synchronizer_tb/dut/n1
+restart -f
+# Loading work.synchronizer_tb(fast)
+# Loading work.synchronizer(fast)
+run -all
+# PASSED! The synchronizer resets both stages to 0 at time: 23.
+# PASSED! The first stage captures d after one edge, q still lags at time: 36.
+# PASSED! q reflects d after two clock edges at time: 46.
+# PASSED! Bits propagate independently through stage one at time: 56.
+# PASSED! Bits propagate independently through to q at time: 66.
+# PASSED! The synchronizer resets mid-propagation at time: 87.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/synchronizer_tb.sv(88)
+#    Time: 187 ns  Iteration: 0  Instance: /synchronizer_tb
+# Break in Module synchronizer_tb at C:/Users/gmenendezdealencar/Downloads/synchronizer_tb.sv line 88
+# Causality operation skipped due to absence of debug database file
+# End time: 16:27:02 on Sep 21,2026, Elapsed time: 0:00:52
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   2
+#   Totals: Errors:   0, Warnings:   2
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:28:09 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.lab3_GA_tb(fast)
+# Loading work.lab3_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.synchronizer(fast)
+# Loading work.scanner(fast)
+# Loading work.counter(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decoder(fast)
+# Loading work.key_control(fast)
+# Loading work.digit_reg(fast)
+# Loading work.display_mux(fast)
+# Loading work.counter(fast__1)
+# Loading work.sevenseg_decoder(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! The HSOSC produces a clock at time: 10000.
+# PASSED! lab3_GA resets to row 0 with both digits clear at time: 23000.
+restart -f
+# Loading work.lab3_GA_tb(fast)
+# Loading work.lab3_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.synchronizer(fast)
+# Loading work.scanner(fast)
+# Loading work.counter(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decoder(fast)
+# Loading work.key_control(fast)
+# Loading work.digit_reg(fast)
+# Loading work.display_mux(fast)
+# Loading work.counter(fast__1)
+# Loading work.sevenseg_decoder(fast)
+add wave -position insertpoint  \
+sim:/lab3_GA_tb/dut/SCAN_DIV \
+sim:/lab3_GA_tb/dut/SCAN_DIV_W \
+sim:/lab3_GA_tb/dut/reset_b \
+sim:/lab3_GA_tb/dut/cols \
+sim:/lab3_GA_tb/dut/rows \
+sim:/lab3_GA_tb/dut/seg \
+sim:/lab3_GA_tb/dut/anode_n \
+sim:/lab3_GA_tb/dut/clk \
+sim:/lab3_GA_tb/dut/cols_sync \
+sim:/lab3_GA_tb/dut/cols_stable \
+sim:/lab3_GA_tb/dut/hold \
+sim:/lab3_GA_tb/dut/updated \
+sim:/lab3_GA_tb/dut/stable \
+sim:/lab3_GA_tb/dut/one_key \
+sim:/lab3_GA_tb/dut/any_key \
+sim:/lab3_GA_tb/dut/key_is_new \
+sim:/lab3_GA_tb/dut/key_valid \
+sim:/lab3_GA_tb/dut/key \
+sim:/lab3_GA_tb/dut/digit_left \
+sim:/lab3_GA_tb/dut/digit_right \
+sim:/lab3_GA_tb/dut/rows_raw
+restart -f
+# Loading work.lab3_GA_tb(fast)
+# Loading work.lab3_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.synchronizer(fast)
+# Loading work.scanner(fast)
+# Loading work.counter(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decoder(fast)
+# Loading work.key_control(fast)
+# Loading work.digit_reg(fast)
+# Loading work.display_mux(fast)
+# Loading work.counter(fast__1)
+# Loading work.sevenseg_decoder(fast)
+run -all
+# PASSED! The HSOSC produces a clock at time: 10000.
+# PASSED! lab3_GA resets to row 0 with both digits clear at time: 23000.
+# PASSED! A single key press registers key 5 at time: 846000.
+# PASSED! A second key press shifts digits to show A then 5 at time: 1887000.
+# PASSED! A bouncy key press still registers cleanly as key 9 at time: 2949000.
+# PASSED! Adding a second held key does not disturb the display at time: 3615000.
+# PASSED! The scan stays parked on the row with keys held at time: 3615000.
+# PASSED! Releasing to one remaining key rolls the display over to key 8 at time: 4240000.
+# PASSED! The scan resumes advancing once all keys are released at time: 4760000.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/lab3_GA_tb.sv(166)
+#    Time: 4860112 ps  Iteration: 0  Instance: /lab3_GA_tb
+# Break in Module lab3_GA_tb at C:/Users/gmenendezdealencar/Downloads/lab3_GA_tb.sv line 166
+# Causality operation skipped due to absence of debug database file
+# End time: 16:30:01 on Sep 21,2026, Elapsed time: 0:01:52
+# Errors: 0, Warnings: 0
