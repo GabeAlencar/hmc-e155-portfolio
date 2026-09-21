@@ -1,0 +1,4 @@
+1 7 counter 4 fast 116 C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/sim/qrun.out/work 0 0 0 0 36 0
+1 16 sevenseg_decoder 4 fast 116 C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/sim/qrun.out/work 0 0 0 0 50 0
+1 11 display_mux 4 fast 116 C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/sim/qrun.out/work 0 0 0 0 50 0
+1 14 display_mux_tb 4 fast 116 C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/sim/qrun.out/work 0 0 0 0 133 0
