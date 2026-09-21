@@ -1,0 +1,9 @@
+-w
+-gui
+-msgset "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/promote.xml"
+-n 1
+-t 1
+-s 1
+-cores 1
+-hsp m
+-exp parPathBased=ON
