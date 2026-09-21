@@ -13,6 +13,7 @@ sys_set_attribute -gui on -msg {C:/Users/gmenendezdealencar/Documents/GitHub/hmc
 msg_load {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/promote.xml}
 des_set_project_udb -in {lab3_GA_impl_1_syn.udb} -out {lab3_GA_impl_1_map.udb} -milestone map -pm ice40tp
 des_set_reference_udb -clean
+map_set_option {pdc_file "C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/lab3_GA.pdc"}
 # map option
 map_set_option { report_symbol_cross_reference false report_signal_cross_reference false   ignore_constraint_errors false }
 map_run

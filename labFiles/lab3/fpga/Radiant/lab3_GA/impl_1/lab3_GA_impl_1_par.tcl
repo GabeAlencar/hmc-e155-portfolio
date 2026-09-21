@@ -23,6 +23,9 @@ if {[file exists {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfoli
   file copy -force -- {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/lab3_GA_impl_1_syn.udb} {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/incr/postsyn.udb}
   file copy -force -- {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/lab3_GA_impl_1_map.udb} {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/incr/postmap.udb}
   file copy -force -- {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/lab3_GA_impl_1.udb} {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/incr/postpar.udb}
+  if [file exists {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/lab3_GA.pdc}] {
+    file copy -force -- {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/lab3_GA.pdc} {C:/Users/gmenendezdealencar/Documents/GitHub/hmc-e155-portfolio/labFiles/lab3/fpga/Radiant/lab3_GA/impl_1/incr/lastrun.pdc}
+  }
 }
 
 } out]} {
