@@ -5,42 +5,52 @@
 #   Totals: Errors:   0, Warnings:   3
 # ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
 # vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
-# Start time: 16:08:20 on Sep 21,2026
+# Start time: 16:12:26 on Sep 21,2026
 # Loading sv_std.std
-# Loading work.display_mux_tb(fast)
-# Loading work.display_mux(fast)
-# Loading work.counter(fast)
-# Loading work.sevenseg_decoder(fast)
+# Loading work.digit_reg_tb(fast)
+# Loading work.digit_reg(fast)
 # view wave
 # .main_pane.wave.interior.cs.body.pw.wf
 # add wave /*
 # run 100 ns
-# PASSED! display_mux selects and decodes the right digit out of reset at time: 23.
-# PASSED! display_mux switches to and decodes the left digit at time: 56.
-# PASSED! display_mux wraps back to the right digit at time: 96.
-# PASSED! display_mux reflects a changed right digit at time: 97.
+# PASSED! digit_reg resets both digits to 0 at time: 23.
+# PASSED! digit_reg holds while disabled at time: 46.
+# PASSED! digit_reg shifts the first key into digit_right at time: 56.
+# PASSED! digit_reg shifts the second key through both digits at time: 66.
+# PASSED! digit_reg holds the last two digits while disabled at time: 96.
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   0
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   3
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 16:14:22 on Sep 21,2026
+# Loading sv_std.std
+# Loading work.digit_reg_tb(fast)
+# Loading work.digit_reg(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# PASSED! digit_reg resets both digits to 0 at time: 23.
+# PASSED! digit_reg holds while disabled at time: 46.
+# PASSED! digit_reg shifts the first key into digit_right at time: 56.
+# PASSED! digit_reg shifts the second key through both digits at time: 66.
+# PASSED! digit_reg holds the last two digits while disabled at time: 96.
 restart -f
-# Loading work.display_mux_tb(fast)
-# Loading work.display_mux(fast)
-# Loading work.counter(fast)
-# Loading work.sevenseg_decoder(fast)
-add wave -position insertpoint  \
-sim:/display_mux_tb/dut/MUX_W \
-sim:/display_mux_tb/dut/clk \
-sim:/display_mux_tb/dut/reset_b \
-sim:/display_mux_tb/dut/digit_left \
-sim:/display_mux_tb/dut/digit_right \
-sim:/display_mux_tb/dut/seg \
-sim:/display_mux_tb/dut/anode_n \
-sim:/display_mux_tb/dut/mux_count \
-sim:/display_mux_tb/dut/sel_left \
-sim:/display_mux_tb/dut/digit_shown
+# Loading work.digit_reg_tb(fast)
+# Loading work.digit_reg(fast)
 run -all
-# PASSED! display_mux selects and decodes the right digit out of reset at time: 23.
-# PASSED! display_mux switches to and decodes the left digit at time: 56.
-# PASSED! display_mux wraps back to the right digit at time: 96.
-# PASSED! display_mux reflects a changed right digit at time: 97.
-# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/display_mux_tb.sv(83)
-#    Time: 197 ns  Iteration: 0  Instance: /display_mux_tb
-# Break in Module display_mux_tb at C:/Users/gmenendezdealencar/Downloads/display_mux_tb.sv line 83
+# PASSED! digit_reg resets both digits to 0 at time: 23.
+# PASSED! digit_reg holds while disabled at time: 46.
+# PASSED! digit_reg shifts the first key into digit_right at time: 56.
+# PASSED! digit_reg shifts the second key through both digits at time: 66.
+# PASSED! digit_reg holds the last two digits while disabled at time: 96.
+# PASSED! digit_reg resets after holding values at time: 108.
+# ** Note: $stop    : C:/Users/gmenendezdealencar/Downloads/digit_reg_tb.sv(96)
+#    Time: 208 ns  Iteration: 0  Instance: /digit_reg_tb
+# Break in Module digit_reg_tb at C:/Users/gmenendezdealencar/Downloads/digit_reg_tb.sv line 96
 # Causality operation skipped due to absence of debug database file
+# End time: 16:15:16 on Sep 21,2026, Elapsed time: 0:00:54
+# Errors: 0, Warnings: 0
