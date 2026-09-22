@@ -21,13 +21,13 @@ Starting design annotation....
 
 Starting full timing analysis...
 Performance Hardware Data Status:   Advanced       Version 1.0.
-Connections ignored  51  counted  804  covered  677
+Connections ignored  51  counted  814  covered  687
 Changing speed to m;   changing temperature to -40
 
 STA Runtime and Peak Memory Usage :
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 101 MB
+Peak Memory Usage: 102 MB
 
- 0.646422s wall, 0.531250s user + 0.125000s system = 0.656250s CPU (101.5%)
+ 0.649974s wall, 0.593750s user + 0.031250s system = 0.625000s CPU (96.2%)
 

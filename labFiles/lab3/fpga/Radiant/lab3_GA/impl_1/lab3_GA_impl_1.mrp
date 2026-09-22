@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
-Mapped on: Mon Sep 21 17:02:33 2026
+Mapped on: Mon Sep 21 17:17:23 2026
 
 Design Information
 ------------------
@@ -24,9 +24,9 @@ Design Summary
 
    Number of slice registers:  97 out of  5280 (2%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           224 out of  5280 (4%)
-      Number of logic LUT4s:             141
-      Number of inserted feedthru LUT4s:  16
+   Number of LUT4s:           223 out of  5280 (4%)
+      Number of logic LUT4s:             144
+      Number of inserted feedthru LUT4s:  12
       Number of replicated LUT4s:          1
       Number of ripple logic:             33 (66 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
@@ -52,14 +52,14 @@ Design Summary
    Number of PLLs:             0 out of 1 (0%)
    Number of Clocks:  1
       Net clk: 89 loads, 89 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
-   Number of Clock Enables:  7
+   Number of Clock Enables:  6
       Net VCC_net: 1 loads, 0 SLICEs
-      Net hold: 25 loads, 25 SLICEs
+      Net n198: 25 loads, 25 SLICEs
       Net key_valid: 4 loads, 4 SLICEs
-      Net u_debouncer.n885: 4 loads, 4 SLICEs
-      Net u_debouncer.n13: 4 loads, 4 SLICEs
-      Net u_key_control.n808: 2 loads, 2 SLICEs
-      Net u_key_control.n993: 1 loads, 1 SLICEs
+      Net n20: 1 loads, 1 SLICEs
+      Net u_debouncer.n2104: 4 loads, 4 SLICEs
+      Net n2101: 2 loads, 2 SLICEs
+   Number of LSRs:  1
 
                                     Page 1
 
@@ -69,18 +69,17 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-   Number of LSRs:  1
-      Net stable_N_141: 89 loads, 89 SLICEs
+      Net stable_N_145: 89 loads, 89 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net stable_N_141: 89 loads
-      Net u_debouncer.n75[0]: 28 loads
-      Net hold: 27 loads
+      Net stable_N_145: 89 loads
+      Net u_debouncer.n80[0]: 32 loads
+      Net n198: 31 loads
       Net u_scanner.u_scan_ctr.n49: 25 loads
-      Net stable: 9 loads
       Net count[24]: 8 loads
       Net key_valid: 8 loads
-      Net anode_n_c: 7 loads
+      Net stable: 8 loads
       Net count[23]: 7 loads
+      Net u_key_decoder.n741: 7 loads
       Net u_scanner.count[22]: 7 loads
 
 
@@ -127,6 +126,7 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | seg[4]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| seg[3]              | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -136,7 +136,6 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-| seg[3]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | seg[2]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -182,7 +181,8 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: e5c319a5bb26e4e54da87711ccf0b31d78092dc
+Checksum -- map: 16355965acba008e53d975b1b281abe7e1e2535b
+
 
 
 

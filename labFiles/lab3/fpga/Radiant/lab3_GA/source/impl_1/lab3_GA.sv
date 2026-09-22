@@ -24,7 +24,7 @@ module lab3_GA #(
 );
 
     logic       clk;
-    logic [3:0] cols_sync, cols_stable;
+    logic [3:0] cols_phys_sync, cols_sync, cols_stable;
     logic       hold, updated, stable;
     logic       one_key, any_key, key_is_new, key_valid;
     logic [3:0] key, digit_left, digit_right;
@@ -33,8 +33,11 @@ module lab3_GA #(
     // clock
     HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
-    // synchronize the asynchronous column inputs
-    synchronizer #(.WIDTH(4)) u_col_sync (.clk(clk), .reset_b(reset_b), .d(cols), .q(cols_sync));
+    // synchronize the asynchronous, active-low column inputs
+    synchronizer #(.WIDTH(4)) u_col_sync (.clk(clk), .reset_b(reset_b), .d(cols), .q(cols_phys_sync));
+
+    // convert to the active-high domain used everywhere downstream
+    assign cols_sync = ~cols_phys_sync;
 
     // park the scan on the current row while any key in that row is down
     // (active-high: a key is down whenever any cols_sync bit is set)

@@ -8,7 +8,7 @@ I/O cells:      18
                             FD1P3XZ        97          100.0
                          HSOSC_CORE         1          100.0
                                  IB         5          100.0
-                               LUT4       140          100.0
+                               LUT4       143          100.0
                                  OB        13          100.0
 SUB MODULES
        counter(WIDTH=17,MAX=131071)         1
@@ -21,14 +21,22 @@ SUB MODULES
                             scanner         1
                    sevenseg_decoder         1
               synchronizer(WIDTH=4)         1
-                              TOTAL       299
+                              TOTAL       302
 ----------------------------------------------------------------------
 Report for cell key_decoder.v1
 Instance Path : u_key_decoder
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4        18           12.9
-                              TOTAL        18
+                               LUT4        17           11.9
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell digit_reg.v1
+Instance Path : u_digit_reg
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         8            8.2
+                               LUT4         4            2.8
+                              TOTAL        12
 ----------------------------------------------------------------------
 Report for cell scanner.v1
 Instance Path : u_scanner
@@ -36,7 +44,7 @@ Instance Path : u_scanner
                                cell     count   Res Usage(%)
                                 FA2        13           39.4
                             FD1P3XZ        25           25.8
-                               LUT4        54           38.6
+                               LUT4        54           37.8
 SUB MODULES
      counter(WIDTH=25,MAX=23999999)         1
                               TOTAL        93
@@ -47,16 +55,17 @@ Instance Path : u_scanner.u_scan_ctr
                                cell     count   Res Usage(%)
                                 FA2        13           39.4
                             FD1P3XZ        25           25.8
-                               LUT4        33           23.6
+                               LUT4        33           23.1
                               TOTAL        71
 ----------------------------------------------------------------------
-Report for cell digit_reg.v1
-Instance Path : u_digit_reg
+Report for cell debouncer.v1
+Instance Path : u_debouncer
                                   Cell usage:
                                cell     count   Res Usage(%)
-                            FD1P3XZ         8            8.2
-                               LUT4         4            2.9
-                              TOTAL        12
+                                FA2        11           33.3
+                            FD1P3XZ        32           33.0
+                               LUT4        46           32.2
+                              TOTAL        89
 ----------------------------------------------------------------------
 Report for cell synchronizer(WIDTH=4).v1
 Instance Path : u_col_sync
@@ -65,14 +74,13 @@ Instance Path : u_col_sync
                             FD1P3XZ         8            8.2
                               TOTAL         8
 ----------------------------------------------------------------------
-Report for cell debouncer.v1
-Instance Path : u_debouncer
+Report for cell key_control.v1
+Instance Path : u_key_control
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11           33.3
-                            FD1P3XZ        32           33.0
-                               LUT4        41           29.3
-                              TOTAL        84
+                            FD1P3XZ         3            3.1
+                               LUT4         5            3.5
+                              TOTAL         8
 ----------------------------------------------------------------------
 Report for cell display_mux.v1
 Instance Path : u_display_mux
@@ -80,7 +88,7 @@ Instance Path : u_display_mux
                                cell     count   Res Usage(%)
                                 FA2         9           27.3
                             FD1P3XZ        17           17.5
-                               LUT4        13            9.3
+                               LUT4        13            9.1
 SUB MODULES
        counter(WIDTH=17,MAX=131071)         1
                    sevenseg_decoder         1
@@ -90,7 +98,7 @@ Report for cell sevenseg_decoder.v1
 Instance Path : u_display_mux.u_sevenseg
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         7            5.0
+                               LUT4         7            4.9
                               TOTAL         7
 ----------------------------------------------------------------------
 Report for cell counter(WIDTH=17,MAX=131071).v1
@@ -101,11 +109,3 @@ Instance Path : u_display_mux.u_mux_counter
                             FD1P3XZ        17           17.5
                                LUT4         1            0.7
                               TOTAL        27
-----------------------------------------------------------------------
-Report for cell key_control.v1
-Instance Path : u_key_control
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3XZ         3            3.1
-                               LUT4         6            4.3
-                              TOTAL         9
