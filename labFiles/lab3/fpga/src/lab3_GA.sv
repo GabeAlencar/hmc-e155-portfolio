@@ -25,7 +25,7 @@ module lab3_GA #(
 );
 
     logic       clk;
-    logic [3:0] cols_phys_sync, cols_sync, cols_stable;
+    logic [3:0] cols_active_high, cols_sync, cols_stable;
     logic       hold;
     logic       one_key, any_key, key_valid;
     logic [3:0] key, digit_left, digit_right;
@@ -33,11 +33,12 @@ module lab3_GA #(
     // clock
     HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
-    // synchronize the asynchronous column inputs
-    synchronizer #(.WIDTH(4)) u_col_sync (.clk(clk), .reset_b(reset_b), .d(cols), .q(cols_phys_sync));
-
-    // convert to the active-high domain used everywhere downstream
-    assign cols_sync = ~cols_phys_sync;
+    // convert to the active-high domain used everywhere downstream *before*
+    // synchronizing, so the synchronizer's reset value (0) means "idle" --
+    // syncing the raw active-low signal and inverting after would instead
+    // read as "every column pressed" for the first couple cycles out of reset.
+    assign cols_active_high = ~cols;
+    synchronizer #(.WIDTH(4)) u_col_sync (.clk(clk), .reset_b(reset_b), .d(cols_active_high), .q(cols_sync));
 
     // park the scan on the current row while any key in that row is down
     assign hold = |cols_sync;
