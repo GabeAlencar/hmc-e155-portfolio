@@ -31,9 +31,14 @@ module scanner #(
                                            4'b1000;
 
     // register the decode here so rows is glitch-free -- Lecture 05's
-    // keypad-scanner requirement "all outputs are registered"
+    // keypad-scanner requirement "all outputs are registered". Reset to
+    // all-zero (not 4'b0001) so this matches every other register's reset
+    // value in the design and doesn't depend on the FPGA's power-on state
+    // agreeing with a nonzero init value -- count is already 0 out of
+    // reset, so rows self-corrects to 4'b0001 on the very next cycle
+    // regardless, at the cost of one harmless all-off startup cycle.
     always_ff @(posedge clk, negedge reset_b)
-        if (!reset_b) rows <= 4'b0001;
+        if (!reset_b) rows <= 4'b0000;
         else          rows <= rows_raw;
 
 endmodule

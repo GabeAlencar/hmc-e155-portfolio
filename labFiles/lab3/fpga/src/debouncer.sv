@@ -17,7 +17,7 @@ module debouncer #(
     output logic [WIDTH-1:0] q
 );
 
-    typedef enum logic [1:0] {IDLE, WAIT, PRESSED} statetype;
+    typedef enum logic [1:0] {IDLE, WAIT, PRESSED, RELEASING} statetype;
     statetype state, nextstate;
 
     logic [WIDTH-1:0]  n1;
@@ -25,7 +25,10 @@ module debouncer #(
     logic              clear, done;
 
     // ---- the conversation between the two machines ----
-    assign clear = (state == IDLE);
+    // clear covers both rest states (IDLE, PRESSED) so the counter always
+    // starts fresh whenever a new confirmation window (WAIT or RELEASING)
+    // begins
+    assign clear = (state == IDLE) || (state == PRESSED);
     assign done  = counter[WAIT_W-1];
 
     // ---- machine 1: the controller (canonical) ----
@@ -47,14 +50,20 @@ module debouncer #(
     // next state
     always_comb
         case (state)
-            IDLE:    nextstate = (d != '0) ? WAIT : IDLE;
-            WAIT:    if (d != n1)   nextstate = IDLE;    // a bounce
-                     else if (done) nextstate = PRESSED;
-                     else           nextstate = WAIT;
-            PRESSED: nextstate = (d == n1) ? PRESSED : IDLE;
-            default: nextstate = IDLE;
+            IDLE:      nextstate = (d != '0) ? WAIT : IDLE;
+            WAIT:      if (d != n1)   nextstate = IDLE;       // a press-side bounce
+                       else if (done) nextstate = PRESSED;
+                       else           nextstate = WAIT;
+            PRESSED:   nextstate = (d != n1) ? RELEASING : PRESSED;
+            RELEASING: if (d == n1)   nextstate = PRESSED;    // a release-side bounce
+                       else if (done) nextstate = IDLE;
+                       else           nextstate = RELEASING;
+            default:   nextstate = IDLE;
         endcase
 
-    assign q = (state == PRESSED) ? n1 : '0;
+    // q holds through RELEASING too, so a release-bounce that snaps back to
+    // the same candidate never drops q to 0 and back up -- that drop/rise
+    // is exactly what looked like a second press to key_control
+    assign q = (state == PRESSED || state == RELEASING) ? n1 : '0;
 
 endmodule
