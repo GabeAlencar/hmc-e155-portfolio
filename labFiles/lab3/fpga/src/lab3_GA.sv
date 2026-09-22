@@ -3,11 +3,8 @@
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
  * Date:   9/17/26
  * Parameters:
- *   SCAN_DIV   - clock cycles each keypad row is driven while idle. hold
- *                freezes the scan the instant a key makes contact, so this
- *                only governs how long an *unpressed* scan takes to reach a
- *                given row -- it's independent of the debounce window.
- *   SCAN_DIV_W - bit width for SCAN_DIV.
+ *   SCAN_DIV   - clock cycles each keypad row is driven; same value used in lab2.
+ *   SCAN_DIV_W - bit width for SCAN_DIV; same value used in lab2.
  *   WAIT_W     - debouncer counter width; a reading must hold for 2**(WAIT_W-1)
  *                clock cycles (wall-clock time, independent of SCAN_DIV) to accept.
  *   MUX_W      - width of the display multiplexing counter.
@@ -15,8 +12,8 @@
  */
 
 module lab3_GA #(
-    parameter int SCAN_DIV   = 750_000,
-    parameter int SCAN_DIV_W = 20,
+    parameter int SCAN_DIV   = 6_000_000,
+    parameter int SCAN_DIV_W = 23,
     parameter int WAIT_W     = 20,
     parameter int MUX_W      = 17
 ) (

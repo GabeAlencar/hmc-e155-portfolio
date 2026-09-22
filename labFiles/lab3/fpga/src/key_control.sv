@@ -5,11 +5,9 @@
  * Note: this used to be an IDLE/SINGLE/MULTI FSM, but any_key dropping (the
  * only way to ever get a second fresh event) always forces a return to
  * IDLE first -- see debouncer.sv, whose q is 0 whenever it isn't currently
- * PRESSED or RELEASING (any_key stays high through a release-bounce
- * confirmation window too, so it only ever drops once a release is fully
- * confirmed). That made "fresh" reachable only from IDLE, so the
- * SINGLE/MULTI branches of both case statements were dead code; a valid
- * press is just "a freshly confirmed reading with exactly one key down."
+ * PRESSED. That made "fresh" reachable only from IDLE, so the SINGLE/MULTI
+ * branches of both case statements were dead code; a valid press is just
+ * "a freshly confirmed reading with exactly one key down."
  */
 
 module key_control (

@@ -76,25 +76,15 @@ module lab3_GA_tb();
 
   // apply stimuli and check outputs
   initial begin
-    // test 1: reset clears both digits immediately; rows is all-off for one
-    // harmless cycle (matches every other register's all-zero reset value,
-    // rather than depending on the FPGA's power-on state agreeing with a
-    // nonzero init), then self-corrects to row 0 on the first clock edge
+    // test 1: reset drives the row scan to row 0 and clears both digits
     reset_b = 0;
     cols    = 4'b1111;
     #22 reset_b = 1;
     #1;
-    assert (rows == 4'b0000 && dut.digit_left == 4'h0 && dut.digit_right == 4'h0)
-      $display("PASSED! lab3_GA resets cleanly, rows all-off for one cycle, digits clear at time: %0t.", $time);
+    assert (rows == 4'b0001 && dut.digit_left == 4'h0 && dut.digit_right == 4'h0)
+      $display("PASSED! lab3_GA resets to row 0 with both digits clear at time: %0t.", $time);
     else
       $error("FAILED! lab3_GA fails to reset correctly at time: %0t.", $time);
-
-    @(posedge dut.clk);
-    #1;
-    assert (rows == 4'b0001)
-      $display("PASSED! rows self-corrects to row 0 on the first clock edge at time: %0t.", $time);
-    else
-      $error("FAILED! rows fails to reach row 0 after the first clock edge at time: %0t.", $time);
 
     // test 2: a single, clean key press registers into digit_right
     press_key(ROW1, COL1, 40);  // key '5'
@@ -105,13 +95,9 @@ module lab3_GA_tb();
       $error("FAILED! A single key press fails to register key 5 at time: %0t.", $time);
 
     // test 3: releasing and pressing a different key shifts the digits,
-    // demonstrating the display shows the last two hex digits pressed.
-    // Release is now debounced symmetrically with press, so switching
-    // directly to a new key takes roughly two debounce windows (one to
-    // confirm the old key's release, one to confirm the new key) --
-    // generous margin here accordingly
+    // demonstrating the display shows the last two hex digits pressed
     cols = 4'b1111;
-    repeat (30) @(posedge dut.clk);
+    repeat (10) @(posedge dut.clk);
     press_key(ROW0, COL3, 40);  // key 'A'
     #1;
     assert (dut.digit_right == 4'hA && dut.digit_left == 4'h5)
@@ -122,7 +108,7 @@ module lab3_GA_tb();
     // test 4: a bouncy key press (asynchronous, sub-cycle transitions
     // before settling) still registers exactly once, with no misfire
     cols = 4'b1111;
-    repeat (30) @(posedge dut.clk);
+    repeat (10) @(posedge dut.clk);
     bounce_key(ROW2, COL2, 40);  // key '9', bounced before settling
     #1;
     assert (dut.digit_right == 4'h9 && dut.digit_left == 4'hA)
