@@ -15,7 +15,8 @@ module key_control (
     output logic key_valid
 );
 
-    typedef enum logic [2:0] {IDLE = 3'b001, SINGLE = 3'b010, MULTI = 3'b100} statetype;
+    typedef enum logic [2:0] {IDLE = 3'b001, SINGLE = 3'b010, MULTI =
+3'b100} statetype;
     statetype state, nextstate;
 
     logic fresh;  // a newly-confirmed, settled reading is available this cycle
@@ -30,11 +31,16 @@ module key_control (
     // ---- next state logic ----
     always_comb begin
         nextstate = state;
-        if (fresh)
+        if (!stable)
+            nextstate = IDLE;
+        else if (fresh)
             case (state)
-                IDLE:    nextstate = !any_key ? IDLE   : (one_key ? SINGLE : MULTI);
-                SINGLE:  nextstate = !any_key ? IDLE   : (one_key ? SINGLE : MULTI);
-                MULTI:   nextstate = !any_key ? IDLE   : (one_key ? SINGLE : MULTI);
+                IDLE:    nextstate = !any_key ? IDLE   : (one_key ?
+SINGLE : MULTI);
+                SINGLE:  nextstate = !any_key ? IDLE   : (one_key ?
+SINGLE : MULTI);
+                MULTI:   nextstate = !any_key ? IDLE   : (one_key ?
+SINGLE : MULTI);
                 default: nextstate = IDLE;
             endcase
     end
@@ -47,7 +53,7 @@ module key_control (
             case (state)
                 IDLE:    key_valid = 1'b1;         // fresh single press
                 SINGLE:  key_valid = key_is_new;   // defensive; see header
-                MULTI:   key_valid = 1'b1;         // roll-off out of a multi-press
+                MULTI:   key_valid = 1'b1;         
                 default: key_valid = 1'b0;
             endcase
     end

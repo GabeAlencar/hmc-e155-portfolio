@@ -44,7 +44,8 @@ module debouncer #(
     always_comb
         case (state)
             IDLE:    nextstate = (d != '0) ? WAIT : IDLE;
-            WAIT:    if (d != candidate)          nextstate = IDLE;    // a bounce
+            WAIT:    if (d != candidate)          nextstate = IDLE;
+// a bounce
                      else if (counter[WAIT_W-1])  nextstate = PRESSED;
                      else                         nextstate = WAIT;
             PRESSED: nextstate = (d == candidate) ? PRESSED : IDLE;
@@ -55,14 +56,18 @@ module debouncer #(
 
     // q latches candidate, and updated pulses for one cycle, exactly when
     // WAIT is about to become PRESSED -- i.e. exactly when a reading is
-    // accepted.
+    // accepted. q is cleared in IDLE (release) so that re-pressing the same
+    // key after a full lift-off is seen as different from the stale q and
+    // still pulses updated, rather than silently comparing equal forever.
     always_ff @(posedge clk, negedge reset_b)
         if (!reset_b) begin
             q       <= '0;
             updated <= 1'b0;
         end else begin
             updated <= 1'b0;
-            if (state == WAIT && nextstate == PRESSED) begin
+            if (state == IDLE) begin
+                q <= '0;
+            end else if (state == WAIT && nextstate == PRESSED) begin
                 updated <= (q != candidate);
                 q       <= candidate;
             end
