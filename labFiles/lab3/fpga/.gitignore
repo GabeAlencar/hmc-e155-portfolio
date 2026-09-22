@@ -1,0 +1,15 @@
+# Lattice Radiant project outputs
+radiant_project/impl_*/
+radiant_project/promote_impl_*/
+radiant_project/synlog/
+radiant_project/*.log
+radiant_project/*.rpt
+radiant_project/*.html
+radiant_project/*.tmp
+radiant_project/*.bak
+
+# QuestaSim/ModelSim simulation outputs
+sim/work/
+sim/transcript
+sim/*.wlf
+sim/*.vstf
