@@ -1,7 +1,7 @@
 /*
  * Module: key_decoder
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
- * Date:   9/21/26
+ * Date:   9/17/26
  */
 
 module key_decoder (
@@ -14,28 +14,30 @@ module key_decoder (
 
     logic [1:0] row_index, col_index;
 
-    assign any_key = |cols;
-    // exactly one bit set: cols is nonzero and cols & (cols-1) clears the lone bit
-    assign one_key = any_key && ((cols & (cols - 4'b1)) == 4'b0000);
+    // any column pulled low means a key in this row is down
+    assign any_key = ~&cols;
 
+    // which row is being driven low
     always_comb
         case (rows)
-            4'b0001: row_index = 2'd0;
-            4'b0010: row_index = 2'd1;
-            4'b0100: row_index = 2'd2;
-            4'b1000: row_index = 2'd3;
+            4'b1110: row_index = 2'd0;
+            4'b1101: row_index = 2'd1;
+            4'b1011: row_index = 2'd2;
+            4'b0111: row_index = 2'd3;
             default: row_index = 2'd0;
         endcase
 
+    // which single column is pulled low, if exactly one is
     always_comb
         case (cols)
-            4'b0001: col_index = 2'd0;
-            4'b0010: col_index = 2'd1;
-            4'b0100: col_index = 2'd2;
-            4'b1000: col_index = 2'd3;
-            default: col_index = 2'd0;
+            4'b1110: begin col_index = 2'd0; one_key = 1'b1; end
+            4'b1101: begin col_index = 2'd1; one_key = 1'b1; end
+            4'b1011: begin col_index = 2'd2; one_key = 1'b1; end
+            4'b0111: begin col_index = 2'd3; one_key = 1'b1; end
+            default: begin col_index = 2'd0; one_key = 1'b0; end
         endcase
 
+    // row and column to hex value
     always_comb
         case ({row_index, col_index})
             4'b00_00: key = 4'h1;
@@ -50,9 +52,9 @@ module key_decoder (
             4'b10_01: key = 4'h8;
             4'b10_10: key = 4'h9;
             4'b10_11: key = 4'hC;
-            4'b11_00: key = 4'hE;  // '*'
+            4'b11_00: key = 4'hE;
             4'b11_01: key = 4'h0;
-            4'b11_10: key = 4'hF;  // '#'
+            4'b11_10: key = 4'hF;
             4'b11_11: key = 4'hD;
             default:  key = 4'h0;
         endcase

@@ -1,6 +1,0 @@
-BEGIN 1:lab3_GA:fast:work
-    digit_right :  1:lab3_GA_tb:fast:work
-    clk :  1:lab3_GA_tb:fast:work
-    digit_left :  1:lab3_GA_tb:fast:work
-    rows :  1:lab3_GA_tb:fast:work
-END 

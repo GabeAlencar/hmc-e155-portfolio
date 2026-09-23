@@ -3,30 +3,32 @@
 /*
  * Testbench: debouncer_tb
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
- * Date:   9/21/26
- * Note: with WAIT_W = 3, a candidate must hold steady for 2**(WAIT_W-1) = 4
- * counted cycles, which lands q at the accepted value exactly 6 clock edges
- * after a candidate is first latched out of IDLE (1 edge to enter WAIT and
- * latch the candidate, 4 edges to count up to the threshold, 1 edge to
- * transition into PRESSED). debouncer only exposes q -- a pressed key reads
- * as q == its pattern, and q == 0 means unconfirmed/released.
+ * Date:   9/23/26
  */
 
 module debouncer_tb();
-  logic       clk;
-  logic       reset_b;
-  logic [3:0] d;
-  logic [3:0] q;
+  logic clk;
+  logic reset_b;
+  logic tick;
+  logic sw;
+  logic debounced_sw;
+  logic prev_debounced_sw;
+  int   rises;
+  int   tick_count;
 
-  localparam int WIDTH  = 4;
-  localparam int WAIT_W = 3;
-  localparam int SETTLE = 6;
+  localparam int TICK_PERIOD = 8;   // clock cycles between ticks
 
-  debouncer #(.WIDTH(WIDTH), .WAIT_W(WAIT_W)) dut (
+  // debouncer one-hot state encodings
+  localparam logic [2:0] IDLE    = 3'b001;
+  localparam logic [2:0] WAIT    = 3'b010;
+  localparam logic [2:0] PRESSED = 3'b100;
+
+  debouncer dut (
       .clk(clk),
       .reset_b(reset_b),
-      .d(d),
-      .q(q)
+      .tick(tick),
+      .sw(sw),
+      .debounced_sw(debounced_sw)
   );
 
   // generate clock
@@ -35,85 +37,121 @@ module debouncer_tb();
       clk = 1; #5;
   end
 
+  // stand-in for tick_gen: a one-cycle strobe every TICK_PERIOD cycles
+  always_ff @(posedge clk, negedge reset_b)
+    if (!reset_b) begin
+      tick_count <= 0;
+      tick       <= 1'b0;
+    end else begin
+      tick_count <= (tick_count == TICK_PERIOD - 1) ? 0 : tick_count + 1;
+      tick       <= (tick_count == TICK_PERIOD - 2);
+    end
+
+  // count every rising edge of the debounced output
+  always @(posedge clk) begin
+    prev_debounced_sw <= debounced_sw;
+    if (debounced_sw && !prev_debounced_sw) rises++;
+  end
+
   // apply stimuli and check outputs
   initial begin
-    // test 1: reset drives q to 0
+    // test 1: reset holds the output low
     reset_b = 0;
-    d       = 4'b0000;
+    sw = 0;
+    rises = 0;
     #22 reset_b = 1;
-    #1;
-    assert (q == 4'b0000)
-      $display("PASSED! The debouncer resets cleanly at time: %0t.", $time);
+    assert (debounced_sw == 1'b0)
+      $display("PASSED! The debouncer resets to IDLE at time: %0t.", $time);
     else
-      $error("FAILED! The debouncer fails to reset at time: %0t.", $time);
+      $error("FAILED! The debouncer resets incorrectly at time: %0t.", $time);
 
-    // test 2: a steady candidate is accepted after it holds for the full
-    // debounce window
-    d = 4'b0010;
-    repeat (SETTLE) @(posedge clk);
+    // test 2: a short glitch between ticks never leaves IDLE
+    @(posedge tick);
+    @(posedge clk);
+    #3 sw = 1;
+    #20 sw = 0;
+    repeat (2 * TICK_PERIOD) @(posedge clk);
     #1;
-    assert (q == 4'b0010)
-      $display("PASSED! The debouncer accepts a steady candidate at time: %0t.", $time);
+    assert (debounced_sw == 1'b0 && dut.state == IDLE)
+      $display("PASSED! The debouncer ignores a glitch between ticks at time: %0t.", $time);
     else
-      $error("FAILED! The debouncer fails to accept a steady candidate at time: %0t.", $time);
+      $error("FAILED! The debouncer reacts to a glitch between ticks at time: %0t.", $time);
 
+    // test 3: high across one tick moves to WAIT, dropping before the next tick is a bounce
+    @(negedge tick);
+    #7 sw = 1;
+    @(posedge tick);
     @(posedge clk);
     #1;
-    assert (q == 4'b0010)
-      $display("PASSED! q holds the accepted candidate one cycle after acceptance at time: %0t.", $time);
+    assert (dut.state == WAIT && debounced_sw == 1'b0)
+      $display("PASSED! The debouncer moves to WAIT on a tick with the input high at time: %0t.", $time);
     else
-      $error("FAILED! q fails to hold the accepted candidate at time: %0t.", $time);
-
-    // test 3: releasing the key returns q to 0
-    d = 4'b0000;
+      $error("FAILED! The debouncer fails to move to WAIT at time: %0t.", $time);
+    #13 sw = 0;
     @(posedge clk);
     #1;
-    assert (q == 4'b0000)
-      $display("PASSED! Releasing the candidate deasserts q at time: %0t.", $time);
+    assert (dut.state == IDLE && debounced_sw == 1'b0)
+      $display("PASSED! The debouncer returns to IDLE on a bounce in WAIT at time: %0t.", $time);
     else
-      $error("FAILED! q fails to deassert on release at time: %0t.", $time);
+      $error("FAILED! The debouncer fails to reject a bounce in WAIT at time: %0t.", $time);
 
-    // test 4: a bounce (d changes mid-WAIT, before the threshold) restarts
-    // debouncing instead of accepting the bounced value
-    d = 4'b0100;
-    repeat (2) @(posedge clk);
-    d = 4'b0000;  // bounce back low before SETTLE cycles have elapsed
-    repeat (SETTLE) @(posedge clk);
+    // test 4: holding the input high across two ticks gives a debounced press
+    repeat (3) @(posedge clk);
+    #4 sw = 1;
+    repeat (2 * TICK_PERIOD + 1) @(posedge clk);
     #1;
-    assert (q == 4'b0000)
-      $display("PASSED! A bounce restarts debouncing instead of registering at time: %0t.", $time);
+    assert (debounced_sw == 1'b1)
+      $display("PASSED! The debouncer reports a press held across two ticks at time: %0t.", $time);
     else
-      $error("FAILED! A bounce is incorrectly accepted as a valid press at time: %0t.", $time);
+      $error("FAILED! The debouncer misses a press held across two ticks at time: %0t.", $time);
 
-    // test 5: after a bounce, a genuinely steady candidate still settles
-    // correctly
-    d = 4'b0100;
-    repeat (SETTLE) @(posedge clk);
+    // test 5: the output stays high for as long as the input is held
+    repeat (5 * TICK_PERIOD) @(posedge clk);
     #1;
-    assert (q == 4'b0100)
-      $display("PASSED! The debouncer recovers and accepts the next steady candidate at time: %0t.", $time);
+    assert (debounced_sw == 1'b1)
+      $display("PASSED! The debouncer holds while the input is held at time: %0t.", $time);
     else
-      $error("FAILED! The debouncer fails to recover after a bounce at time: %0t.", $time);
+      $error("FAILED! The debouncer drops while the input is held at time: %0t.", $time);
 
-    // test 6: a different key pressed while the first is still held (d
-    // changes away from candidate while PRESSED) drops back to IDLE
-    d = 4'b1000;
+    // test 6: releasing the input clears the output on the next edge
+    #2 sw = 0;
     @(posedge clk);
     #1;
-    assert (q == 4'b0000)
-      $display("PASSED! Changing d away from candidate exits PRESSED at time: %0t.", $time);
+    assert (debounced_sw == 1'b0)
+      $display("PASSED! The debouncer releases immediately at time: %0t.", $time);
     else
-      $error("FAILED! Changing d away from candidate fails to exit PRESSED at time: %0t.", $time);
+      $error("FAILED! The debouncer fails to release at time: %0t.", $time);
 
-    // test 7: q never accepts a value that never settles (re-check across
-    // the whole bounce window)
-    d = 4'b0000;
-    repeat (SETTLE) @(posedge clk);
+    // test 7: a bouncy press at asynchronous times still gives exactly one press
+    repeat (3 * TICK_PERIOD) @(posedge clk);
+    rises = 0;
+    repeat (12) begin
+      #($urandom_range(3, 17)) sw = ~sw;
+    end
+    sw = 1;
+    repeat (4 * TICK_PERIOD) @(posedge clk);
+    // then a bouncy release
+    repeat (11) begin
+      #($urandom_range(3, 17)) sw = ~sw;
+    end
+    sw = 0;
+    repeat (4 * TICK_PERIOD) @(posedge clk);
     #1;
-    assert (q == 4'b0000)
-      $display("PASSED! q never accepts a value that stays at 0 at time: %0t.", $time);
+    assert (rises == 1 && debounced_sw == 1'b0)
+      $display("PASSED! A bouncy press registers exactly once at time: %0t.", $time);
     else
-      $error("FAILED! q incorrectly accepted a non-candidate at time: %0t.", $time);
+      $error("FAILED! A bouncy press registered %0d times at time: %0t.", rises, $time);
+
+    // test 8: reset works while the output is high
+    sw = 1;
+    repeat (3 * TICK_PERIOD) @(posedge clk);
+    reset_b = 0;
+    #1;
+    assert (debounced_sw == 1'b0)
+      $display("PASSED! The debouncer resets while pressed at time: %0t.", $time);
+    else
+      $error("FAILED! The debouncer fails to reset while pressed at time: %0t.", $time);
+    reset_b = 1;
 
     #100 $stop;
   end

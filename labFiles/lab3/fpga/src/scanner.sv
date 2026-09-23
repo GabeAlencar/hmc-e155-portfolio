@@ -19,21 +19,14 @@ module scanner #(
     localparam int TOTAL_W = DIV_W + 2;
 
     logic [TOTAL_W-1:0] count;
-    logic [3:0]         rows_raw;
 
     // counter
     counter #(.WIDTH(TOTAL_W), .MAX(4 * DIV - 1)) u_scan_ctr (.clk(clk), .reset_b(reset_b), .enable(enable), .count(count));
 
     // row decoder
-    assign rows_raw = (count < DIV)     ? 4'b0001 :
-                       (count < 2 * DIV) ? 4'b0010 :
-                       (count < 3 * DIV) ? 4'b0100 :
-                                           4'b1000;
-
-    // register the decode here so rows is glitch-free -- Lecture 05's
-    // keypad-scanner requirement "all outputs are registered"
-    always_ff @(posedge clk, negedge reset_b)
-        if (!reset_b) rows <= 4'b0001;
-        else          rows <= rows_raw;
+    assign rows = (count < DIV)     ? 4'b0001 :
+                  (count < 2 * DIV) ? 4'b0010 :
+                  (count < 3 * DIV) ? 4'b0100 :
+                                      4'b1000;
 
 endmodule

@@ -3,7 +3,7 @@
 /*
  * Testbench: digit_reg_tb
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
- * Date:   9/21/26
+ * Date:   9/23/26
  */
 
 module digit_reg_tb();
@@ -11,16 +11,16 @@ module digit_reg_tb();
   logic       reset_b;
   logic       enable;
   logic [3:0] key;
-  logic [3:0] digit_left;
-  logic [3:0] digit_right;
+  logic [3:0] d0;
+  logic [3:0] d1;
 
   digit_reg dut (
       .clk(clk),
       .reset_b(reset_b),
       .enable(enable),
       .key(key),
-      .digit_left(digit_left),
-      .digit_right(digit_right)
+      .d0(d0),
+      .d1(d1)
   );
 
   // generate clock
@@ -29,68 +29,82 @@ module digit_reg_tb();
       clk = 1; #5;
   end
 
+  // one-cycle enable pulse, like capture from the keypad controller
+  task automatic enter_key(input logic [3:0] k);
+    @(negedge clk);
+    key = k;
+    enable = 1;
+    @(negedge clk);
+    enable = 0;
+  endtask
+
   // apply stimuli and check outputs
   initial begin
-    // test 1: reset drives both digits to 0
+    // test 1: reset clears both digits
     reset_b = 0;
-    enable  = 0;
-    key     = 4'h0;
+    enable = 0;
+    key = 4'h7;
     #22 reset_b = 1;
-    #1;
-    assert (digit_left == 4'h0 && digit_right == 4'h0)
-      $display("PASSED! digit_reg resets both digits to 0 at time: %0t.", $time);
+    assert (d0 == 4'h0 && d1 == 4'h0)
+      $display("PASSED! The digit register resets to 00 at time: %0t.", $time);
     else
-      $error("FAILED! digit_reg fails to reset at time: %0t.", $time);
+      $error("FAILED! The digit register resets incorrectly at time: %0t.", $time);
 
-    // test 2: with enable low, new keys are ignored
-    key = 4'hA;
-    repeat (3) @(posedge clk);
+    // test 2: with enable low, a changing key is ignored
+    repeat (3) begin
+      @(negedge clk);
+      key = key + 4'h3;
+    end
     #1;
-    assert (digit_left == 4'h0 && digit_right == 4'h0)
-      $display("PASSED! digit_reg holds while disabled at time: %0t.", $time);
+    assert (d0 == 4'h0 && d1 == 4'h0)
+      $display("PASSED! The digit register holds while enable is low at time: %0t.", $time);
     else
-      $error("FAILED! digit_reg updates while disabled at time: %0t.", $time);
+      $error("FAILED! The digit register loads while enable is low at time: %0t.", $time);
 
-    // test 3: enabling for one cycle shifts key into digit_right, and the
-    // old digit_right (0) into digit_left
-    enable = 1;
-    key    = 4'h5;
-    @(posedge clk);
+    // test 3: the first key loads into the most recent digit
+    enter_key(4'h5);
+    assert (d0 == 4'h5 && d1 == 4'h0)
+      $display("PASSED! The first key loads into d0 at time: %0t.", $time);
+    else
+      $error("FAILED! The first key loads incorrectly at time: %0t.", $time);
+
+    // test 4: the second key shifts the first into the older digit
+    enter_key(4'hA);
+    assert (d0 == 4'hA && d1 == 4'h5)
+      $display("PASSED! The second key shifts d0 into d1 at time: %0t.", $time);
+    else
+      $error("FAILED! The second key shifts incorrectly at time: %0t.", $time);
+
+    // test 5: a third key drops the oldest digit
+    enter_key(4'hF);
+    assert (d0 == 4'hF && d1 == 4'hA)
+      $display("PASSED! The third key drops the oldest digit at time: %0t.", $time);
+    else
+      $error("FAILED! The third key shifts incorrectly at time: %0t.", $time);
+
+    // test 6: the same key entered twice shows up in both digits
+    enter_key(4'hF);
+    assert (d0 == 4'hF && d1 == 4'hF)
+      $display("PASSED! A repeated key fills both digits at time: %0t.", $time);
+    else
+      $error("FAILED! A repeated key shifts incorrectly at time: %0t.", $time);
+
+    // test 7: the digits hold after enable drops
+    key = 4'h1;
+    repeat (5) @(posedge clk);
     #1;
-    assert (digit_right == 4'h5 && digit_left == 4'h0)
-      $display("PASSED! digit_reg shifts the first key into digit_right at time: %0t.", $time);
+    assert (d0 == 4'hF && d1 == 4'hF)
+      $display("PASSED! The digits hold after the enable pulse at time: %0t.", $time);
     else
-      $error("FAILED! digit_reg fails to shift the first key correctly at time: %0t.", $time);
-    enable = 0;
+      $error("FAILED! The digits change after the enable pulse at time: %0t.", $time);
 
-    // test 4: a second key press shifts the previous digit_right into
-    // digit_left, and the new key into digit_right
-    enable = 1;
-    key    = 4'hC;
-    @(posedge clk);
-    #1;
-    assert (digit_right == 4'hC && digit_left == 4'h5)
-      $display("PASSED! digit_reg shifts the second key through both digits at time: %0t.", $time);
-    else
-      $error("FAILED! digit_reg fails to shift the second key correctly at time: %0t.", $time);
-    enable = 0;
-
-    // test 5: with enable low again, the digits hold despite key changing
-    key = 4'h9;
-    repeat (3) @(posedge clk);
-    #1;
-    assert (digit_right == 4'hC && digit_left == 4'h5)
-      $display("PASSED! digit_reg holds the last two digits while disabled at time: %0t.", $time);
-    else
-      $error("FAILED! digit_reg fails to hold while disabled at time: %0t.", $time);
-
-    // test 6: reset works even after digits have been loaded
+    // test 8: reset clears the digits while running
     reset_b = 0;
-    #12;
-    assert (digit_left == 4'h0 && digit_right == 4'h0)
-      $display("PASSED! digit_reg resets after holding values at time: %0t.", $time);
+    #1;
+    assert (d0 == 4'h0 && d1 == 4'h0)
+      $display("PASSED! The digit register resets while running at time: %0t.", $time);
     else
-      $error("FAILED! digit_reg fails to reset after holding values at time: %0t.", $time);
+      $error("FAILED! The digit register fails to reset while running at time: %0t.", $time);
     reset_b = 1;
 
     #100 $stop;
