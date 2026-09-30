@@ -290,6 +290,37 @@ f_{out} = \frac{10^6}{1000} = 1000.000\ \text{Hz},
 \qquad \text{error} = 0\,\% &lt; 1\,\%
 \]</span></p>
 </section>
+<section id="maxmin-duration" class="level4">
+<h4 class="anchored" data-anchor-id="maxmin-duration">Max/min duration</h4>
+<p>Minimum: delay_millis() takes a whole number of milliseconds, so the shortest note is 1 ms (<span class="math inline">\(ARR = 999\)</span>). The hardware resolution is one tick, <span class="math inline">\(1/f_{CNT} = 1\ \mu\text{s}\)</span>.</p>
+<p>Maximum: TIM2’s ARR is 32 bits:</p>
+<p><span class="math display">\[
+T_{max} = \frac{2^{32}}{f_{CNT}} = \frac{4\,294\,967\,296}{10^6\ \text{Hz}} \approx 4295\ \text{s} \approx 71.6\ \text{min},
+\]</span></p>
+</section>
+<section id="maxmin-frequencies" class="level4">
+<h4 class="anchored" data-anchor-id="maxmin-frequencies">Max/min frequencies</h4>
+<p>Minimum: TIM1’s ARR is 16 bits, so <span class="math inline">\(N \le 2^{16} = 65\,536\)</span>:</p>
+<p><span class="math display">\[
+f_{min} = \frac{10^6}{65\,536} = 15.26\ \text{Hz}
+\]</span></p>
+<p>Maximum: the error bound must satisfy a 1% error since N varies by at most 0.5 our calculation is</p>
+<p><span class="math display">\[
+\frac{0.5}{N} \le 0.01 \;\Rightarrow\; N \ge 50 \;\Rightarrow\; f_{max} = \frac{10^6}{50} = 20\ \text{kHz}
+\]</span></p>
+<p>This covers the whole audible range. The absolute hardware limit is <span class="math inline">\(N = 2\)</span> which corresponds to 500 kHz, but the accuracy is poor.</p>
+</section>
+<section id="all-notes-in-für-elise" class="level4">
+<h4 class="anchored" data-anchor-id="all-notes-in-für-elise">All notes in Für Elise</h4>
+<p>Every distinct pitch in the starter code computed with the formulas above can be found here <a href="images/lab4FurEliseNotes.xlsx">Für Elise note calculations</a></p>
+<p>The worst case is 0.030% error at 659 Hz, so every note in Für Elise is ok since 0.030% &lt; 1%.</p>
+</section>
+<section id="is-checking-220-hz-and-1000-hz-sufficient" class="level4">
+<h4 class="anchored" data-anchor-id="is-checking-220-hz-and-1000-hz-sufficient">Is checking 220 Hz and 1000 Hz sufficient?</h4>
+<p>Not by itself. The error bound <span class="math inline">\(0.5/N \approx 0.5 f/10^6\)</span> grows with frequency, so the worst case is set by the highest note played. Für Elise reaches 1319 Hz, which is above 1000 Hz. <span class="math display">\[
+\frac{0.5}{N} = \frac{0.5}{758} = 0.066\,\% \ \text{at 1319 Hz}
+\]</span></p>
+</section>
 </section>
 <section id="schematic" class="level3">
 <h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
