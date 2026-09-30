@@ -121,6 +121,46 @@ f_{out} = \frac{10^6}{1000} = 1000.000\ \text{Hz},
 \qquad \text{error} = 0\,\% < 1\,\%
 $$
 
+#### Max/min duration
+
+Minimum: delay_millis() takes a whole number of milliseconds, so the shortest note is 1 ms ($ARR = 999$). The hardware resolution is one tick, $1/f_{CNT} = 1\ \mu\text{s}$.
+
+Maximum: TIM2's ARR is 32 bits:
+
+$$
+T_{max} = \frac{2^{32}}{f_{CNT}} = \frac{4\,294\,967\,296}{10^6\ \text{Hz}} \approx 4295\ \text{s} \approx 71.6\ \text{min},
+$$
+
+#### Max/min frequencies
+
+Minimum: TIM1's ARR is 16 bits, so $N \le 2^{16} = 65\,536$:
+
+$$
+f_{min} = \frac{10^6}{65\,536} = 15.26\ \text{Hz}
+$$
+
+Maximum: the error bound must satisfy a 1% error since N varies by at most 0.5 our calculation is 
+
+$$
+\frac{0.5}{N} \le 0.01 \;\Rightarrow\; N \ge 50 \;\Rightarrow\; f_{max} = \frac{10^6}{50} = 20\ \text{kHz}
+$$
+
+This covers the whole audible range. The absolute hardware limit is $N = 2$ which corresponds to 500 kHz, but the accuracy is poor.
+
+#### All notes in Für Elise
+
+Every distinct pitch in the starter code computed with the formulas above can be found here [Für Elise note calculations](images/lab4FurEliseNotes.xlsx)
+
+The worst case is 0.030% error at 659 Hz, so every note in Für Elise is ok since 0.030% < 1%.
+
+#### Is checking 220 Hz and 1000 Hz sufficient?
+
+Not by itself. The error bound $0.5/N \approx 0.5 f/10^6$ grows with frequency, so the worst case is set by the highest note played. Für Elise reaches 1319 Hz, which is above 1000 Hz.
+$$
+\frac{0.5}{N} = \frac{0.5}{758} = 0.066\,\% \ \text{at 1319 Hz}
+$$
+
+
 ### Schematic
 
 ![Figure 1: speaker driver schematic](images/lab4Schematic.png)
