@@ -137,21 +137,15 @@ const int happy_birthday[][2] = {
   {  0,    0}};
 
 // Play a score until a duration of 0 
-static void playSong(const int song[][2], uint32_t gap_ms) {
+static void playSong(const int song[][2]) {
   for (int i = 0; song[i][1] > 0; i++) {
     uint32_t freq = (song[i][0] > 0) ? (uint32_t) song[i][0] : 0;   
-    uint32_t dur  = (uint32_t) song[i][1];
-    uint32_t gap  = (freq != 0 && gap_ms < dur) ? gap_ms : 0;        
+    uint32_t dur  = (uint32_t) song[i][1];                       
 
     setPWMFreq(PWM_TIMER, freq);     
-    delay_millis(DELAY_TIMER, dur - gap); 
-
-    if (gap) {
-      setPWMFreq(PWM_TIMER, 0);
-      delay_millis(DELAY_TIMER, gap);
-    }
+    delay_millis(DELAY_TIMER, dur);
   }
-  setPWMFreq(PWM_TIMER, 0);         
+  setPWMFreq(PWM_TIMER, 0);       
 }
 
 int main(void) {
@@ -173,9 +167,9 @@ int main(void) {
   initTIM(DELAY_TIMER);
 
   while (1) {
-    playSong(notes, 0);         
+    playSong(notes);         
     delay_millis(DELAY_TIMER, SONG_GAP_MS);
-    playSong(happy_birthday, 0);
+    playSong(happy_birthday);
     delay_millis(DELAY_TIMER, SONG_GAP_MS);
   }
 }
