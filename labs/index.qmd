@@ -7,3 +7,5 @@ title: "Labs"
 ## [Lab 2: Multiplexed Seven-Segment Display and Keypad Scanner](lab2/lab2.qmd)
 
 ## [Lab 4: Digital Audio](lab4/lab4.qmd)
+
+## [Lab 5: Interrupts](lab5/lab5.qmd)

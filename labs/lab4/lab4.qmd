@@ -155,11 +155,23 @@ The worst case is 0.030% error at 659 Hz, so every note in Für Elise is ok sinc
 
 #### Is checking 220 Hz and 1000 Hz sufficient?
 
-Not by itself. The error bound $0.5/N \approx 0.5 f/10^6$ grows with frequency, so the worst case is set by the highest note played. Für Elise reaches 1319 Hz, which is above 1000 Hz.
-$$
-\frac{0.5}{N} = \frac{0.5}{758} = 0.066\,\% \ \text{at 1319 Hz}
-$$
+No. The error of each note is found by rounding $10^6/f$ to the nearest whole number of ticks $N$ and comparing the resulting output frequency to the requested one: $\text{error} = \dfrac{10^6/N - f}{f}$.
+This breaks up the error into two parts: 
 
+- The offset depends on the remainder, which jumps around from
+  one pitch to the next. Any pitch can land anywhere from 0 to 0.5 (when $10^6/f$ falls halfway between two integers).
+- The factor $f/10^6$ grows with frequency, so higher notes amplify whatever
+  offset they get.
+
+Therefore, the largest actual error can occur at any note, not necessarily the highest frequency one. For example for Für Elise: 
+
+| Pitch | 10^6 mod f | Offset | Error |
+|---|---|---|---|
+| 1000 Hz | 0 | 0 | 0% |
+| 1319 Hz (highest) | 198 | 198/1319 = 0.15 | 0.020% |
+| 659 Hz | 297 | 297/659 = 0.45 |0.030 % (worst in the song)|
+
+So since you don't know which frequencies will cause the highest offset, you must check values between 220 Hz and 1000 Hz.
 
 ### Schematic
 
