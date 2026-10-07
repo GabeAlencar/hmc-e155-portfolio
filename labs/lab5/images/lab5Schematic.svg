@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" width="1120" height="720" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <title>Lab 5 motor encoder interface schematic</title>
+  <rect x="0" y="0" width="1120" height="720" fill="#ffffff"/>
+  <rect x="8" y="8" width="1104" height="704" fill="none" stroke="#000" stroke-width="2"/>
+
+  <g stroke="#000" stroke-width="2" fill="none" stroke-linecap="square">
+    <!-- V1 bench supply (DC voltage source) -->
+    <circle cx="150" cy="300" r="32"/>
+    <!-- V1+ to motor M+ (cable pin 1) -->
+    <polyline points="150,268 150,210 330,210 330,268"/>
+    <!-- V1- down to ground; motor M- (cable pin 2) joins it -->
+    <polyline points="150,332 150,490"/>
+    <polyline points="330,332 330,390 150,390"/>
+
+    <!-- M1 motor symbol -->
+    <circle cx="330" cy="300" r="32"/>
+
+    <!-- M1 outline (motor + encoder are one part with a 6-wire cable) -->
+    <rect x="280" y="150" width="370" height="300" stroke-dasharray="8 6" stroke-width="1.5"/>
+    <!-- motor shaft to encoder magnet (mechanical link) -->
+    <line x1="362" y1="300" x2="470" y2="300" stroke-dasharray="3 5" stroke-width="1.5"/>
+
+    <!-- Hall quadrature encoder block -->
+    <rect x="470" y="200" width="140" height="220"/>
+
+    <!-- Encoder VCC (pin 4) to +5V rail and the adapter +5V pin -->
+    <polyline points="540,200 540,120 740,120 740,200 820,200"/>
+    <!-- Encoder GND (pin 3) -->
+    <polyline points="540,420 540,490"/>
+    <!-- Encoder A (pin 5) to PB0, B (pin 6) to PB1 -->
+    <polyline points="610,260 820,260"/>
+    <polyline points="610,320 820,320"/>
+    <!-- Adapter GND pin -->
+    <polyline points="820,380 740,380 740,490"/>
+
+    <!-- Breadboard adapter connector block -->
+    <rect x="820" y="170" width="190" height="240"/>
+
+    <!-- Ground symbols -->
+    <g id="gnd1"><line x1="132" y1="490" x2="168" y2="490"/><line x1="140" y1="497" x2="160" y2="497"/><line x1="146" y1="504" x2="154" y2="504"/></g>
+    <g><line x1="522" y1="490" x2="558" y2="490"/><line x1="530" y1="497" x2="550" y2="497"/><line x1="536" y1="504" x2="544" y2="504"/></g>
+    <g><line x1="722" y1="490" x2="758" y2="490"/><line x1="730" y1="497" x2="750" y2="497"/><line x1="736" y1="504" x2="744" y2="504"/></g>
+  </g>
+
+  <!-- Junction dot where motor M- meets V1- / ground -->
+  <circle cx="150" cy="390" r="5" fill="#000"/>
+
+  <!-- Source and motor glyphs -->
+  <text x="150" y="292" text-anchor="middle" font-size="20" font-weight="bold">+</text>
+  <text x="150" y="320" text-anchor="middle" font-size="22" font-weight="bold">−</text>
+  <text x="330" y="308" text-anchor="middle" font-size="22" font-weight="bold">M</text>
+
+  <!-- V1 labels -->
+  <text x="40" y="285" font-weight="bold">V1</text>
+  <text x="40" y="303">Bench DC</text>
+  <text x="40" y="320">supply</text>
+  <text x="40" y="338">12 V</text>
+
+  <!-- M1 labels -->
+  <text x="290" y="172" font-weight="bold">M1  25GA370-34</text>
+  <text x="290" y="190" font-size="12">gear motor (1:34), hall encoder</text>
+  <text x="372" y="292" font-size="12">shaft magnet</text>
+
+  <!-- Encoder block labels -->
+  <text x="540" y="244" text-anchor="middle" font-weight="bold">Hall</text>
+  <text x="540" y="262" text-anchor="middle" font-weight="bold">quadrature</text>
+  <text x="540" y="280" text-anchor="middle" font-weight="bold">encoder</text>
+  <text x="540" y="350" text-anchor="middle" font-size="12">12 PPR at motor,</text>
+  <text x="540" y="365" text-anchor="middle" font-size="12">408 PPR at output</text>
+  <text x="548" y="216" font-size="12">VCC</text>
+  <text x="548" y="412" font-size="12">GND</text>
+  <text x="602" y="255" text-anchor="end" font-size="12">A</text>
+  <text x="602" y="315" text-anchor="end" font-size="12">B</text>
+
+  <!-- Cable pin numbers where each wire leaves M1 -->
+  <text x="186" y="204" font-size="12">1  M+ (red)</text>
+  <text x="176" y="384" font-size="12">2  M− (black)</text>
+  <text x="548" y="470" font-size="12">3  GND (green)</text>
+  <text x="548" y="142" font-size="12">4  +5V (blue)</text>
+  <text x="656" y="253" font-size="12">5  A (yellow)</text>
+  <text x="656" y="313" font-size="12">6  B (white)</text>
+
+  <!-- Power rail label -->
+  <text x="640" y="112" font-weight="bold">+5V</text>
+
+  <!-- Adapter connector labels -->
+  <text x="915" y="150" text-anchor="middle" font-weight="bold">E155 dev board</text>
+  <text x="915" y="165" text-anchor="middle" font-size="12">(breadboard adapter v4, STM32L432KC)</text>
+  <text x="828" y="196" font-size="13">+5V</text>
+  <text x="828" y="212" font-size="11">J1 pin 19</text>
+  <text x="828" y="256" font-size="13">PB0 (MCU pin 14)</text>
+  <text x="828" y="272" font-size="11">J1 pin 11, Nucleo D3</text>
+  <text x="828" y="316" font-size="13">PB1 (MCU pin 15)</text>
+  <text x="828" y="332" font-size="11">J3 pin 8, Nucleo D6</text>
+  <text x="828" y="376" font-size="13">GND</text>
+  <text x="828" y="392" font-size="11">J1 pin 18</text>
+
+  <!-- Notes -->
+  <text x="30" y="560" font-weight="bold">Notes</text>
+  <text x="30" y="580" font-size="12">1. PB0 and PB1 are 5 V tolerant (FT_a, DS11451 Table 14). Their internal pull-up/pull-down</text>
+  <text x="44" y="595" font-size="12">resistors are disabled in software, as required for inputs above VDD + 0.3 V.</text>
+  <text x="30" y="613" font-size="12">2. The encoder board has its own pull-ups to its +5 V supply, so A and B swing 0 to 5 V.</text>
+  <text x="30" y="631" font-size="12">3. Cable pins are numbered in connector order, red wire (1) to white wire (6), as in the 25GA370 wiring photo.</text>
+  <text x="30" y="649" font-size="12">4. All three ground symbols are the same node: the supply's negative terminal is tied to board GND.</text>
+  <text x="30" y="667" font-size="12">5. The STM32L432KC, Nucleo-L432KC, and E155 board are on-board parts and are not drawn.</text>
+
+  <!-- Title block -->
+  <g stroke="#000" stroke-width="1.5" fill="none">
+    <rect x="770" y="560" width="330" height="140"/>
+    <line x1="770" y1="600" x2="1100" y2="600"/>
+    <line x1="770" y1="630" x2="1100" y2="630"/>
+    <line x1="770" y1="660" x2="1100" y2="660"/>
+    <line x1="960" y1="660" x2="960" y2="700"/>
+  </g>
+  <text x="780" y="577" font-size="11">Title</text>
+  <text x="780" y="594" font-weight="bold">E155 Lab 5: Motor Encoder Interface</text>
+  <text x="780" y="620" font-size="13">Author: Gabe Alencar</text>
+  <text x="780" y="650" font-size="13">Date: 10/5/2026</text>
+  <text x="780" y="685" font-size="13">Sheet 1 of 1</text>
+  <text x="970" y="685" font-size="13">Rev A</text>
+</svg>

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabe Alencar">
-<meta name="dcterms.date" content="2026-09-29">
+<meta name="dcterms.date" content="2026-10-05">
 
-<title>Lab 4: Digital Audio – E155 Portfolio</title>
+<title>Lab 5: Interrupts – E155 Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,6 +75,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -161,14 +164,15 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a>
   <ul class="collapse">
-  <li><a href="#timer-selection" id="toc-timer-selection" class="nav-link" data-scroll-target="#timer-selection">Timer Selection</a></li>
-  <li><a href="#register-level-drivers" id="toc-register-level-drivers" class="nav-link" data-scroll-target="#register-level-drivers">Register-Level Drivers</a></li>
-  <li><a href="#pitch-generation-tim1" id="toc-pitch-generation-tim1" class="nav-link" data-scroll-target="#pitch-generation-tim1">Pitch Generation (TIM1)</a></li>
-  <li><a href="#song-player" id="toc-song-player" class="nav-link" data-scroll-target="#song-player">Song Player</a></li>
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
+  <li><a href="#quadrature-decoding-with-interrupts" id="toc-quadrature-decoding-with-interrupts" class="nav-link" data-scroll-target="#quadrature-decoding-with-interrupts">Quadrature Decoding with Interrupts</a></li>
+  <li><a href="#velocity-measurement" id="toc-velocity-measurement" class="nav-link" data-scroll-target="#velocity-measurement">Velocity Measurement</a></li>
+  <li><a href="#display" id="toc-display" class="nav-link" data-scroll-target="#display">Display</a></li>
   </ul></li>
   <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a>
   <ul class="collapse">
   <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
+  <li><a href="#flowchart" id="toc-flowchart" class="nav-link" data-scroll-target="#flowchart">Flowchart</a></li>
   <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
   </ul></li>
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a></li>
@@ -181,7 +185,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 4: Digital Audio</h1>
+<h1 class="title">Lab 5: Interrupts</h1>
 </div>
 
 
@@ -198,7 +202,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2026</p>
+      <p class="date">October 5, 2026</p>
     </div>
   </div>
   
@@ -212,171 +216,234 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this lab, the STM32L432KC microcontroller was programmed to play music on an 8 Ω speaker. The MCU reads a list of notes, each given as a pitch in Hz and a duration in ms, and produces a square wave at each pitch for the given duration. A pitch of 0 is a rest, and a duration of 0 marks the end of the song. The songs Für Elise and Happy Birthday are played.</p>
-<p>The GPIO pin cannot drive a speaker directly, so the square wave passes through a resistor divider and a volume potentiometer into an LM386 audio amplifier, which drives the speaker. This was the first lab on the MCU. All peripheral access is done through my own #define base addresses and register structs, written from the RM0394 reference manual. The code was written in C in SEGGER Embedded Studio and downloaded to the board over the on-board J-Link.</p>
+<p>In this lab, the STM32L432KC was programmed to measure the speed and direction of a 25GA370 brushed DC gear motor from its hall-effect quadrature encoder. The encoder has two outputs, A and B, which are square waves about 90° apart. Every rising and falling edge on both channels triggers an interrupt, and the interrupt handlers keep a signed count of the encoder steps. A timer interrupt clocked by a 32.768 kHz crystal samples that count every 0.5 s. The main loop converts each sample to revolutions per second and prints the speed and direction to the SEGGER Debug Terminal at 2 Hz.</p>
+<p>The Lab 4 RCC, GPIO, and timer drivers were reused and extended, for example with digitalRead(), pinResistor(), and periodic timer interrupts. New drivers were written for the EXTI interrupt path (SYSCFG), backup-domain power control (PWR), and the low-power timer (LPTIM). The new peripherals use the CMSIS device header (stm32l432xx.h) and registers are accessed by their reference-manual names (EXTI-&gt;PR1, SYSCFG-&gt;EXTICR[0], LPTIM1-&gt;ARR), and the NVIC is set up with the CMSIS functions NVIC_EnableIRQ() and __enable_irq(). The Lab 4 driver functions are reused, but their hand-written register structs were removed since CMSIS defines the same names (RCC, GPIOA, TIM2, etc.) and both cannot be included together.</p>
 </section>
 <section id="design-and-testing-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
-<section id="timer-selection" class="level3">
-<h3 class="anchored" data-anchor-id="timer-selection">Timer Selection</h3>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
+<p>The motor’s six-wire cable carries the motor power (red M+, black M−), the encoder supply (blue +5 V, green GND), and the encoder outputs (yellow A, white B). The motor runs directly from a bench supply, so the MCU only reads the encoder.</p>
+<p>The lab page warns that these encoders use 5 V logic. The encoder board pulls A and B up to its own supply, so they swing from 0 to 5 V, while the STM32L432KC runs at 3.3 V. A and B therefore go to PB0 and PB1, which are 5 V tolerant. The internal pull-up and pull-down resistors on PB0 and PB1 are disabled since the datasheet requires this for any input above VDD + 0.3 V.</p>
+<p>The lab has two versions of this motor. The 25GA370-10 has a 1:10 gearbox and 120 pulses per revolution. The 25GA370-34 has a 1:34 gearbox and 408 pulses per revolution. The encoder is on the motor shaft and gives 12 pulses per motor revolution, so the pulses per output revolution are 12 times the gear ratio. The ratio is a single #define MOTOR_GEAR_RATIO in encoder.h, and every other constant is derived from it.</p>
+</section>
+<section id="quadrature-decoding-with-interrupts" class="level3">
+<h3 class="anchored" data-anchor-id="quadrature-decoding-with-interrupts">Quadrature Decoding with Interrupts</h3>
+<p>An edge on PB0 or PB1 has to pass through five stages to reach its handler. Stages 1 to 4 are configured in encoderInit(), and stage 5 in main():</p>
+<ol type="1">
+<li>RCC: the SYSCFG clock is turned on (RCC_APB2ENR.SYSCFGEN).</li>
+<li>SYSCFG: SYSCFG_EXTICR1 routes port B to EXTI lines 0 and 1.</li>
+<li>EXTI: both edges are selected (RTSR1 and FTSR1), then the lines are unmasked in IMR1.</li>
+<li>NVIC: NVIC_EnableIRQ(EXTI0_IRQn) and NVIC_EnableIRQ(EXTI1_IRQn) set bits 6 and 7 of ISER0. EXTI0 and EXTI1 are positions 6 and 7 in the vector table.</li>
+<li>CPU: interrupts are enabled globally with __enable_irq(), which is the cpsie i instruction that clears PRIMASK. The handlers are named EXTI0_IRQHandler and EXTI1_IRQHandler to match the vector table.</li>
+</ol>
+<p>Both handlers do the same work. Each one first checks and clears its EXTI pending bit, so an edge that arrives while the handler runs raises a new interrupt. It then reads both A and B and looks up the change from the previous state in a 16-entry table:</p>
 <ul>
-<li>TIM1 makes the pitch. It runs in PWM mode 1 on channel 1 and drives PA8 directly through alternate function AF1.</li>
-<li>TIM2 times each note. It runs in one-pulse mode as a blocking delay, using the initTIM() / delay_millis().</li>
+<li>A step with A leading B adds 1 (CW), and a step with B leading A subtracts 1 (CCW). A glitch on one channel gives a +1 and a −1, which cancel.</li>
+<li>No change adds 0.</li>
+<li>A jump of two states means both channels changed between two reads, so one edge was missed. This is counted in invalid_count. It is not printed, but it can be watched in the SEGGER debugger.</li>
 </ul>
+<p>Every edge of both channels is counted, so each encoder pulse gives 4 counts, which is 1632 counts per output revolution for the 1:34 motor. Counting state changes also makes the measurement independent of the exact phase between A and B.</p>
+<p>The direction comes from the order of the edges. ENCODER_CW_SIGN in encoder.h holds the sign. It defaults to 1 and is confirmed once per motor part by running the motor and watching the shaft.</p>
+<p>The startup order also matters. The EXTI lines are unmasked before the starting state is read, and the NVIC is enabled only after the read. An edge before the read is already part of the starting state, and an edge after it stays latched in EXTI_PR1 until the handler runs, so the first edge always decodes correctly.</p>
 </section>
-<section id="register-level-drivers" class="level3">
-<h3 class="anchored" data-anchor-id="register-level-drivers">Register-Level Drivers</h3>
-<ul>
-<li>STM32L432KC_RCC.h/.c: RCC register struct at 0x40021000, the clock configuration tutorial’s field values and functions (enableHSI16(), selectSysclk(), setAHBPrescaler(), configurePLL()), and configureClock().</li>
-<li>STM32L432KC_GPIO.h/.c: GPIO register struct (GPIOA at 0x48000000), plus gpioEnable(), pinMode(), pinAltFunction(), and digitalWrite().</li>
-<li>STM32L432KC_TIM.h/.c: A timer register struct shared by TIM1, TIM2, TIM15 and TIM16 (TIM1 at 0x40012C00, TIM2 at 0x40000000), plus initPWM(), setPWMFreq(), initTIM(), and delay_millis().</li>
-<li>STM32L432KC.h: Top-level header with the clock frequency constants.</li>
-<li>main.c: The two scores and the playSong() loop.</li>
-</ul>
+<section id="velocity-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="velocity-measurement">Velocity Measurement</h3>
+<p>Speed is measured by counting encoder steps in a fixed window instead of timing individual edges. A timer interrupt fires every 0.5 s. It saves the difference between the current count and the count at the previous interrupt, then sets a flag. The main loop converts that difference to rev/s with floating-point math and prints it. The encoder and timer interrupts all have the same NVIC priority, so none of them can interrupt another partway through an update.</p>
+<p>The window is timed by LPTIM1, clocked by the Nucleo’s 32.768 kHz LSE crystal. 16384 ticks is exactly 0.5 s. The HSI16 oscillator that clocks the CPU and the regular timers is specified at 15.88–16.08 MHz at 30 °C, plus up to ±1 % from 0 to 85 °C. Every percent of time-base error is a percent of speed error. The Nucleo-L432KC has no high-speed crystal connected, but its 32.768 kHz crystal is accurate enough.</p>
+<p>Starting the crystal takes four steps:</p>
+<ol type="1">
+<li>turn on the PWR clock (RCC_APB1ENR1.PWREN)</li>
+<li>unlock the backup domain (PWR_CR1.DBP)</li>
+<li>set RCC_BDCR.LSEON</li>
+<li>wait for LSERDY</li>
+</ol>
+<p>LPTIM1 is then clocked from the crystal through RCC_CCIPR.LPTIM1SEL. If the crystal has not started after 5 s, the code falls back to TIM6 on HSI16 and says so on the terminal. The system clock stays on HSI16 at 16 MHz, which is plenty for the interrupt load calculated below.</p>
 </section>
-<section id="pitch-generation-tim1" class="level3">
-<h3 class="anchored" data-anchor-id="pitch-generation-tim1">Pitch Generation (TIM1)</h3>
-<p>initPWM() disables slave mode (SMCR = 0) and sets PSC = 15. It puts channel 1 in PWM mode 1 (OC1M = 0110) with CCR1 preload, then enables the channel output (CC1E) and the main output (MOE) and starts the counter. For each note, setPWMFreq() computes the period in ticks, rounded to the nearest integer, and writes ARR = N − 1 and CCR1 = N/2 for a 50 % duty cycle. It then forces an update event so the new pitch takes effect immediately. A rest writes CCR1 = 0, which holds the output low for the whole note.</p>
-</section>
-<section id="song-player" class="level3">
-<h3 class="anchored" data-anchor-id="song-player">Song Player</h3>
-<p>playSong() walks through a {pitch, duration} array until it reaches a duration of 0. For each entry it calls setPWMFreq() and then delay_millis().</p>
+<section id="display" class="level3">
+<h3 class="anchored" data-anchor-id="display">Display</h3>
+<p>printf output goes to the SEGGER Debug Terminal over RTT, because the project’s Library I/O setting is RTT. The only other change needed was turning on the project’s float printf option, so the _write() override from the tutorial is not needed. At startup the program prints the motor part, the counts per revolution, and which time base is in use. Every 0.5 s it prints one line in this format:</p>
+<pre><code>Speed: x.xxx rev/s   Direction: CW|CCW|stopped</code></pre>
+<p>The speed is the magnitude, and the direction is given in words.</p>
 </section>
 </section>
 <section id="technical-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
-<p>The source code for this lab can be found in this <a href="https://github.com/GabeAlencar/hmc-e155-portfolio/tree/main/labFiles/lab4">GitHub repository</a>.</p>
+<p>The source code for this lab can be found in this <a href="https://github.com/GabeAlencar/hmc-e155-portfolio/tree/main/labFiles/lab5">GitHub repository</a>.</p>
 <section id="calculations" class="level3">
 <h3 class="anchored" data-anchor-id="calculations">Calculations</h3>
-<section id="pitch-and-timer-configuration" class="level4">
-<h4 class="anchored" data-anchor-id="pitch-and-timer-configuration">Pitch and timer configuration</h4>
-<p>TIM1 counts 0, 1, …, ARR and then wraps, so one period of the output is N = ARR + 1 ticks:</p>
+<section id="converting-pulses-to-velocity" class="level4">
+<h4 class="anchored" data-anchor-id="converting-pulses-to-velocity">Converting pulses to velocity</h4>
+<p>The encoder gives 12 pulses per motor revolution on each channel, and the gearbox divides the speed by its ratio <span class="math inline">\(G\)</span>. Counting both edges of both channels gives 4 counts per pulse:</p>
 <p><span class="math display">\[
-f_{out} = \frac{f_{TIM}}{(PSC+1)(ARR+1)} = \frac{16\ \text{MHz}}{16\cdot N} = \frac{10^6\ \text{Hz}}{N}
+N = 4 \cdot PPR \cdot G
+\qquad
+G = 34
+\qquad
+N = 4 \cdot 12 \cdot 34 = 1632
 \]</span></p>
-<p>The code picks the nearest integer, N = (1000000 + f/2) / f, then sets ARR = N − 1 and CCR1 = N/2 for a 50 % duty cycle.</p>
-</section>
-<section id="duration-and-timer-configuration" class="level4">
-<h4 class="anchored" data-anchor-id="duration-and-timer-configuration">Duration and timer configuration</h4>
-<p>TIM2 ticks every 1 µs. For a note of ms milliseconds the code writes ARR = 1000·ms − 1, forces an update (UG, which clears CNT to 0), and starts the counter. The counter runs 0 … ARR, so the overflow comes after ARR + 1 = 1000·ms ticks, which is exactly ms milliseconds. One-pulse mode stops the counter at that overflow, and URS = 1 makes sure only the real overflow sets UIF. The code then waits on UIF.</p>
-</section>
-<section id="hz-and-1000-hz-within-1" class="level4">
-<h4 class="anchored" data-anchor-id="hz-and-1000-hz-within-1">220 Hz and 1000 Hz within 1 %</h4>
-<p>TIM1 is clocked at <span class="math inline">\(f_{TIM} = 16\ \text{MHz}\)</span> with <span class="math inline">\(PSC = 15\)</span>, so the counter clock is</p>
+<p>If <span class="math inline">\(\Delta n\)</span> counts arrive during a window of length <span class="math inline">\(T\)</span>, the angular velocity and direction are</p>
 <p><span class="math display">\[
-f_{CNT} = \frac{f_{TIM}}{PSC+1} = \frac{16\ \text{MHz}}{16} = 1\ \text{MHz}
-\]</span></p>
-<p>The counter runs <span class="math inline">\(0 \dots ARR\)</span> and wraps, so one output period is <span class="math inline">\(N = ARR + 1\)</span> ticks:</p>
-<p><span class="math display">\[
-f_{out} = \frac{f_{TIM}}{(PSC+1)(ARR+1)} = \frac{10^6\ \text{Hz}}{N},
-\qquad N = \text{round}\!\left(\frac{10^6}{f}\right),
-\qquad ARR = N-1,
-\qquad CCR1 = \frac{N}{2}
-\]</span></p>
-<p>220 Hz:</p>
-<p><span class="math display">\[
-\frac{10^6}{220} = 4545.45 \;\Rightarrow\; N = 4545,\quad ARR = 4544,\quad CCR1 = 2272
-\]</span></p>
-<p><span class="math display">\[
-f_{out} = \frac{10^6}{4545} = 220.022\ \text{Hz},
-\qquad \text{error} = \frac{220.022 - 220}{220} = +0.010\,\% &lt; 1\,\%
-\]</span></p>
-<p>1000 Hz:</p>
-<p><span class="math display">\[
-\frac{10^6}{1000} = 1000 \;\Rightarrow\; N = 1000,\quad ARR = 999,\quad CCR1 = 500
-\]</span></p>
-<p><span class="math display">\[
-f_{out} = \frac{10^6}{1000} = 1000.000\ \text{Hz},
-\qquad \text{error} = 0\,\% &lt; 1\,\%
+v = \frac{\Delta n}{N \, T}\ \text{rev/s},
+\qquad
+\text{direction} =
+\begin{cases}
+\text{CW} &amp; \Delta n &gt; 0 \\
+\text{CCW} &amp; \Delta n &lt; 0 \\
+\text{stopped} &amp; \Delta n = 0
+\end{cases}
 \]</span></p>
 </section>
-<section id="maxmin-duration" class="level4">
-<h4 class="anchored" data-anchor-id="maxmin-duration">Max/min duration</h4>
-<p>Minimum: delay_millis() takes a whole number of milliseconds, so the shortest note is 1 ms (<span class="math inline">\(ARR = 999\)</span>). The hardware resolution is one tick, <span class="math inline">\(1/f_{CNT} = 1\ \mu\text{s}\)</span>.</p>
-<p>Maximum: TIM2’s ARR is 32 bits:</p>
+<section id="update-rate" class="level4">
+<h4 class="anchored" data-anchor-id="update-rate">Update rate</h4>
+<p>LPTIM1 counts the 32.768 kHz crystal from 0 to ARR = 16383, so</p>
 <p><span class="math display">\[
-T_{max} = \frac{2^{32}}{f_{CNT}} = \frac{4\,294\,967\,296}{10^6\ \text{Hz}} \approx 4295\ \text{s} \approx 71.6\ \text{min},
+T = \frac{16384}{32768\ \text{Hz}} = 0.5\ \text{s},
+\qquad
+f_{update} = \frac{1}{T} = 2\ \text{Hz} \ge 1\ \text{Hz}
 \]</span></p>
 </section>
-<section id="maxmin-frequencies" class="level4">
-<h4 class="anchored" data-anchor-id="maxmin-frequencies">Max/min frequencies</h4>
-<p>Minimum: TIM1’s ARR is 16 bits, so <span class="math inline">\(N \le 2^{16} = 65\,536\)</span>:</p>
+<section id="resolution" class="level4">
+<h4 class="anchored" data-anchor-id="resolution">Resolution</h4>
+<p>One count in one window is the smallest change that can be shown:</p>
 <p><span class="math display">\[
-f_{min} = \frac{10^6}{65\,536} = 15.26\ \text{Hz}
+\Delta v = \frac{1}{N\,T} = \frac{1}{1632 \cdot 0.5\ \text{s}} = 0.0012\ \text{rev/s}
 \]</span></p>
-<p>Maximum: the error bound must satisfy a 1% error since N varies by at most 0.5 our calculation is</p>
+<p>At the nominal 2.5 rev/s, a window holds <span class="math inline">\(2.5 \cdot 1632 \cdot 0.5 = 2040\)</span> counts, so ±1 count is ±0.05 %. Any motion of at least one count per window, down to 0.0012 rev/s, displays a non-zero speed.</p>
+</section>
+<section id="interrupts-vs.-polling-at-high-speed" class="level4">
+<h4 class="anchored" data-anchor-id="interrupts-vs.-polling-at-high-speed">Interrupts vs.&nbsp;polling at high speed</h4>
+<p>A polling loop must look at both pins at least once per encoder state, or it can see two channels change at once and lose the step. At high speed that requires</p>
 <p><span class="math display">\[
-\frac{0.5}{N} \le 0.01 \;\Rightarrow\; N \ge 50 \;\Rightarrow\; f_{max} = \frac{10^6}{50} = 20\ \text{kHz}
+T_{poll} &lt; \frac{1}{4 \cdot PPR \cdot v} = \frac{1}{4 \cdot 408 \cdot 3\ \text{rev/s}} = 204\ \mu\text{s}
 \]</span></p>
-<p>This covers the whole audible range. The absolute hardware limit is <span class="math inline">\(N = 2\)</span> which corresponds to 500 kHz, but the accuracy is poor.</p>
-</section>
-<section id="all-notes-in-für-elise" class="level4">
-<h4 class="anchored" data-anchor-id="all-notes-in-für-elise">All notes in Für Elise</h4>
-<p>Every distinct pitch in the starter code computed with the formulas above can be found here <a href="images/lab4FurEliseNotes.xlsx">Für Elise note calculations</a></p>
-<p>The worst case is 0.030% error at 659 Hz, so every note in Für Elise is ok since 0.030% &lt; 1%.</p>
-</section>
-<section id="is-checking-220-hz-and-1000-hz-sufficient" class="level4">
-<h4 class="anchored" data-anchor-id="is-checking-220-hz-and-1000-hz-sufficient">Is checking 220 Hz and 1000 Hz sufficient?</h4>
-<p>No.&nbsp;The error of each note is found by rounding <span class="math inline">\(10^6/f\)</span> to the nearest whole number of ticks <span class="math inline">\(N\)</span> and comparing the resulting output frequency to the requested one: <span class="math inline">\(\text{error} = \dfrac{10^6/N - f}{f}\)</span>. This breaks up the error into two parts:</p>
-<ul>
-<li>The offset depends on the remainder, which jumps around from one pitch to the next. Any pitch can land anywhere from 0 to 0.5 (when <span class="math inline">\(10^6/f\)</span> falls halfway between two integers).</li>
-<li>The factor <span class="math inline">\(f/10^6\)</span> grows with frequency, so higher notes amplify whatever offset they get.</li>
-</ul>
-<p>Therefore, the largest actual error can occur at any note, not necessarily the highest frequency one. For example for Für Elise:</p>
+<p>A loop with a delay, like the 200 ms delay in the interrupt tutorial’s polling example, only keeps up below <span class="math inline">\(1/(4 \cdot 408 \cdot 0.2\ \text{s}) = 0.003\)</span> rev/s. It would miss nearly every pulse at any useful speed. A tight loop with no delay could decode fast enough, since one pass is a few µs. However, when it comes to formatting and printing, one float takes on many cycles and this cuts into the time you have to sample. The tradeoffs are summarized below.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Pitch</th>
-<th>10^6 mod f</th>
-<th>Offset</th>
-<th>Error</th>
+<th></th>
+<th>Interrupts</th>
+<th>Polling</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1000 Hz</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
+<td>Time from edge to response</td>
+<td>about 0.75 µs to enter the handler, pins read within about 5–15 µs</td>
+<td>up to one full loop pass, including any printing</td>
 </tr>
 <tr class="even">
-<td>1319 Hz (highest)</td>
-<td>198</td>
-<td>198/1319 = 0.15</td>
-<td>0.020%</td>
+<td>CPU time spent on the encoder at 3 rev/s (stopped)</td>
+<td>about 4–9 % (0%)</td>
+<td>always 100 %</td>
 </tr>
 <tr class="odd">
-<td>659 Hz</td>
-<td>297</td>
-<td>297/659 = 0.45</td>
-<td>0.030 % (worst in the song)</td>
+<td>Other code in the loop</td>
+<td>can take as long as it needs</td>
+<td>must finish in under 204 µs</td>
 </tr>
 </tbody>
 </table>
-<p>So since you don’t know which frequencies will cause the highest offset, you must check values between 220 Hz and 1000 Hz.</p>
 </section>
+</section>
+<section id="flowchart" class="level3">
+<h3 class="anchored" data-anchor-id="flowchart">Flowchart</h3>
+<p>Figures 1 to 3 show the main loop and each interrupt handler. Figure 4 shows how they communicate.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  M0(["main()"]) --&gt; M1["configureClock()&lt;br/&gt;encoderInit()&lt;br/&gt;velocityInit()"]
+  M1 --&gt; M2["__enable_irq()"]
+  M2 --&gt; M3["wait until sample_ready = 1"]
+  M3 --&gt; M4["sample_ready = 0&lt;br/&gt;counts = window_counts"]
+  M4 --&gt; M5["rev/s = counts / 816&lt;br/&gt;print speed, direction"]
+  M5 --&gt; M3
+</pre>
+</div>
+<p></p><figcaption> Figure 1: main loop</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  X0(["EXTI0 / EXTI1:&lt;br/&gt;edge on A or B"]) --&gt; X1["clear pending bit"]
+  X1 --&gt; X2["read A, B"]
+  X2 --&gt; X3{"both changed?"}
+  X3 -- no --&gt; X4["position += step"]
+  X3 -- yes --&gt; X5["invalid_count++"]
+  X4 --&gt; X6(["prev_state = new&lt;br/&gt;return"])
+  X5 --&gt; X6
+</pre>
+</div>
+<p></p><figcaption> Figure 2: EXTI0/EXTI1 handler (encoder edge)</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  T0(["LPTIM1 (TIM6):&lt;br/&gt;every 0.5 s"]) --&gt; T1["clear flag"]
+  T1 --&gt; T2["window_counts = Δposition&lt;br/&gt;sample_ready = 1"]
+  T2 --&gt; T3(["return"])
+</pre>
+</div>
+<p></p><figcaption> Figure 3: LPTIM1 handler</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  EX["EXTI handler"] -- position --&gt; TM["timer handler"]
+  TM -- "window_counts&lt;br/&gt;sample_ready" --&gt; MN["main loop"]
+</pre>
+</div>
+<p></p><figcaption> Figure 4: how the handlers and main loop communicate</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="schematic" class="level3">
 <h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/lab4Schematic.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 1: speaker driver schematic</figcaption>
+<p><img src="images/lab5Schematic.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: encoder and motor wiring</figcaption>
 </figure>
 </div>
-<p>Figure 1 shows the speaker circuit. The STM32L432KC and header are on the E155 development board and are not redrawn here. See the <a href="https://hmc-e155.github.io/assets/doc/E155%20FA22%20Development%20Board%20Schematic.pdf">E155 development board schematic</a> for how they are wired.</p>
+<p>Figure 5 shows the circuit built on the breadboard.See the <a href="https://hmc-e155.github.io/assets/doc/E155%20FA22%20Development%20Board%20Schematic.pdf">E155 development board schematic</a> for how PB0, PB1, +5V, and GND reach the pins.</p>
 </section>
 </section>
 <section id="results-and-discussion" class="level2">
 <h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
-<p>The design meets all of the specifications.The MCU plays Für Elise and Happy Birthday through an LM386 amplifier, with a potentiometer for volume. Every pitch is generated by hardware PWM on TIM1, and every note duration is timed by TIM2. All peripheral access goes through my own register-level drivers. I spent a total of 15 hours working on this lab.</p>
+<p>Overall, the design measures the speed and direction of the encoder motor with interrupts on both edges of both encoder channels, times each 0.5 s sample with a crystal-clocked timer, and prints the result twice per second. The ISRs only update counts and flags, and all conversion and printing happens in the main loop. I spent a total of 15 hours working on this lab.</p>
 </section>
 <section id="ai-prototype-summary" class="level2">
 <h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
-<p>For this lab’s AI prototype, I gave Gemini the prompt from the prototype page:</p>
-<p>What timers should I use on the STM32L432KC to generate frequencies ranging from 220Hz to 1kHz? What’s the best choice of timer if I want to easily connect it to a GPIO pin? What formulae are relevant, and what registers need to be set to configure them properly?</p>
-<p>The output was pretty high quality. It named the right timer families, gave the correct PWM frequency formula, and listed almost exactly the register sequence my final initPWM() uses: PSC, ARR, CCR1, OC1M = 0110, OC1PE, CC1E, ARPE, UG and CEN. It also flagged the BDTR.MOE bit that advanced timers need. Getting that list from RM0394 by hand means tons of saved time. The LLM was much faster at telling me what to search for.</p>
-<p>That being said, it still had no context and didn’t know about any of the pins. It also assumed the default 4 MHz clock, while my design switches to HSI16 at 16 MHz, so its example ARR values did not apply. Compared with the earlier HDL-generation prototypes, the LLM works better as a documentation search tool. Its answers are easy to check against the manual. Generated HDL, on the other hand, can look right and hide issues.</p>
+<p>For this lab’s AI prototype, I gave Gemini the prompt from the prototype page in a new chat with no other context:</p>
+<blockquote class="blockquote">
+<p>Write me interrupt handlers to interface with a quadrature encoder. I’m using the STM32L432KC, what pins should I connect the encoder to in order to allow it to easily trigger the interrupts?</p>
+</blockquote>
+<p>The answer was high quality. It recommended PA0 and PA1 (A0/A1 on the Nucleo) because EXTI lines 0 and 1 each have their own interrupt handler, and it explained that the EXTI line is the pin number regardless of the port. It also listed the Nucleo pins to avoid, which is the same thing I did when looking through the datasheet. I had built from the Nucleo user manual. The code it generated was very similar in structure to mine. One detail is that differs is that it reads A and B with a single read of the input data register instead of two digitalRead() calls.</p>
+<p>Overall, the LLM worked very well. It knew the five-stage EXTI path and the same pitfalls we covered in lecture. What it could not know again was anything about my hardware. For example, the pins, LEDs on PA9/PA10, etc.</p>
 
 
 </section>
