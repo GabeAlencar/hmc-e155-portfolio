@@ -15,7 +15,6 @@ int main(void) {
 
   printf("E155 Lab 5: 25GA370 1:%d motor, %d PPR, %d counts/rev\n",
          MOTOR_GEAR_RATIO, ENCODER_PPR, ENCODER_COUNTS_PER_REV);
-  printf("Starting the 32.768 kHz crystal (about 2 s)...\n");
 
   // encoder interrupts
   if (encoderInit() != 0 || velocityInit() != 0) {

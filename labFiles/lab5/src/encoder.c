@@ -3,18 +3,18 @@
 
 #include "encoder.h"
 
-// State is (A << 1) | B. With A leading B: 00 -> 10 -> 11 -> 01 -> 00
+// State
 #define STATE_A_SHIFT 1
 #define STATE_BITS    2
 #define NUM_STATES    4
 
-// Steps for each transition (+1 is one count toward CW)
+// Steps for each transition 
 #define STEP_NONE     0
 #define STEP_A_LEADS  (ENCODER_CW_SIGN)
 #define STEP_B_LEADS  (-(ENCODER_CW_SIGN))
-#define STEP_SKIP     2         // both channels changed: an edge was missed
+#define STEP_SKIP     2         // an edge was missed
 
-// Indexed by (previous state << STATE_BITS) | new state
+// state table
 static const int8_t STEP_TABLE[NUM_STATES * NUM_STATES] = {
   // new: 00         01            10            11
   STEP_NONE,    STEP_B_LEADS, STEP_A_LEADS, STEP_SKIP,      // previous 00
@@ -24,21 +24,20 @@ static const int8_t STEP_TABLE[NUM_STATES * NUM_STATES] = {
 };
 
 // Shared with the interrupt handlers
-static volatile uint32_t position      = 0;   // unsigned so it wraps cleanly
-static volatile uint32_t invalid_count = 0;   // missed edges (view in the debugger Watch window)
+static volatile uint32_t position      = 0;   
+static volatile uint32_t invalid_count = 0;   
 static volatile uint8_t  prev_state    = 0;
 
 static uint8_t readState(void) {
   return (uint8_t) ((digitalRead(ENCODER_A_PIN) << STATE_A_SHIFT) | digitalRead(ENCODER_B_PIN));
 }
 
-// Count one step from the previous state to the current one
 static void updatePosition(void) {
   uint8_t state = readState();
   int8_t  step  = STEP_TABLE[(prev_state << STATE_BITS) | state];
 
   if (step == STEP_SKIP) invalid_count++;
-  else                   position += (uint32_t) step;   // -1 wraps to subtract 1
+  else                   position += (uint32_t) step;  
 
   prev_state = state;
 }
@@ -53,7 +52,6 @@ int encoderInit(void) {
   configureInput(ENCODER_A_PIN);
   configureInput(ENCODER_B_PIN);
 
-  // Unmask EXTI, read the start state, then enable the NVIC so no edge is missed
   if (extiEnableInterrupt(ENCODER_A_PIN, EXTI_BOTH_EDGES) != 0) return -1;
   if (extiEnableInterrupt(ENCODER_B_PIN, EXTI_BOTH_EDGES) != 0) return -1;
   prev_state = readState();
@@ -67,7 +65,7 @@ uint32_t encoderPosition(void) {
   return position;
 }
 
-// Interrupt handlers: clear the pending bit first so a new edge is not lost
+// Interrupt handlers
 
 void ENCODER_A_IRQHandler(void) {
   if (extiPending(ENCODER_A_PIN)) {

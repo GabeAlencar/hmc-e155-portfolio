@@ -1,0 +1,867 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "component-1791917881616-qy03",
+      "toolId": "ground",
+      "x": 275,
+      "y": -175,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000"
+    },
+    {
+      "id": "component-1791917987134-w5ly",
+      "toolId": "v-rail",
+      "x": -30,
+      "y": -325,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000"
+    },
+    {
+      "toolId": "ground",
+      "x": 280,
+      "y": 30,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000",
+      "id": "component-1791924230414-o6ny"
+    },
+    {
+      "toolId": "v-rail",
+      "x": -30,
+      "y": -40,
+      "rotation": 0,
+      "flipped": false,
+      "strokeColor": "#000000",
+      "id": "component-1791924250234-mor8"
+    }
+  ],
+  "drawings": [
+    {
+      "id": "drawing-1791917066848-o80k",
+      "toolId": "text",
+      "x": -10,
+      "y": -215,
+      "rotation": 0,
+      "text": "PB0/19",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "borderWidth": 60,
+      "borderHeight": 20
+    },
+    {
+      "id": "drawing-1791917479603-91ji",
+      "toolId": "rectangle",
+      "x": 145,
+      "y": -230,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 130,
+      "shapeHeight": 230
+    },
+    {
+      "id": "drawing-1791917489167-ihab",
+      "toolId": "text",
+      "x": 145,
+      "y": -330,
+      "rotation": 0,
+      "text": "DS1722S\n(SOIC-8)",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12
+    },
+    {
+      "toolId": "text",
+      "x": -10,
+      "y": -185,
+      "rotation": 0,
+      "text": "PA5/7",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 60,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791917618827-wfzr"
+    },
+    {
+      "toolId": "text",
+      "x": -10,
+      "y": -155,
+      "rotation": 0,
+      "text": "PB5/11",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 60,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791917624258-cxbb"
+    },
+    {
+      "toolId": "text",
+      "x": 300,
+      "y": -245,
+      "rotation": 0,
+      "text": "PA6/8",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 60,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791917627897-07wn"
+    },
+    {
+      "id": "drawing-1791917999689-bnoz",
+      "toolId": "text",
+      "x": -30,
+      "y": -335,
+      "rotation": 0,
+      "text": "+3.3 V",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791918042212-tmex",
+      "toolId": "text",
+      "x": 110,
+      "y": -305,
+      "rotation": 0,
+      "text": "$V_{DDD}$",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9
+    },
+    {
+      "toolId": "text",
+      "x": 120,
+      "y": -275,
+      "rotation": 0,
+      "text": "SERMODE",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918110256-520x"
+    },
+    {
+      "toolId": "text",
+      "x": 110,
+      "y": -245,
+      "rotation": 0,
+      "text": "$V_{DDA}$",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918197892-qjn9"
+    },
+    {
+      "toolId": "text",
+      "x": 105,
+      "y": -215,
+      "rotation": 0,
+      "text": "CE",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918305620-ccfz"
+    },
+    {
+      "toolId": "text",
+      "x": 110,
+      "y": -185,
+      "rotation": 0,
+      "text": "SCLK",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918323774-c713"
+    },
+    {
+      "toolId": "text",
+      "x": 105,
+      "y": -155,
+      "rotation": 0,
+      "text": "SDI",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918337029-k6lv"
+    },
+    {
+      "toolId": "text",
+      "x": 185,
+      "y": -245,
+      "rotation": 0,
+      "text": "SDO",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918356085-qsk9"
+    },
+    {
+      "toolId": "text",
+      "x": 185,
+      "y": -195,
+      "rotation": 0,
+      "text": "GND",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 40,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791918438699-u517"
+    },
+    {
+      "id": "drawing-1791918576101-jfc6",
+      "toolId": "text",
+      "x": 75,
+      "y": -295,
+      "rotation": 0,
+      "text": "1",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -265,
+      "rotation": 0,
+      "text": "7",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791918626292-89bp"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -235,
+      "rotation": 0,
+      "text": "8",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791918648868-15h4"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -205,
+      "rotation": 0,
+      "text": "2",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791923191767-j4cf"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -175,
+      "rotation": 0,
+      "text": "3",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791923198120-983t"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -145,
+      "rotation": 0,
+      "text": "6",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791923207551-0m70"
+    },
+    {
+      "toolId": "text",
+      "x": 215,
+      "y": -235,
+      "rotation": 0,
+      "text": "5",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791923214988-zp2f"
+    },
+    {
+      "toolId": "text",
+      "x": 215,
+      "y": -185,
+      "rotation": 0,
+      "text": "4",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791923229076-nrnl"
+    },
+    {
+      "id": "drawing-1791923246351-a3yp",
+      "toolId": "text",
+      "x": 525,
+      "y": 130,
+      "rotation": 0,
+      "text": "$\\text{Gabe Alencar}\n\\\\ \\text{Lab 6: The Internet of Things and SPI}\n\\\\ \\text{10/13/26}$",
+      "strokeColor": "#000000",
+      "border": true,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12,
+      "borderWidth": 430,
+      "borderHeight": 70
+    },
+    {
+      "toolId": "rectangle",
+      "x": 145,
+      "y": -20,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "shapeWidth": 130,
+      "shapeHeight": 140,
+      "id": "drawing-1791923830698-hiqo"
+    },
+    {
+      "toolId": "text",
+      "x": 145,
+      "y": -70,
+      "rotation": 0,
+      "text": "ESP8266 WiFi Click",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12,
+      "id": "drawing-1791923882301-ofj8"
+    },
+    {
+      "toolId": "text",
+      "x": -10,
+      "y": 10,
+      "rotation": 0,
+      "text": "PA9/13",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 60,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791924020461-1quk"
+    },
+    {
+      "toolId": "text",
+      "x": 100,
+      "y": 10,
+      "rotation": 0,
+      "text": "RX",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791924071879-qngt"
+    },
+    {
+      "toolId": "text",
+      "x": 300,
+      "y": -30,
+      "rotation": 0,
+      "text": "PA10/14",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 60,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791924132515-awrk"
+    },
+    {
+      "toolId": "text",
+      "x": 190,
+      "y": -30,
+      "rotation": 0,
+      "text": "TX",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791924194285-syyn"
+    },
+    {
+      "toolId": "text",
+      "x": 190,
+      "y": 10,
+      "rotation": 0,
+      "text": "GND",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderWidth": 40,
+      "borderHeight": 20,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 9,
+      "id": "drawing-1791924225950-m5x8"
+    },
+    {
+      "toolId": "text",
+      "x": -30,
+      "y": -50,
+      "rotation": 0,
+      "text": "+3.3 V",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791924250234-wj4l"
+    },
+    {
+      "toolId": "text",
+      "x": 100,
+      "y": -30,
+      "rotation": 0,
+      "text": "+3.3 V",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 10,
+      "fontSize": 12,
+      "id": "drawing-1791924376969-prq6"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": -20,
+      "rotation": 0,
+      "text": "7",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791924839406-sezr"
+    },
+    {
+      "toolId": "text",
+      "x": 75,
+      "y": 20,
+      "rotation": 0,
+      "text": "13",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791924895232-09at"
+    },
+    {
+      "toolId": "text",
+      "x": 215,
+      "y": -20,
+      "rotation": 0,
+      "text": "14",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791924909296-pbyb"
+    },
+    {
+      "toolId": "text",
+      "x": 215,
+      "y": 20,
+      "rotation": 0,
+      "text": "9",
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 7,
+      "id": "drawing-1791924918075-01mq"
+    },
+    {
+      "id": "drawing-1791925102328-v8jo",
+      "toolId": "joint",
+      "x": -30,
+      "y": -305,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925103370-z0a8",
+      "toolId": "joint",
+      "x": -30,
+      "y": -275,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925113718-4gqn",
+      "toolId": "port",
+      "x": 20,
+      "y": -215,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925138486-gfpr",
+      "toolId": "port",
+      "x": 20,
+      "y": -185,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925143878-kutu",
+      "toolId": "port",
+      "x": 20,
+      "y": -155,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925167367-l24l",
+      "toolId": "port",
+      "x": 20,
+      "y": 10,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925175059-tk74",
+      "toolId": "port",
+      "x": 270,
+      "y": -30,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    },
+    {
+      "id": "drawing-1791925206260-lbu4",
+      "toolId": "port",
+      "x": 270,
+      "y": -245,
+      "rotation": 0,
+      "strokeColor": "#000000",
+      "border": false,
+      "borderStrokeWidth": 1,
+      "borderGridSpacing": 5,
+      "fontSize": 12
+    }
+  ],
+  "wires": [
+    {
+      "id": "wire-1791917764223-kejb",
+      "x": 20,
+      "y": -215,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791917768841-m54q",
+      "x": 20,
+      "y": -185,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791917772515-qadu",
+      "x": 20,
+      "y": -155,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791917809740-p237",
+      "x": 210,
+      "y": -245,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791917887555-lwrb",
+      "x": 210,
+      "y": -195,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 65,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791918027547-jpjg",
+      "x": -30,
+      "y": -315,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 10
+        },
+        {
+          "x": 110,
+          "y": 10
+        },
+        {
+          "x": 110,
+          "y": 40
+        },
+        {
+          "x": 0,
+          "y": 40
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791918032583-fukq",
+      "x": 80,
+      "y": -245,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": -110,
+          "y": 0
+        },
+        {
+          "x": -110,
+          "y": -60
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791924020462-umcu",
+      "x": 20,
+      "y": 10,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791924132515-36k0",
+      "x": 210,
+      "y": -30,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 60,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791924230414-raxn",
+      "x": 210,
+      "y": 10,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 70,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    },
+    {
+      "id": "wire-1791924279777-0or2",
+      "x": -30,
+      "y": -30,
+      "vertices": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 110,
+          "y": 0
+        }
+      ],
+      "strokeColor": "#000000",
+      "strokeWidth": 1,
+      "dash": [],
+      "arrowEnd": false
+    }
+  ]
+}

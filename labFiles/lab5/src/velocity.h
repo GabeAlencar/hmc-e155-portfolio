@@ -7,23 +7,23 @@
 #include <stdint.h>
 #include "STM32L432KC.h"
 
-// Sample window timer: LPTIM1 on the LSE crystal
+// Sample window timer
 #define VELOCITY_LPTIM            LPTIM1
 #define VELOCITY_LPTIM_IRQn       LPTIM1_IRQn
 #define VELOCITY_LPTIM_IRQHandler LPTIM1_IRQHandler
 
-// Fallback if the crystal does not start: TIM6 on HSI16 (~1 % accurate)
+// Fallback if the crystal does not start
 #define VELOCITY_TIM              TIM6
 #define VELOCITY_TIM_IRQn         TIM6_DAC_IRQn
 #define VELOCITY_TIM_IRQHandler   TIM6_DAC_IRQHandler
 
-// LSE crystal start-up (about 2 s typical), timed with TIM2
+// LSE crystal start-up
 #define LSE_FREQ                  32768UL
 #define LSE_WAIT_TIM              TIM2
 #define LSE_TIMEOUT_MS            5000
 #define LSE_POLL_MS               10
 
-// Window length = display update period (2 Hz). Must be a multiple of 125 ms.
+// Window length
 #define SAMPLE_PERIOD_MS          500
 
 typedef struct {
