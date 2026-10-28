@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/index.html</loc>
-    <lastmod>2026-09-15T22:08:10.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/resources.html</loc>
-    <lastmod>2026-09-15T22:08:10.771Z</lastmod>
-  </url>
-  <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab6/lab6.html</loc>
-    <lastmod>2026-10-14T21:28:46.670Z</lastmod>
-  </url>
-  <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab5/lab5.html</loc>
-    <lastmod>2026-10-07T21:33:30.563Z</lastmod>
-  </url>
-  <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab3/lab3.html</loc>
-    <lastmod>2026-09-23T21:39:25.994Z</lastmod>
-  </url>
-  <url>
     <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/blog.html</loc>
-    <lastmod>2026-09-15T22:08:10.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab1/lab1.html</loc>
-    <lastmod>2026-09-16T16:44:12.210Z</lastmod>
+    <lastmod>2026-10-27T07:12:16.259Z</lastmod>
   </url>
   <url>
     <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab2/lab2.html</loc>
-    <lastmod>2026-09-16T23:55:20.196Z</lastmod>
+    <lastmod>2026-10-27T07:12:16.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab7/lab7.html</loc>
+    <lastmod>2026-10-28T21:27:36.303Z</lastmod>
   </url>
   <url>
     <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab4/lab4.html</loc>
-    <lastmod>2026-10-06T19:44:54.067Z</lastmod>
+    <lastmod>2026-10-27T07:12:16.373Z</lastmod>
   </url>
   <url>
     <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/index.html</loc>
-    <lastmod>2026-10-13T18:41:56.000Z</lastmod>
+    <lastmod>2026-10-25T21:47:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/resources.html</loc>
+    <lastmod>2026-10-27T07:12:16.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/index.html</loc>
+    <lastmod>2026-10-27T07:12:16.260Z</lastmod>
   </url>
   <url>
     <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/posts/first-post.html</loc>
-    <lastmod>2026-09-15T22:08:10.771Z</lastmod>
+    <lastmod>2026-10-27T07:12:16.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab1/lab1.html</loc>
+    <lastmod>2026-10-27T07:12:16.366Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab6/lab6.html</loc>
+    <lastmod>2026-10-27T07:12:16.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab5/lab5.html</loc>
+    <lastmod>2026-10-27T07:12:16.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://GabeAlencar.github.io/hmc-e155-portfolio/labs/lab3/lab3.html</loc>
+    <lastmod>2026-10-27T07:12:16.372Z</lastmod>
   </url>
 </urlset>
