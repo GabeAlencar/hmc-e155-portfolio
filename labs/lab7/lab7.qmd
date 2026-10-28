@@ -30,7 +30,7 @@ the chip, so the design is sequential. It keeps a 128-bit state register and a
 cycles because the S-box is a synchronous RAM, which gives the byte on its output
 one clock cycle after the address.
 
-- Cycle 1 (SUB): the state and round key are read by the S-box RAMs read them. SubBytes
+- Cycle 1 (SUB): the state and key are read from the S-box RAMs. SubBytes
   uses 16 S-boxes (one per state byte) and the key expansion uses 4 more (one per
   byte of RotWord).
 - Cycle 2 (ROUND): the S-box outputs are valid. The datapath applies ShiftRows
@@ -114,11 +114,6 @@ stateDiagram-v2
 - S-box latency: the S-box address comes straight from the state and the round
   key registers from SUB.
 
-The source code and testbenches for this lab can be found in thisomes straight from the state and the round
-  key registers. Since those registers stay unchanged during SUB, the S-box outputs
-  are valid in ROUND and nothing in the datapath needs a delay. SubBytes and SubWord are
-  therefore finished by the time ROUND starts, and ROUND only does ShiftRows through AddRoundKey.nd ROUND only does ShiftRows through AddRoundKey.
-
 ## Technical Documentation
 The source code and testbenches for this lab can be found in this [GitHub repository](https://github.com/GabeAlencar/hmc-e155-portfolio/tree/main/labFiles/lab7).
 
@@ -178,7 +173,7 @@ In the first part, with load high, the MCU sends the 32 bytes of plaintext and k
 The second part is where the 16 ciphertext bytes are read out.
 
 
-![Figure 33: SPI transaction captured on a Oscilloscope (channel 1 CS, 2 SCK, 3 MOSI, 4 MISO)](images/lab7_scope_spi.png)
+![Figure 19: SPI transaction captured on a Oscilloscope (channel 1 CS, 2 SCK, 3 MOSI, 4 MISO)](images/lab7_scope_spi.png)
 
 
 ## Results and Discussion
@@ -193,31 +188,31 @@ The testbenches were run in QuestaSim with the plaintext from FIPS-197 Appendix 
 design was put together, each step was simulated against the Appendix B values. All of these
 passed.
 
-![Figure 19: aes_core_tb. Load is high at the start and falls at 220 ns, and done rises at 2350 ns. Ciphertext is the state register. All the values match the expected values.](images/aes_core_tb_trace.png)
+![Figure 20: aes_core_tb. Load is high at the start and falls at 220 ns, and done rises at 2350 ns. Ciphertext is the state register. All the values match the expected values.](images/aes_core_tb_trace.png)
 
-![Figure 20: aes_spi_tb_waveform. The testbench shifts in the plaintext and key over 256 SCK pulses, lowers load, and done rises 24 clocks (2400 ns) later. It then clocks out 128 bits, which equal the expected ciphertext. ](images/aes_SPI_tb_trace.png)
+![Figure 21: aes_spi_tb_waveform. The testbench shifts in the plaintext and key over 256 SCK pulses, lowers load, and done rises 24 clocks (2400 ns) later. It then clocks out 128 bits, which equal the expected ciphertext. ](images/aes_SPI_tb_trace.png)
 
-![Figure 21: input_to_state_tb. The Appendix B input block a and the matrix it becomes.](images/waveforms/wf_input_to_state_tb.png)
+![Figure 22: input_to_state_tb. The Appendix B input block a and the matrix it becomes.](images/waveforms/wf_input_to_state_tb.png)
 
-![Figure 22: state_to_output_tb, including the round trip through input_to_state and back.](images/waveforms/wf_state_to_output_tb.png)
+![Figure 23: state_to_output_tb, including the round trip through input_to_state and back.](images/waveforms/wf_state_to_output_tb.png)
 
-![Figure 23: shiftrows_tb. Uses appendix B round 1 and round 2 vectors.](images/waveforms/wf_shiftrows_tb.png)
+![Figure 24: shiftrows_tb. Uses appendix B round 1 and round 2 vectors.](images/waveforms/wf_shiftrows_tb.png)
 
-![Figure 24: mixcolumns_tb. Uses appendix B round 1 and round 2 vectors.](images/waveforms/wf_mixcolumns_tb.png)
+![Figure 25: mixcolumns_tb. Uses appendix B round 1 and round 2 vectors.](images/waveforms/wf_mixcolumns_tb.png)
 
-![Figure 25: aes_sbox_tb. The synchronous S-box output y follows the address a one clock later.](images/waveforms/wf_aes_sbox_tb.png)
+![Figure 26: aes_sbox_tb. The synchronous S-box output y follows the address a one clock later.](images/waveforms/wf_aes_sbox_tb.png)
 
-![Figure 26: subbytes_tb. y is valid one clock after a.](images/waveforms/wf_subbytes_tb.png)
+![Figure 27: subbytes_tb. y is valid one clock after a.](images/waveforms/wf_subbytes_tb.png)
 
-![Figure 27: keyexpand_tb. rcon doubles each step and key steps through all ten keys. rot, subword and temp show the intermediate words.](images/waveforms/wf_keyexpand_tb.png)
+![Figure 28: keyexpand_tb. rcon doubles each step and key steps through all ten keys. rot, subword and temp show the intermediate words.](images/waveforms/wf_keyexpand_tb.png)
 
-![Figure 28: aes_core_tb. The FSM goes LOADING, INIT, then SUB and ROUND ten times, and ends in DONE.](images/waveforms/wf_aes_core_tb.png)
+![Figure 29: aes_core_tb. The FSM goes LOADING, INIT, then SUB and ROUND ten times, and ends in DONE.](images/waveforms/wf_aes_core_tb.png)
 
-![Figure 29: aes_core_trace_tb. The state and round key probes for every round, compared with Appendix B.](images/waveforms/wf_aes_core_trace_tb.png)
+![Figure 30: aes_core_trace_tb. The state and round key probes for every round, compared with Appendix B.](images/waveforms/wf_aes_core_trace_tb.png)
 
-![Figure 30: aes_spi_tb, the whole transaction. sck pulses 256 times with load high, pauses while load falls and done rises, then pulses 128 more times while the ciphertext is shifted out on sdo.](images/waveforms/wf_aes_spi_tb_full.png)
+![Figure 31: aes_spi_tb, the whole transaction. sck pulses 256 times with load high, pauses while load falls and done rises, then pulses 128 more times while the ciphertext is shifted out on sdo.](images/waveforms/wf_aes_spi_tb_full.png)
 
-![Figure 31: aes_spi_tb, load falling to done rising. load_sync falls two clocks after load, then round_en pulses once for each of the ten rounds, and done rises 24 clocks after load. last_round is high during the final round.](images/waveforms/wf_aes_spi_tb_load.png)
+![Figure 32: aes_spi_tb, load falling to done rising. load_sync falls two clocks after load, then round_en pulses once for each of the ten rounds, and done rises 24 clocks after load. last_round is high during the final round.](images/waveforms/wf_aes_spi_tb_load.png)
 
 ## Conclusion
 

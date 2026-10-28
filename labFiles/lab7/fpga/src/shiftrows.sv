@@ -2,11 +2,6 @@
  * Module: shiftrows
  * Author: Gabe Alencar gmenendezdealencar@g.hmc.edu
  * Date:   10/25/26
- *
- * ShiftRows
- * Cyclically shift row r of the state left by r bytes
- * Section 5.1.2, Figure 8
- * Purely combinational
  */
 
 module shiftrows (
