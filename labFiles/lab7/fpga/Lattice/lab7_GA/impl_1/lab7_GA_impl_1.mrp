@@ -1,0 +1,274 @@
+
+                         Lattice Mapping Report File
+
+Design:  lab7_GA
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
+Mapped on: Sun Oct 25 13:51:38 2026
+
+Design Information
+------------------
+
+Command line:   map -pdc U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Latt
+     ice/lab7_GA/lab7_GA.pdc -i lab7_GA_impl_1_syn.udb -o lab7_GA_impl_1_map.udb
+     -mp lab7_GA_impl_1.mrp -hierrpt -gui -msgset U:/home/gabe/hmc-e155-portfoli
+     o/labFiles/lab7/fpga/Lattice/lab7_GA/promote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers: 658 out of  5280 (12%)
+   Number of I/O registers:      2 out of   117 (2%)
+   Number of LUT4s:           1142 out of  5280 (22%)
+      Number of logic LUT4s:             876
+      Number of inserted feedthru LUT4s: 266
+      Number of ripple logic:              0 (0 LUT4s)
+   Number of IO sites used:   5 out of 39 (13%)
+      Number of IO sites used for general PIO: 5
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 5 out of 36 (14%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 5 out of 39 (13%)
+   Number of DSPs:             0 out of 8 (0%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             20 out of 30 (67%)
+   Number of PLLs:             0 out of 1 (0%)
+   Number of Clocks:  2
+      Net clk: 295 loads, 295 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
+      Net sck_c: 385 loads, 383 rising, 2 falling (Driver: Port sck)
+   Number of Clock Enables:  2
+      Net VCC_net: 61 loads, 0 SLICEs
+      Net n1568: 267 loads, 267 SLICEs
+   Number of LSRs:  2
+      Net state[1]: 11 loads, 11 SLICEs
+      Net u_aes.load_sync: 4 loads, 4 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net state[1]: 270 loads
+      Net n1568: 267 loads
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net u_aes.u_core.last_round_N_691: 130 loads
+      Net u_aes.u_spi.wasdone: 128 loads
+      Net VCC_net: 62 loads
+      Net u_aes.u_core.u_datapath.shifted[79]: 10 loads
+      Net u_aes.u_core.u_datapath.shifted[103]: 9 loads
+      Net u_aes.u_core.u_datapath.shifted[39]: 9 loads
+      Net u_aes.u_core.u_datapath.shifted[47]: 9 loads
+      Net u_aes.u_core.u_datapath.shifted[7]: 9 loads
+
+
+
+
+
+   Number of warnings:  0
+   Number of criticals: 0
+   Number of errors:    0
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+   No error, critical, or warning presents.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| done                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sdo                 | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| load                | INPUT     |           | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sdi                 | INPUT     |           | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sck                 | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+Removed logic
+-------------
+
+Block u_aes/u_spi/i10_1_lut was optimized away.
+Block i1 was optimized away.
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            hf_osc
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     clk
+  DIV Setting:                                  00
+
+
+
+
+                                    Page 2
+
+
+
+
+
+ASIC Components
+---------------
+
+Instance Name: hf_osc
+         Type: HFOSC
+Instance Name: u_aes/u_spi/key_i0
+         Type: IOLOGIC
+Instance Name: u_aes/u_load_sync/meta_c
+         Type: IOLOGIC
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[9].u_sbox/cyphertext_72__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[8].u_sbox/cyphertext_64__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[7].u_sbox/cyphertext_56__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[6].u_sbox/cyphertext_48__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[5].u_sbox/cyphertext_40__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[4].u_sbox/cyphertext_32__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[3].u_sbox/cyphertext_24__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[2].u_sbox/cyphertext_16__I_0
+         Type: EBR
+Instance Name: u_aes/u_core/u_datapath/u_subbytes/sb[1].u_sbox/cyphertext_8__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[15].u_sbox/cyphertext_120__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[14].u_sbox/cyphertext_112__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[13].u_sbox/cyphertext_104__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[12].u_sbox/cyphertext_96__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[11].u_sbox/cyphertext_88__I_0
+         Type: EBR
+Instance Name:
+     u_aes/u_core/u_datapath/u_subbytes/sb[10].u_sbox/cyphertext_80__I_0
+         Type: EBR
+Instance Name: u_aes/u_core/u_datapath/u_subbytes/sb[0].u_sbox/cyphertext_0__I_0
+         Type: EBR
+Instance Name: u_aes/u_core/u_datapath/u_keyexpand/sw[3].u_sbox/roundkey_16__I_0
+         Type: EBR
+Instance Name: u_aes/u_core/u_datapath/u_keyexpand/sw[2].u_sbox/roundkey_8__I_0
+         Type: EBR
+
+                                    Page 3
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+Instance Name: u_aes/u_core/u_datapath/u_keyexpand/sw[1].u_sbox/roundkey_0__I_0
+         Type: EBR
+Instance Name: u_aes/u_core/u_datapath/u_keyexpand/sw[0].u_sbox/roundkey_24__I_0
+         Type: EBR
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 7
+   Total number of constraints dropped: 0
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 86 MB
+Checksum -- map: cddf6a19f0c8d30a8bb07e4de163a8b385ddee65
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 4
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor
+     Corporation,  All rights reserved.

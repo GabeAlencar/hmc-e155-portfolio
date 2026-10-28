@@ -1,0 +1,725 @@
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 14:29:53 on Oct 25,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module addroundkey
+# 
+# -- Compiling module aes
+# 
+# -- Compiling module aes_core
+# 
+# -- Compiling module aes_ctrl
+# 
+# -- Compiling module aes_datapath
+# 
+# -- Compiling module aes_spi
+# 
+# -- Compiling module galoismult
+# 
+# -- Compiling module input_to_state
+# 
+# -- Compiling module keyexpand
+# 
+# -- Compiling module lab7_GA
+# 
+# -- Compiling module mixcolumn
+# 
+# -- Compiling module mixcolumns
+# 
+# -- Compiling module sbox_sync
+# 
+# -- Compiling module shiftrows
+# 
+# -- Compiling module state_to_output
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vlog-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Compiling module subbytes
+# 
+# -- Compiling module synchronizer
+# 
+# -- Compiling module testbench_aes_core
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab7_GA
+# 
+# 	testbench_aes_core
+# 
+# End time: 14:29:53 on Oct 25,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 1
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 14:29:54 on Oct 25,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up testbench_aes_core -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	testbench_aes_core
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module testbench_aes_core
+# 
+# -- Loading module aes_core
+# 
+# -- Loading module aes_ctrl
+# 
+# -- Loading module aes_datapath
+# 
+# -- Loading module addroundkey
+# 
+# -- Loading module subbytes
+# 
+# -- Loading module shiftrows
+# 
+# -- Loading module input_to_state
+# 
+# -- Loading module state_to_output
+# 
+# -- Loading module mixcolumns
+# 
+# -- Loading module mixcolumn
+# 
+# -- Loading module galoismult
+# 
+# -- Loading module keyexpand
+# 
+# -- Loading module sbox_sync
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 14 design-units (inlining 0/53 module instances):
+# 
+# -- Optimizing module state_to_output(fast)
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vopt-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Optimizing module input_to_state(fast)
+# 
+# -- Optimizing module shiftrows(fast)
+# 
+# -- Optimizing module subbytes(fast)
+# 
+# -- Optimizing module keyexpand(fast)
+# 
+# -- Optimizing module mixcolumn(fast)
+# 
+# -- Optimizing module aes_ctrl(fast)
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "aes_ctrl(fast)".
+# 
+# -- Optimizing module aes_datapath(fast)
+# 
+# -- Optimizing module testbench_aes_core(fast)
+# 
+# -- Optimizing module aes_core(fast)
+# 
+# -- Optimizing module sbox_sync(fast)
+# 
+# -- Optimizing module mixcolumns(fast)
+# 
+# -- Optimizing module galoismult(fast)
+# 
+# -- Optimizing module addroundkey(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 14:29:56 on Oct 25,2026, Elapsed time: 0:00:02
+# 
+# Errors: 0, Warnings: 4
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 14:32:49 on Oct 25,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module addroundkey
+# 
+# -- Compiling module aes
+# 
+# -- Compiling module aes_core
+# 
+# -- Compiling module aes_ctrl
+# 
+# -- Compiling module aes_datapath
+# 
+# -- Compiling module aes_spi
+# 
+# -- Compiling module galoismult
+# 
+# -- Compiling module input_to_state
+# 
+# -- Compiling module keyexpand
+# 
+# -- Compiling module lab7_GA
+# 
+# -- Compiling module mixcolumn
+# 
+# -- Compiling module mixcolumns
+# 
+# -- Compiling module sbox_sync
+# 
+# -- Compiling module shiftrows
+# 
+# -- Compiling module state_to_output
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vlog-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Compiling module subbytes
+# 
+# -- Compiling module synchronizer
+# 
+# -- Compiling module testbench_aes_core
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab7_GA
+# 
+# 	testbench_aes_core
+# 
+# End time: 14:32:50 on Oct 25,2026, Elapsed time: 0:00:01
+# 
+# Errors: 0, Warnings: 1
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 14:32:50 on Oct 25,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up testbench_aes_core -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	testbench_aes_core
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module testbench_aes_core
+# 
+# -- Loading module aes_core
+# 
+# -- Loading module aes_ctrl
+# 
+# -- Loading module aes_datapath
+# 
+# -- Loading module addroundkey
+# 
+# -- Loading module subbytes
+# 
+# -- Loading module shiftrows
+# 
+# -- Loading module input_to_state
+# 
+# -- Loading module state_to_output
+# 
+# -- Loading module mixcolumns
+# 
+# -- Loading module mixcolumn
+# 
+# -- Loading module galoismult
+# 
+# -- Loading module keyexpand
+# 
+# -- Loading module sbox_sync
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 14 design-units (inlining 0/53 module instances):
+# 
+# -- Optimizing module state_to_output(fast)
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vopt-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Optimizing module input_to_state(fast)
+# 
+# -- Optimizing module shiftrows(fast)
+# 
+# -- Optimizing module subbytes(fast)
+# 
+# -- Optimizing module keyexpand(fast)
+# 
+# -- Optimizing module mixcolumn(fast)
+# 
+# -- Optimizing module aes_ctrl(fast)
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "aes_ctrl(fast)".
+# 
+# -- Optimizing module aes_datapath(fast)
+# 
+# -- Optimizing module testbench_aes_core(fast)
+# 
+# -- Optimizing module aes_core(fast)
+# 
+# -- Optimizing module sbox_sync(fast)
+# 
+# -- Optimizing module mixcolumns(fast)
+# 
+# -- Optimizing module galoismult(fast)
+# 
+# -- Optimizing module addroundkey(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 14:32:53 on Oct 25,2026, Elapsed time: 0:00:03
+# 
+# Errors: 0, Warnings: 4
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 14:36:31 on Oct 25,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module addroundkey
+# 
+# -- Compiling module aes
+# 
+# -- Compiling module aes_core
+# 
+# -- Compiling module aes_ctrl
+# 
+# -- Compiling module aes_datapath
+# 
+# -- Compiling module aes_spi
+# 
+# -- Compiling module galoismult
+# 
+# -- Compiling module input_to_state
+# 
+# -- Compiling module keyexpand
+# 
+# -- Compiling module lab7_GA
+# 
+# -- Compiling module mixcolumn
+# 
+# -- Compiling module mixcolumns
+# 
+# -- Compiling module sbox_sync
+# 
+# -- Compiling module shiftrows
+# 
+# -- Compiling module state_to_output
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vlog-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Compiling module subbytes
+# 
+# -- Compiling module synchronizer
+# 
+# -- Compiling module testbench_aes_spi
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab7_GA
+# 
+# 	testbench_aes_spi
+# 
+# End time: 14:36:31 on Oct 25,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 1
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 14:36:31 on Oct 25,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab7_GA -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab7_GA
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab7_GA
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module aes
+# 
+# -- Loading module synchronizer
+# 
+# -- Loading module aes_spi
+# 
+# -- Loading module aes_core
+# 
+# -- Loading module aes_ctrl
+# 
+# -- Loading module aes_datapath
+# 
+# -- Loading module addroundkey
+# 
+# -- Loading module subbytes
+# 
+# -- Loading module shiftrows
+# 
+# -- Loading module input_to_state
+# 
+# -- Loading module state_to_output
+# 
+# -- Loading module mixcolumns
+# 
+# -- Loading module mixcolumn
+# 
+# -- Loading module galoismult
+# 
+# -- Loading module keyexpand
+# 
+# -- Loading module sbox_sync
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 22 design-units (inlining 4/61 module instances):
+# 
+# -- Optimizing module addroundkey(fast)
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module state_to_output(fast)
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vopt-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Optimizing module input_to_state(fast)
+# 
+# -- Optimizing module shiftrows(fast)
+# 
+# -- Optimizing module subbytes(fast)
+# 
+# -- Optimizing module keyexpand(fast)
+# 
+# -- Optimizing module mixcolumn(fast)
+# 
+# -- Optimizing module aes_datapath(fast)
+# 
+# -- Optimizing module aes_ctrl(fast)
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "aes_ctrl(fast)".
+# 
+# -- Optimizing module aes_spi(fast)
+# 
+# -- Optimizing module aes(fast)
+# 
+# -- Optimizing module aes_core(fast)
+# 
+# -- Optimizing module lab7_GA(fast)
+# 
+# -- Optimizing module sbox_sync(fast)
+# 
+# -- Optimizing module synchronizer(fast)
+# 
+# -- Optimizing module mixcolumns(fast)
+# 
+# -- Optimizing module galoismult(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 14:36:34 on Oct 25,2026, Elapsed time: 0:00:03
+# 
+# Errors: 0, Warnings: 3
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 14:39:31 on Oct 25,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module addroundkey
+# 
+# -- Compiling module aes
+# 
+# -- Compiling module aes_core
+# 
+# -- Compiling module aes_ctrl
+# 
+# -- Compiling module aes_datapath
+# 
+# -- Compiling module aes_spi
+# 
+# -- Compiling module galoismult
+# 
+# -- Compiling module input_to_state
+# 
+# -- Compiling module keyexpand
+# 
+# -- Compiling module lab7_GA
+# 
+# -- Compiling module mixcolumn
+# 
+# -- Compiling module mixcolumns
+# 
+# -- Compiling module sbox_sync
+# 
+# -- Compiling module shiftrows
+# 
+# -- Compiling module state_to_output
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vlog-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Compiling module subbytes
+# 
+# -- Compiling module synchronizer
+# 
+# -- Compiling module testbench_aes_spi
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab7_GA
+# 
+# 	testbench_aes_spi
+# 
+# End time: 14:39:32 on Oct 25,2026, Elapsed time: 0:00:01
+# 
+# Errors: 0, Warnings: 1
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 14:39:32 on Oct 25,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up testbench_aes_spi -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	testbench_aes_spi
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module testbench_aes_spi
+# 
+# -- Loading module aes
+# 
+# -- Loading module synchronizer
+# 
+# -- Loading module aes_spi
+# 
+# -- Loading module aes_core
+# 
+# -- Loading module aes_ctrl
+# 
+# -- Loading module aes_datapath
+# 
+# -- Loading module addroundkey
+# 
+# -- Loading module subbytes
+# 
+# -- Loading module shiftrows
+# 
+# -- Loading module input_to_state
+# 
+# -- Loading module state_to_output
+# 
+# -- Loading module mixcolumns
+# 
+# -- Loading module mixcolumn
+# 
+# -- Loading module galoismult
+# 
+# -- Loading module keyexpand
+# 
+# -- Loading module sbox_sync
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 17 design-units (inlining 0/56 module instances):
+# 
+# -- Optimizing module input_to_state(fast)
+# 
+# -- Optimizing module state_to_output(fast)
+# 
+# ** Warning: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv(12): (vopt-13314) Defaulting port 'a' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# 
+# -- Optimizing module shiftrows(fast)
+# 
+# -- Optimizing module subbytes(fast)
+# 
+# -- Optimizing module testbench_aes_spi(fast)
+# 
+# -- Optimizing module keyexpand(fast)
+# 
+# -- Optimizing module mixcolumn(fast)
+# 
+# -- Optimizing module aes_ctrl(fast)
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "aes_ctrl(fast)".
+# 
+# -- Optimizing module aes_datapath(fast)
+# 
+# -- Optimizing module aes_spi(fast)
+# 
+# -- Optimizing module aes(fast)
+# 
+# -- Optimizing module aes_core(fast)
+# 
+# -- Optimizing module sbox_sync(fast)
+# 
+# -- Optimizing module synchronizer(fast)
+# 
+# -- Optimizing module mixcolumns(fast)
+# 
+# -- Optimizing module galoismult(fast)
+# 
+# -- Optimizing module addroundkey(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 14:39:35 on Oct 25,2026, Elapsed time: 0:00:03
+# 
+# Errors: 0, Warnings: 4
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log

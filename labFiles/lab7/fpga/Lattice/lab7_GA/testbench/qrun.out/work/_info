@@ -1,0 +1,478 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+!s11f vlog 2025.2 2025.05, May 31 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench
+vaddroundkey
+Z2 2U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv
+Z3 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z4 !s110 1792964371
+!i10b 1
+!s100 E`W9U7PHL10hOh^aBN;E63
+I]M]K?0=TC<gb<G;oncKD:2
+S1
+R1
+Z5 w1792960582
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv
+!i122 0
+L0 10 9
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2025.2;82
+r1
+!s85 0
+31
+Z8 !s108 1792964371.000000
+Z9 !s107 U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv|
+Z10 !s90 -reportprogress|300|-L|work|-sv|-L|pmi_work|-L|ovi_ice40up|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv|U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv|-work|qrun.out/work|-statslog|qrun.out/stats_log|-csession=incr|
+!i113 0
+Z11 o-L work -sv -L pmi_work -L ovi_ice40up -work qrun.out/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0 defaultOptions 1085333592
+vaes
+R2
+R3
+R4
+!i10b 1
+!s100 l;^DHXVA<@Wbk[kj^V>I:3
+IW`L>2:hPNFAb6SY0OU3j10
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv
+!i122 0
+L0 11 18
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vaes_core
+R2
+R3
+Z13 !s110 1792964372
+!i10b 1
+!s100 ^]fk@mm]ah;RMcL1eAV7[3
+Ib37kA^8]la<S:mYEA1oTY3
+S1
+R1
+w1792960663
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv
+!i122 0
+L0 24 15
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vaes_ctrl
+R2
+R3
+R13
+!i10b 1
+!s100 J9Mkd@m1QN@E:m@SB>EGR2
+I@e]fCDH^V5P<l>n[df`ZW2
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv
+!i122 0
+L0 15 43
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vaes_datapath
+R2
+R3
+R13
+!i10b 1
+!s100 CgQ8b0aza37b21goSWi0C0
+IC3O@62D6WUaJj5B=<zO`D3
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv
+!i122 0
+L0 14 44
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vaes_spi
+R2
+R3
+R13
+!i10b 1
+!s100 mlEDi`=i8bTSh^6YO62M93
+IcOhGYamASzjCh3B`d13Pz1
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv
+!i122 0
+L0 12 32
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vgaloismult
+R2
+R3
+R13
+!i10b 1
+!s100 AlA]N4H:FeN_ld<:mE;a?3
+IZKccUo9Q87U<KXW2W78T31
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv
+!i122 0
+Z14 L0 12 11
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vinput_to_state
+R2
+R3
+R13
+!i10b 1
+!s100 PAn;?oE<oPX<3;Y7EHW3j2
+ISboQZ6k>hb;[EYQXi7SdD0
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv
+!i122 0
+L0 14 15
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vkeyexpand
+R2
+R3
+R13
+!i10b 1
+!s100 @TZk:1_89[nz06YHBf5BU2
+I8PS=HjmGn89:E^[UD[PDj1
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv
+!i122 0
+L0 14 28
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vlab7_GA
+R2
+R3
+R13
+!i10b 1
+!s100 Wm2;0g]n]dULjCbNLoUg;1
+I_^];o7aB7?WcCM9omoW>K0
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv
+!i122 0
+L0 10 16
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+nlab7_@g@a
+vmixcolumn
+R2
+R3
+R13
+!i10b 1
+!s100 6UIf<@EZPV22UTMHBhnJ=3
+IJ42n>4[Uf<H;iAXz9H1Vg0
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv
+!i122 0
+L0 12 22
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vmixcolumns
+R2
+R3
+R13
+!i10b 1
+!s100 >c9<jRgz3PPPWl`W?XBdi1
+IUWK<I55?5aRYRFdG`5h=70
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv
+!i122 0
+R14
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Tqrun_opt
+!i145 1
+!i144 0
+!s110 1792964373
+V<z0QcLTh_Uk12n=adZX@a1
+04 17 4 work testbench_aes_spi fast 0
+R0
+!s12f OEM25U53 
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-suppress vopt-7033 -L work +acc +noacc+pmi_work.* +noacc+ovi_ice40up.* -L pmi_work -L ovi_ice40up -work qrun.out/work
+tCvgOpt 0 defaultOptions 1107585188
+nqrun_opt
+OL;O;2025.2;82
+vsbox_sync
+R2
+R3
+R13
+!i10b 1
+!s100 mZ99zdWHW3k_Qfmm7j0513
+IkNW93e@>i024LW>:gOH7K1
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv
+!i122 0
+L0 12 17
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vshiftrows
+R2
+R3
+R13
+!i10b 1
+!s100 alLU98Ljh^VTXoedi2_X:3
+IekDQS<XolQoQIY[^2Szgj0
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv
+!i122 0
+L0 12 21
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vstate_to_output
+R2
+R3
+R13
+!i10b 1
+!s100 XSNO[WVgLbLdS9M07V=@>2
+ILWhcbU2Q[>UAAMH5:20SM3
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv
+!i122 0
+L0 11 15
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vsubbytes
+R2
+R3
+R13
+!i10b 1
+!s100 Ok^EPPNRjj<ASzWC7Az]20
+ISgNRHIbliLl_ThPkl?b0^2
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv
+!i122 0
+Z15 L0 11 14
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vsynchronizer
+R2
+R3
+R13
+!i10b 1
+!s100 GI8Y0i?biZjbX6oCEhhBW2
+IdM6J>gUjd61b7PnGZBj4e0
+S1
+R1
+R5
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv
+!i122 0
+R15
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vtestbench_aes_spi
+R2
+R3
+R13
+!i10b 1
+!s100 ECM4U[SG6oCU]XGW;T?IF2
+I;SibQz>TYaKA_XCZ2]V>z1
+S1
+R1
+w1792960545
+8U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv
+FU:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv
+!i122 0
+L0 8 73
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12

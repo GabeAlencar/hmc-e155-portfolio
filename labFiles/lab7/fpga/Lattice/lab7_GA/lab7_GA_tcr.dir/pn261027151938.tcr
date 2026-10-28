@@ -1,0 +1,4 @@
+#Start recording tcl command: 10/27/2026 15:15:58
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_open "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.rdf"
+#Stop recording: 10/27/2026 15:19:38

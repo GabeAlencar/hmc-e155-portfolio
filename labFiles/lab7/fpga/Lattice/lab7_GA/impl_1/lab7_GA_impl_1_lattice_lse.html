@@ -1,0 +1,450 @@
+<HTML>
+<HEAD>
+<TITLE>Synthesis Report</TITLE>
+<link href="file:///C:/lscc/radiant/2026.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2026.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Syn"></A><B><U><big>Synthesis Report</big></U></B>
+synthesis:  version Radiant Software (64-bit) 2026.1.0.37.0
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
+Sun Oct 25 13:44:30 2026
+
+
+Command Line:  C:\lscc\radiant\2026.1\ispfpga\bin\nt64\synthesis.exe -f U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/impl_1/lab7_GA_impl_1_lattice.synproj -logfile lab7_GA_impl_1_lattice.srp -gui -msgset U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/promote.xml 
+
+Lattice Synthesis Engine launched.
+
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+
+###################### Device Information ######################
+----------------------------------------------------------------
+Lattice Family        | iCE40UP
+----------------------------------------------------------------
+Device                | iCE40UP5K
+----------------------------------------------------------------
+Package               | SG48
+----------------------------------------------------------------
+Performance Grade     | High-Performance_1.2V
+----------------------------------------------------------------
+################################################################
+
+####################### Device Resources #######################
+----------------------------------------------------------------
+Logic Cells           | 5280
+----------------------------------------------------------------
+RAM Blocks            | 30
+----------------------------------------------------------------
+DSP Blocks            | 8
+----------------------------------------------------------------
+PLLs                  | 1
+----------------------------------------------------------------
+I/O Pins              | 56
+----------------------------------------------------------------
+################################################################
+
+Resolving user-selected strategy settings...
+
+INFO <35001797> - synthesis: Use DCC Insertion disabled by default.
+
+###################### Strategy Settings #######################
+----------------------------------------------------------------
+Optimization Goal     | Area
+----------------------------------------------------------------
+Top-level Module Name | lab7_GA
+----------------------------------------------------------------
+Target Frequency      | 200.000 MHz
+----------------------------------------------------------------
+Maximum Fanout        | 1000
+----------------------------------------------------------------
+Timing Path Count     | 3
+----------------------------------------------------------------
+RAM Read/Write Check  | False
+----------------------------------------------------------------
+BRAM Utilization      | 100.0%
+----------------------------------------------------------------
+DSP Usage             | True
+----------------------------------------------------------------
+DSP Utilization       | 100.0%
+----------------------------------------------------------------
+FSM Encoding Style    | Auto
+----------------------------------------------------------------
+Resolve Mixed Drivers | False
+----------------------------------------------------------------
+Fix Gated Clocks      | True
+----------------------------------------------------------------
+Mux Style             | Auto
+----------------------------------------------------------------
+Use Carry Chain       | True
+----------------------------------------------------------------
+Carry Chain Length    | Infinite
+----------------------------------------------------------------
+Loop Limit            | 1950
+----------------------------------------------------------------
+Use I/O Insertion     | True
+----------------------------------------------------------------
+Use I/O Registers     | True
+----------------------------------------------------------------
+Resource Sharing      | True
+----------------------------------------------------------------
+Propagate Constants   | True
+----------------------------------------------------------------
+Remove Duplicate Reg  | True
+----------------------------------------------------------------
+Force GSR             | False
+----------------------------------------------------------------
+ROM Style             | Auto
+----------------------------------------------------------------
+RAM Style             | Auto
+----------------------------------------------------------------
+Remove LOC Properties | False
+----------------------------------------------------------------
+Partition Flow        | False
+----------------------------------------------------------------
+Use DCC Insertion     | None
+----------------------------------------------------------------
+################################################################
+
+
+The -comp option is FALSE.
+The -syn option is FALSE.
+
+Output HDL filename: lab7_GA_impl_1.vm
+-sdc option: SDC file input is lab7_GA_impl_1_cpe.ldc.
+-path . (searchpath added)
+-path .. (searchpath added)
+-path ../../../src (searchpath added)
+-path C:/lscc/radiant/2026.1/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file: C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v
+Verilog design file: ../../../src/addroundkey.sv
+Verilog design file: ../../../src/aes.sv
+Verilog design file: ../../../src/aes_core.sv
+Verilog design file: ../../../src/aes_ctrl.sv
+Verilog design file: ../../../src/aes_datapath.sv
+Verilog design file: ../../../src/aes_spi.sv
+Verilog design file: ../../../src/galoismult.sv
+Verilog design file: ../../../src/input_to_state.sv
+Verilog design file: ../../../src/keyexpand.sv
+Verilog design file: ../../../src/lab7_GA.sv
+Verilog design file: ../../../src/mixcolumn.sv
+Verilog design file: ../../../src/mixcolumns.sv
+Verilog design file: ../../../src/sbox_sync.sv
+Verilog design file: ../../../src/shiftrows.sv
+Verilog design file: ../../../src/state_to_output.sv
+Verilog design file: ../../../src/subbytes.sv
+Verilog design file: ../../../src/synchronizer.sv
+VHDL library: pmi
+VHDL design file: C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd
+
+Compiling design...
+
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\generic.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\iCE40UP.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\synthesis\verilog\iCE40UP.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ispfpga\..\cae_library\simulation\verilog\iCE40UP\iCE40UP_sp.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v. VERI-1482
+Analyzing Verilog file ../../../src/addroundkey.sv. VERI-1482
+Analyzing Verilog file ../../../src/aes.sv. VERI-1482
+Analyzing Verilog file ../../../src/aes_core.sv. VERI-1482
+Analyzing Verilog file ../../../src/aes_ctrl.sv. VERI-1482
+Analyzing Verilog file ../../../src/aes_datapath.sv. VERI-1482
+Analyzing Verilog file ../../../src/aes_spi.sv. VERI-1482
+Analyzing Verilog file ../../../src/galoismult.sv. VERI-1482
+Analyzing Verilog file ../../../src/input_to_state.sv. VERI-1482
+Analyzing Verilog file ../../../src/keyexpand.sv. VERI-1482
+Analyzing Verilog file ../../../src/lab7_GA.sv. VERI-1482
+Analyzing Verilog file ../../../src/mixcolumn.sv. VERI-1482
+Analyzing Verilog file ../../../src/mixcolumns.sv. VERI-1482
+Analyzing Verilog file ../../../src/sbox_sync.sv. VERI-1482
+Analyzing Verilog file ../../../src/shiftrows.sv. VERI-1482
+Analyzing Verilog file ../../../src/state_to_output.sv. VERI-1482
+Analyzing Verilog file ../../../src/subbytes.sv. VERI-1482
+Analyzing Verilog file ../../../src/synchronizer.sv. VERI-1482
+Top module name (Verilog): lab7_GA
+INFO <35901018> - synthesis: ../../../src/lab7_GA.sv(10): compiling module lab7_GA. VERI-1018
+INFO <35901018> - synthesis: ../../../src/aes.sv(11): compiling module aes. VERI-1018
+INFO <35901018> - synthesis: ../../../src/synchronizer.sv(11): compiling module synchronizer. VERI-1018
+INFO <35901018> - synthesis: ../../../src/aes_spi.sv(12): compiling module aes_spi. VERI-1018
+INFO <35901018> - synthesis: ../../../src/aes_core.sv(24): compiling module aes_core. VERI-1018
+INFO <35901018> - synthesis: ../../../src/aes_ctrl.sv(15): compiling module aes_ctrl. VERI-1018
+INFO <35901018> - synthesis: ../../../src/aes_datapath.sv(14): compiling module aes_datapath. VERI-1018
+INFO <35901018> - synthesis: ../../../src/addroundkey.sv(10): compiling module addroundkey. VERI-1018
+INFO <35901018> - synthesis: ../../../src/subbytes.sv(11): compiling module subbytes. VERI-1018
+INFO <35901018> - synthesis: ../../../src/sbox_sync.sv(12): compiling module sbox_sync. VERI-1018
+WARNING <35931002> - synthesis: ../../../src/sbox_sync.sv(20): net sbox does not have a driver. VDB-1002
+INFO <35901018> - synthesis: ../../../src/shiftrows.sv(12): compiling module shiftrows. VERI-1018
+INFO <35901018> - synthesis: ../../../src/input_to_state.sv(14): compiling module input_to_state. VERI-1018
+INFO <35901018> - synthesis: ../../../src/state_to_output.sv(11): compiling module state_to_output. VERI-1018
+INFO <35901018> - synthesis: ../../../src/mixcolumns.sv(12): compiling module mixcolumns. VERI-1018
+INFO <35901018> - synthesis: ../../../src/mixcolumn.sv(12): compiling module mixcolumn. VERI-1018
+INFO <35901018> - synthesis: ../../../src/galoismult.sv(12): compiling module galoismult. VERI-1018
+INFO <35901018> - synthesis: ../../../src/keyexpand.sv(14): compiling module keyexpand. VERI-1018
+
+<A name="lse_parameter"></A><B><U><big>Parameter Setting</big></U></B>
+
+[Parameter Setting Section Start]
+
+	[Parameter Settings for Instance(s): hf_osc]
+	(Module: HSOSC)
+		CLKHF_DIV                 "0b00"
+
+[Parameter Setting Section End]
+WARNING <1009991> - synthesis: ../../../src/sbox_sync.sv(20): RAM 'sbox_original_ramnet' has no write-port
+
+WARNING <1009991> - synthesis: ../../../src/sbox_sync.sv(20): initial value for RAM 'sbox_original_ramnet' must be preserved to avoid dangling nets after RAM blasting
+
+INFO <35001774> - synthesis: Extracted state machine for register '\u_aes/u_core/u_ctrl/state' with one-hot encoding
+State machine has 5 reachable states with original encodings of:
+
+ 00001 
+
+ 00010 
+
+ 00100 
+
+ 01000 
+
+ 10000 
+
+original encoding -> new encoding (one-hot encoding)
+
+ 00001 -> 00001
+
+ 00010 -> 00010
+
+ 00100 -> 00100
+
+ 01000 -> 01000
+
+ 10000 -> 10000
+
+
+
+
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: sck
+INFO <35002061> - synthesis: Port accepted for I/O register mapping: sdi
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: sdo
+INFO <35002061> - synthesis: Port accepted for I/O register mapping: load
+WARNING <35002062> - synthesis: Port rejected for I/O register mapping: done
+INFO <35002039> - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
+
+
+<A name="lse_area"></A><B><U><big>Area Report</big></U></B>
+
+################### Begin Area Report (lab7_GA)######################
+Number of register bits => 658 of 5280 (12 % )
+EBR_B => 20
+FD1P3XZ => 658
+HSOSC_CORE => 1
+IB => 3
+INV => 1
+IOL_B => 2
+LUT4 => 875
+OB => 2
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 0
+
+
+<A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 2
+  Net : sck_c, loads : 1
+  Net : clk, loads : 0
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : n1568, loads : 268
+  Net : u_aes/u_core/u_ctrl/state[1], loads : 267
+  Net : u_aes/u_core/u_ctrl/last_round_N_691, loads : 129
+  Net : u_aes/u_spi/wasdone, loads : 128
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[52], loads : 8
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[24], loads : 8
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[73], loads : 8
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[20], loads : 8
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[36], loads : 8
+  Net : u_aes/u_core/u_datapath/cyphertext_127__N_1[67], loads : 8
+################### End Clock Report ##################
+
+
+<A name="lse_constraint"></A><B><U><big>Constraint Report</big></U></B>
+
+################### Begin Constraint Report ######################
+Constraint Summary:
+  Total number of constraints: 0
+  Total number of constraints dropped: 0
+###################  End Constraint Report  ######################
+
+Peak Memory Usage: 102 MB
+
+--------------------------------------------------------------
+Total CPU Time: 1 secs 
+Total REAL Time: 4 secs 
+--------------------------------------------------------------
+Checksum -- synthesis -- netlist: 500eeaf689c22d50ab25dfb27162a0eef9e4b120
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Syn>Top</A></LI>
+<LI><A href=#lse_parameter>Parameter Setting</A></LI>
+<LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_clock>Clock Report</A></LI>
+<LI><A href=#lse_constraint>Constraint Report</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

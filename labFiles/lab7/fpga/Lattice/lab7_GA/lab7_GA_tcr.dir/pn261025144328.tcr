@@ -1,0 +1,8 @@
+#Start recording tcl command: 10/25/2026 14:28:07
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_open "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.rdf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+#Stop recording: 10/25/2026 14:43:28

@@ -1,0 +1,296 @@
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   1
+#     vopt: Errors:   0, Warnings:   4
+#   Totals: Errors:   0, Warnings:   5
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 14:29:56 on Oct 25,2026
+# Loading sv_std.std
+# Loading work.testbench_aes_core(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[0]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[1]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[2]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[3]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[4]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[5]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[6]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[7]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[8]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[9]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[10]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[11]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[12]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[13]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[14]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_subbytes/sb[15]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_keyexpand/sw[0]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_keyexpand/sw[1]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_keyexpand/sw[2]/u_sbox
+# ** Warning: (vsim-7) Failed to open readmem file "sbox.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv(22)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/u_datapath/u_keyexpand/sw[3]/u_sbox
+run -all
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv(48)
+#    Time: 2450 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv line 48
+# Causality operation skipped due to absence of debug database file
+# End time: 14:31:35 on Oct 25,2026, Elapsed time: 0:01:39
+# Errors: 0, Warnings: 20
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   1
+#     vopt: Errors:   0, Warnings:   4
+#   Totals: Errors:   0, Warnings:   5
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 14:32:53 on Oct 25,2026
+# Loading sv_std.std
+# Loading work.testbench_aes_core(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+# BKMARK_ERROR: Unknown client: .main_pane.source
+view -new wave
+# .main_pane.wave1.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/testbench_aes_core/dut/clk \
+sim:/testbench_aes_core/dut/load \
+sim:/testbench_aes_core/dut/key \
+sim:/testbench_aes_core/dut/plaintext \
+sim:/testbench_aes_core/dut/done \
+sim:/testbench_aes_core/dut/cyphertext \
+sim:/testbench_aes_core/dut/init_en \
+sim:/testbench_aes_core/dut/round_en \
+sim:/testbench_aes_core/dut/last_round
+run -all
+# Testbench ran successfully
+# ** Note: $stop    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv(48)
+#    Time: 2450 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_core_tb.sv line 48
+# Causality operation skipped due to absence of debug database file
+# End time: 14:35:59 on Oct 25,2026, Elapsed time: 0:03:06
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   1
+#     vopt: Errors:   0, Warnings:   3
+#   Totals: Errors:   0, Warnings:   4
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 14:36:34 on Oct 25,2026
+# Loading sv_std.std
+# Loading work.lab7_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.aes(fast)
+# Loading work.synchronizer(fast)
+# Loading work.aes_spi(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+view -new wave
+# .main_pane.wave2.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/lab7_GA/sck \
+sim:/lab7_GA/sdi \
+sim:/lab7_GA/sdo \
+sim:/lab7_GA/load \
+sim:/lab7_GA/done \
+sim:/lab7_GA/clk
+run -all
+clear
+# invalid command name "clear"
+clean
+restart -f
+# Loading work.lab7_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.aes(fast)
+# Loading work.synchronizer(fast)
+# Loading work.aes_spi(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+run -all
+# Causality operation skipped due to absence of debug database file
+restart 0g
+restart -f
+# Loading work.lab7_GA(fast)
+# Loading ovi_ice40up.HSOSC(fast)
+# Loading work.aes(fast)
+# Loading work.synchronizer(fast)
+# Loading work.aes_spi(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+run 10
+run 10
+run 10
+
+run 10
+run 10
+
+run 10
+run 10
+# End time: 14:39:06 on Oct 25,2026, Elapsed time: 0:02:32
+# Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vlog: Errors:   0, Warnings:   1
+#     vopt: Errors:   0, Warnings:   4
+#   Totals: Errors:   0, Warnings:   5
+# ** Note: (vsim-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do "view wave" -do "add wave /*" -do "run 100 ns" -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log 
+# Start time: 14:39:35 on Oct 25,2026
+# Loading sv_std.std
+# Loading work.testbench_aes_spi(fast)
+# Loading work.aes(fast)
+# Loading work.synchronizer(fast)
+# Loading work.aes_spi(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave /*
+# run 100 ns
+restart -f
+# Closing VCD file "testbench_aes_spi.vcd"
+# Loading work.testbench_aes_spi(fast)
+# Loading work.aes(fast)
+# Loading work.synchronizer(fast)
+# Loading work.aes_spi(fast)
+# Loading work.aes_core(fast)
+# Loading work.aes_ctrl(fast)
+# Loading work.aes_datapath(fast)
+# Loading work.addroundkey(fast)
+# Loading work.subbytes(fast)
+# Loading work.sbox_sync(fast)
+# Loading work.shiftrows(fast)
+# Loading work.input_to_state(fast)
+# Loading work.state_to_output(fast)
+# Loading work.mixcolumns(fast)
+# Loading work.mixcolumn(fast)
+# Loading work.galoismult(fast)
+# Loading work.keyexpand(fast)
+run -all
+# Testbench ran successfully
+# ** Note: $stop    : U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv(75)
+#    Time: 41950 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/sim/aes_spi_tb.sv line 75
+# Causality operation skipped due to absence of debug database file
+# End time: 14:43:23 on Oct 25,2026, Elapsed time: 0:03:48
+# Errors: 0, Warnings: 0

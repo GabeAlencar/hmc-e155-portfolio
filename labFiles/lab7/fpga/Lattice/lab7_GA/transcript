@@ -1,0 +1,6 @@
+# Reading pref.tcl
+# ** License Issue: License request for latticeqsim feature failed
+# ** License Issue: Cannot checkout an uncounted license within a Windows Terminal Services guest session. (C:\lscc\radiant\2026.1\license\questa_license.lic)
+# ** License Issue: No such feature exists. (C:\Users\Gabe\LR-272866_License.dat)
+# ** Error: Failure to checkout 'latticeqsim' license feature.
+# Unable to checkout a viewer license necessary for use of the Questa Lattice graphical user interface.  Vsim is closing.

@@ -1,0 +1,291 @@
+---------------------------------------------------
+Report for cell lab7_GA
+   Instance path: lab7_GA
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       2.00        100.0
+                                  LUT4	       1142        100.0
+                               LUTGATE	       1142        100.0
+                                 IOREG	          2        100.0
+                                 IOBUF	          5        100.0
+                                PFUREG	        658        100.0
+                                   EBR	         20        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                                   aes	          1        71.9
+---------------------------------------------------
+Report for cell aes
+   Instance path: lab7_GA/u_aes
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       2.00        100.0
+                                  LUT4	        821        71.9
+                               LUTGATE	        821        71.9
+                                 IOREG	          2        100.0
+                                PFUREG	        658        100.0
+                                   EBR	         20        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              aes_core	          1        60.7
+                               aes_spi	          1        11.2
+                          synchronizer	          1         0.0
+---------------------------------------------------
+Report for cell aes_spi
+   Instance path: lab7_GA/u_aes/u_spi
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       1.00        50.0
+                                  LUT4	        128        11.2
+                               LUTGATE	        128        11.2
+                                 IOREG	          1        50.0
+                                PFUREG	        384        58.4
+---------------------------------------------------
+Report for cell synchronizer
+   Instance path: lab7_GA/u_aes/u_load_sync
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                 IOLGC	       1.00        50.0
+                                 IOREG	          1        50.0
+                                PFUREG	          1         0.2
+---------------------------------------------------
+Report for cell aes_core
+   Instance path: lab7_GA/u_aes/u_core
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        693        60.7
+                               LUTGATE	        693        60.7
+                                PFUREG	        273        41.5
+                                   EBR	         20        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              aes_ctrl	          1         0.6
+                          aes_datapath	          1        60.1
+---------------------------------------------------
+Report for cell aes_datapath
+   Instance path: lab7_GA/u_aes/u_core/u_datapath
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        686        60.1
+                               LUTGATE	        686        60.1
+                                PFUREG	        264        40.1
+                                   EBR	         20        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                            galoismult	          1         0.3
+                             keyexpand	          1         7.7
+                            mixcolumns	          1         9.5
+                              subbytes	          1         0.0
+---------------------------------------------------
+Report for cell subbytes
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	         16        80.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                             sbox_sync	          1         0.0
+                          sbox_sync_U0	          1         0.0
+                          sbox_sync_U1	          1         0.0
+                         sbox_sync_U10	          1         0.0
+                         sbox_sync_U11	          1         0.0
+                         sbox_sync_U12	          1         0.0
+                         sbox_sync_U13	          1         0.0
+                         sbox_sync_U14	          1         0.0
+                          sbox_sync_U2	          1         0.0
+                          sbox_sync_U3	          1         0.0
+                          sbox_sync_U4	          1         0.0
+                          sbox_sync_U5	          1         0.0
+                          sbox_sync_U6	          1         0.0
+                          sbox_sync_U7	          1         0.0
+                          sbox_sync_U8	          1         0.0
+                          sbox_sync_U9	          1         0.0
+---------------------------------------------------
+Report for cell sbox_sync
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[9].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U0
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[8].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U1
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[7].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U2
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[6].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U3
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[5].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U4
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[4].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U5
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[3].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U6
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[2].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U7
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[1].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U8
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[15].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U9
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[14].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U10
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[13].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U11
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[12].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U12
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[11].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U13
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[10].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U14
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_subbytes/sb[0].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell galoismult
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_rcon
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          3         0.3
+                               LUTGATE	          3         0.3
+---------------------------------------------------
+Report for cell mixcolumns
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_mixcolumns
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        109         9.5
+                               LUTGATE	        109         9.5
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                             mixcolumn	          1         2.0
+                         mixcolumn_U15	          1         2.3
+                         mixcolumn_U16	          1         2.7
+                         mixcolumn_U17	          1         2.5
+---------------------------------------------------
+Report for cell mixcolumn
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_mixcolumns/mc3
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         23         2.0
+                               LUTGATE	         23         2.0
+---------------------------------------------------
+Report for cell mixcolumn_U15
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_mixcolumns/mc2
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         26         2.3
+                               LUTGATE	         26         2.3
+---------------------------------------------------
+Report for cell mixcolumn_U16
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_mixcolumns/mc1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         31         2.7
+                               LUTGATE	         31         2.7
+---------------------------------------------------
+Report for cell mixcolumn_U17
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_mixcolumns/mc0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         29         2.5
+                               LUTGATE	         29         2.5
+---------------------------------------------------
+Report for cell keyexpand
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_keyexpand
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         88         7.7
+                               LUTGATE	         88         7.7
+                                   EBR	          4        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                         sbox_sync_U18	          1         0.0
+                         sbox_sync_U19	          1         0.0
+                         sbox_sync_U20	          1         0.0
+                         sbox_sync_U21	          1         0.0
+---------------------------------------------------
+Report for cell sbox_sync_U18
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_keyexpand/sw[3].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U19
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_keyexpand/sw[2].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U20
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_keyexpand/sw[1].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell sbox_sync_U21
+   Instance path: lab7_GA/u_aes/u_core/u_datapath/u_keyexpand/sw[0].u_sbox
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1         5.0
+---------------------------------------------------
+Report for cell aes_ctrl
+   Instance path: lab7_GA/u_aes/u_core/u_ctrl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         0.6
+                               LUTGATE	          7         0.6
+                                PFUREG	          9         1.4

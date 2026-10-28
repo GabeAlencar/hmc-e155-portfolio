@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>Lattice TCL Log</TITLE>
+<link href="file:///C:/lscc/radiant/2026.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2026.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="pn261025140138"></A><B><U><big>pn261025140138</big></U></B>
+#Start recording tcl command: 10/25/2026 13:42:37
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_create -name "lab7_GA" -impl "impl_1" -dev iCE40UP5K-SG48I -performance "High-Performance_1.2V" -synthesis "lse"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv"
+prj_save 
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.pdc"
+prj_enable_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.pdc"
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_run Export -impl impl_1
+#Stop recording: 10/25/2026 14:01:38
+
+
+
+<A name="pn261025142744"></A><B><U><big>pn261025142744</big></U></B>
+#Start recording tcl command: 10/25/2026 14:13:26
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_open "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.rdf"
+prj_run Export -impl impl_1
+#Stop recording: 10/25/2026 14:27:44
+
+
+
+<A name="pn261025144328"></A><B><U><big>pn261025144328</big></U></B>
+#Start recording tcl command: 10/25/2026 14:28:07
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_open "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.rdf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/testbench.spf"
+#Stop recording: 10/25/2026 14:43:28
+
+
+
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#pn261025140138>pn261025140138</A></LI>
+<LI><A href=#pn261025142744>pn261025142744</A></LI>
+<LI><A href=#pn261025144328>pn261025144328</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

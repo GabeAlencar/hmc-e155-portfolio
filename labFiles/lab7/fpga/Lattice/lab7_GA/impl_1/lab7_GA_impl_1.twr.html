@@ -1,0 +1,5860 @@
+<HTML>
+<HEAD>
+<TITLE>Timing Report</TITLE>
+<link href="" rel="stylesheet" type="text/css" media="screen"/>
+<link href="" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+tapath {
+  display: none;
+}
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" class="Child" onclick="hideTocList()"><PRE>
+<A name="Timing_rpt_top">Timing Report</A><B><U><big></big></U></B>
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2026.1.0.37.0
+
+Sun Oct 25 13:51:53 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt lab7_GA_impl_1.twr lab7_GA_impl_1.udb -gui -msgset U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/promote.xml
+
+-----------------------------------------
+Design:          lab7_GA
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+**Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+<LI>    <A href=#Timing_rpt_DesignChecking>1  Timing Overview</A></LI>
+<LI>        <A href=#Timing_rpt_SDCConstraints>1.1  SDC Constraints</A></LI>
+<LI>        <A href=#Timing_rpt_ConstraintCoverage>1.2  Constraint Coverage</A></LI>
+<LI>        <A href=#Timing_rpt_OverallSummary>1.3  Overall Summary</A></LI>
+<LI>        <A href=#Timing_rpt_UnconstrainedReport>1.4  Unconstrained Report</A></LI>
+<LI>        <A href=#Timing_rpt_CombinationalLoop>1.5  Combinational Loop</A></LI>
+<LI>    <A href=#Timing_rpt_SetupSlowCornerMaxDegree>2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees</A></LI>
+<LI>        <A href=#Timing_rpt_ClockSummarySetupSlowCornerMaxDegree>2.1  Clock Summary</A></LI>
+<LI>        <A href=#Timing_rpt_EndpointSlackSetupSlowCornerMaxDegree>2.2  Endpoint slacks</A></LI>
+<LI>        <A href=#Timing_rpt_DetailReportSetupSlowCornerMaxDegree>2.3  Detailed Report</A></LI>
+<LI>    <A href=#Timing_rpt_HoldFastCornerMinDegreeNoAV>3  Hold at Speed Grade m Corner at -40 Degrees</A></LI>
+<LI>        <A href=#Timing_rpt_EndpointSlackHoldFastCornerMinDegreeNoAV>3.1  Endpoint slacks</A></LI>
+<LI>        <A href=#Timing_rpt_DetailReportHoldFastCornerMinDegreeNoAV>3.2  Detailed Report</A></LI>
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+
+<A name="Timing_rpt_DesignChecking"></A><B><U><big>1  Timing Overview</big></U></B>
+
+<A name="Timing_rpt_SDCConstraints"></A><B><U><big>1.1  SDC Constraints</big></U></B>
+
+create_clock -name {clk} -period 20.8333 [get_pins {hf_osc/CLKHF }] 
+
+<A name="Timing_rpt_ConstraintCoverage"></A><B><U><big>1.2  Constraint Coverage</big></U></B>
+
+Constraint Coverage: 65.6973%
+
+<A name="Timing_rpt_OverallSummary"></A><B><U><big>1.3  Overall Summary</big></U></B>
+
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+ Hold at Speed Grade m Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+<A name="Timing_rpt_UnconstrainedReport"></A><B><U><big>1.4  Unconstrained Report</big></U></B>
+
+<A name="Timing_rpt_UnconstrainedEndpoints"></A><B><U><big>1.4.1  Unconstrained Start/End Points</big></U></B>
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+        Listing 10 Start Points         |           Type           
+-------------------------------------------------------------------
+u_aes/u_core/u_datapath/state_i0/Q      |          No required time
+u_aes/u_core/u_datapath/state_i1/Q      |          No required time
+u_aes/u_core/u_datapath/state_i2/Q      |          No required time
+u_aes/u_core/u_datapath/state_i3/Q      |          No required time
+u_aes/u_core/u_datapath/state_i4/Q      |          No required time
+u_aes/u_core/u_datapath/state_i5/Q      |          No required time
+u_aes/u_core/u_datapath/state_i6/Q      |          No required time
+u_aes/u_core/u_datapath/state_i7/Q      |          No required time
+u_aes/u_core/u_datapath/state_i8/Q      |          No required time
+u_aes/u_core/u_datapath/state_i9/Q      |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                       128
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+          Listing 1 End Points          |           Type           
+-------------------------------------------------------------------
+u_aes/u_load_sync/meta_c/PADDI          |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                         1
+                                        |                          
+-------------------------------------------------------------------
+
+<A name="Timing_rpt_StartEndPointsWithoutTimingConstraints"></A><B><U><big>1.4.2  Start/End Points Without Timing Constraints</big></U></B>
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 5 Start or End Points      |           Type           
+-------------------------------------------------------------------
+load                                    |                     input
+sdi                                     |                     input
+sck                                     |                     input
+done                                    |                    output
+sdo                                     |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                         5
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+-------------------------------------------------------------------
+            Listing 1 Net(s)            |        Source pin        
+-------------------------------------------------------------------
+sck_c                                   |         sck_pad.bb_inst/O
+-------------------------------------------------------------------
+                                        |                          
+Number of clock nets without clock defi |                          
+nition                                  |                         1
+                                        |                          
+-------------------------------------------------------------------
+
+
+<A name="Timing_rpt_CombinationalLoop"></A><B><U><big>1.5  Combinational Loop</big></U></B>
+
+None
+
+
+<A name="Timing_rpt_SetupSlowCornerMaxDegree"></A><B><U><big>2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees</big></U></B>
+<A name="Timing_rpt_ClockSummarySetupSlowCornerMaxDegree"></A><B><U><big>2.1  Clock Summary</big></U></B>
+<A name="Timing_rpt_Clk_1"></A><B><U><big>2.1.1 Clock "clk"</big></U></B>
+
+create_clock -name {clk} -period 20.8333 [get_pins {hf_osc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock clk                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From clk                               |             Target |          20.833 ns |         48.000 MHz 
+                                        | Actual (all paths) |          20.792 ns |         48.095 MHz 
+hf_osc/CLKHF (MPW)                      |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+
+<A name="Timing_rpt_EndpointSlackSetupSlowCornerMaxDegree"></A><B><U><big>2.2  Endpoint slacks</big></U></B>
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+u_aes/u_core/u_datapath/state_i37/D      |    1.879 ns 
+u_aes/u_core/u_datapath/state_i82/D      |    1.933 ns 
+u_aes/u_core/u_datapath/state_i4/D       |    1.959 ns 
+u_aes/u_core/u_datapath/state_i60/D      |    2.011 ns 
+u_aes/u_core/u_datapath/state_i5/D       |    2.144 ns 
+u_aes/u_core/u_datapath/state_i21/D      |    2.408 ns 
+u_aes/u_core/u_datapath/state_i86/D      |    2.500 ns 
+u_aes/u_core/u_datapath/state_i83/D      |    2.527 ns 
+u_aes/u_core/u_datapath/state_i59/D      |    2.527 ns 
+u_aes/u_core/u_datapath/state_i23/D      |    2.580 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+<A name="Timing_rpt_DetailReportSetupSlowCornerMaxDegree"></A><B><U><big>2.3  Detailed Report</big></U></B>
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i37/D  (SLICE_R21C14B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 85.3% (route), 14.7% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 1.879 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i37/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_555/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":20.567,
+        "delay":7.521
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2955_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_664/B1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2955_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_664/F1"
+        },
+        "arrive":21.016,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2670",
+            "phy_name":"u_aes.u_core.u_datapath.n2670"
+        },
+        "arrive":23.779,
+        "delay":2.763
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i38_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_555/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i38_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_555/F1"
+        },
+        "arrive":24.255,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[37]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[37]"
+        },
+        "arrive":24.255,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":24.255,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           7.521                 20.567  130     
+u_aes/u_core/u_datapath/i2955_4_lut/D->u_aes/u_core/u_datapath/i2955_4_lut/Z
+                                          SLICE_R19C14B      B1_TO_F1_DELAY      0.449                 21.016  1       
+u_aes/u_core/u_datapath/n2670                                NET DELAY           2.763                 23.779  1       
+u_aes/u_core/u_datapath/mux_8_i38_4_lut/A->u_aes/u_core/u_datapath/mux_8_i38_4_lut/Z
+                                          SLICE_R21C14B      D1_TO_F1_DELAY      0.476                 24.255  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[37]
+                                                             NET DELAY           0.000                 24.255  1       
+u_aes/u_core/u_datapath/state_i37/D                          ENDPOINT            0.000                 24.255  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i36/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_555/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i36/CK   u_aes/u_core/u_datapath/state_i37/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(24.254)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    1.879  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i82/D  (SLICE_R11C20C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 85.2% (route), 14.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 1.933 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i82/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_601/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.007,
+        "delay":5.961
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3231_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_842/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3231_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_842/F0"
+        },
+        "arrive":19.456,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2850",
+            "phy_name":"u_aes.u_core.u_datapath.n2850"
+        },
+        "arrive":23.725,
+        "delay":4.269
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i83_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_601/B0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i83_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_601/F0"
+        },
+        "arrive":24.201,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[82]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[82]"
+        },
+        "arrive":24.201,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":24.201,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           5.961                 19.007  130     
+u_aes/u_core/u_datapath/i3231_4_lut/D->u_aes/u_core/u_datapath/i3231_4_lut/Z
+                                          SLICE_R10C13B      A0_TO_F0_DELAY      0.449                 19.456  1       
+u_aes/u_core/u_datapath/n2850                                NET DELAY           4.269                 23.725  1       
+u_aes/u_core/u_datapath/mux_8_i83_4_lut/A->u_aes/u_core/u_datapath/mux_8_i83_4_lut/Z
+                                          SLICE_R11C20C      B0_TO_F0_DELAY      0.476                 24.201  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[82]
+                                                             NET DELAY           0.000                 24.201  1       
+u_aes/u_core/u_datapath/state_i82/D                          ENDPOINT            0.000                 24.201  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i82/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_601/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i82/CK   u_aes/u_core/u_datapath/state_i83/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(24.200)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    1.933  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i4/D  (SLICE_R19C18D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 85.2% (route), 14.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 1.959 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i4/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_523/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.655,
+        "delay":6.609
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3027_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_984/D0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3027_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_984/F0"
+        },
+        "arrive":20.104,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2538",
+            "phy_name":"u_aes.u_core.u_datapath.n2538"
+        },
+        "arrive":23.699,
+        "delay":3.595
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i5_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_523/B0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i5_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_523/F0"
+        },
+        "arrive":24.175,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[4]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[4]"
+        },
+        "arrive":24.175,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":24.175,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           6.609                 19.655  130     
+u_aes/u_core/u_datapath/i3027_4_lut/D->u_aes/u_core/u_datapath/i3027_4_lut/Z
+                                          SLICE_R19C15B      D0_TO_F0_DELAY      0.449                 20.104  1       
+u_aes/u_core/u_datapath/n2538                                NET DELAY           3.595                 23.699  1       
+u_aes/u_core/u_datapath/mux_8_i5_4_lut/A->u_aes/u_core/u_datapath/mux_8_i5_4_lut/Z
+                                          SLICE_R19C18D      B0_TO_F0_DELAY      0.476                 24.175  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[4]
+                                                             NET DELAY           0.000                 24.175  1       
+u_aes/u_core/u_datapath/state_i4/D                           ENDPOINT            0.000                 24.175  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i4/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_523/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i4/CK   u_aes/u_core/u_datapath/state_i5/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(24.174)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    1.959  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i60/D  (SLICE_R12C9D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 85.2% (route), 14.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.011 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i60/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_579/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.087,
+        "delay":6.041
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2909_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_900/A1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2909_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_900/F1"
+        },
+        "arrive":19.536,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2762",
+            "phy_name":"u_aes.u_core.u_datapath.n2762"
+        },
+        "arrive":23.647,
+        "delay":4.111
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i61_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_579/B0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i61_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_579/F0"
+        },
+        "arrive":24.123,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[60]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[60]"
+        },
+        "arrive":24.123,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":24.123,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           6.041                 19.087  130     
+u_aes/u_core/u_datapath/i2909_4_lut/D->u_aes/u_core/u_datapath/i2909_4_lut/Z
+                                          SLICE_R17C7A       A1_TO_F1_DELAY      0.449                 19.536  1       
+u_aes/u_core/u_datapath/n2762                                NET DELAY           4.111                 23.647  1       
+u_aes/u_core/u_datapath/mux_8_i61_4_lut/A->u_aes/u_core/u_datapath/mux_8_i61_4_lut/Z
+                                          SLICE_R12C9D       B0_TO_F0_DELAY      0.476                 24.123  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[60]
+                                                             NET DELAY           0.000                 24.123  1       
+u_aes/u_core/u_datapath/state_i60/D                          ENDPOINT            0.000                 24.123  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i60/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_579/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i60/CK   u_aes/u_core/u_datapath/state_i61/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(24.122)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.011  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i5/D  (SLICE_R19C18D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 85.1% (route), 14.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.144 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i5/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_523/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":20.038,
+        "delay":6.992
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3025_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_766/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3025_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_766/F0"
+        },
+        "arrive":20.487,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2542",
+            "phy_name":"u_aes.u_core.u_datapath.n2542"
+        },
+        "arrive":23.514,
+        "delay":3.027
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i6_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_523/C1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i6_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_523/F1"
+        },
+        "arrive":23.990,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[5]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[5]"
+        },
+        "arrive":23.990,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.990,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           6.992                 20.038  130     
+u_aes/u_core/u_datapath/i3025_4_lut/D->u_aes/u_core/u_datapath/i3025_4_lut/Z
+                                          SLICE_R19C16B      A0_TO_F0_DELAY      0.449                 20.487  1       
+u_aes/u_core/u_datapath/n2542                                NET DELAY           3.027                 23.514  1       
+u_aes/u_core/u_datapath/mux_8_i6_4_lut/A->u_aes/u_core/u_datapath/mux_8_i6_4_lut/Z
+                                          SLICE_R19C18D      C1_TO_F1_DELAY      0.476                 23.990  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[5]
+                                                             NET DELAY           0.000                 23.990  1       
+u_aes/u_core/u_datapath/state_i5/D                           ENDPOINT            0.000                 23.990  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i4/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_523/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i4/CK   u_aes/u_core/u_datapath/state_i5/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.989)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.144  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i21/D  (SLICE_R19C11C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 84.8% (route), 15.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.408 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i21/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_539/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":20.633,
+        "delay":7.587
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2987_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_716/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2987_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_716/F0"
+        },
+        "arrive":21.082,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2606",
+            "phy_name":"u_aes.u_core.u_datapath.n2606"
+        },
+        "arrive":23.250,
+        "delay":2.168
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i22_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_539/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i22_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_539/F1"
+        },
+        "arrive":23.726,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[21]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[21]"
+        },
+        "arrive":23.726,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.726,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           7.587                 20.633  130     
+u_aes/u_core/u_datapath/i2987_4_lut/D->u_aes/u_core/u_datapath/i2987_4_lut/Z
+                                          SLICE_R19C12B      A0_TO_F0_DELAY      0.449                 21.082  1       
+u_aes/u_core/u_datapath/n2606                                NET DELAY           2.168                 23.250  1       
+u_aes/u_core/u_datapath/mux_8_i22_4_lut/A->u_aes/u_core/u_datapath/mux_8_i22_4_lut/Z
+                                          SLICE_R19C11C      D1_TO_F1_DELAY      0.476                 23.726  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[21]
+                                                             NET DELAY           0.000                 23.726  1       
+u_aes/u_core/u_datapath/state_i21/D                          ENDPOINT            0.000                 23.726  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i20/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_539/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i20/CK   u_aes/u_core/u_datapath/state_i21/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.725)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.408  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i86/D  (SLICE_R9C16A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 84.8% (route), 15.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.500 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i86/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_605/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.087,
+        "delay":6.041
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3215_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_826/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3215_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_826/F0"
+        },
+        "arrive":19.536,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2866",
+            "phy_name":"u_aes.u_core.u_datapath.n2866"
+        },
+        "arrive":23.158,
+        "delay":3.622
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i87_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_605/C0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i87_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_605/F0"
+        },
+        "arrive":23.634,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[86]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[86]"
+        },
+        "arrive":23.634,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.634,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           6.041                 19.087  130     
+u_aes/u_core/u_datapath/i3215_4_lut/D->u_aes/u_core/u_datapath/i3215_4_lut/Z
+                                          SLICE_R9C12B       A0_TO_F0_DELAY      0.449                 19.536  1       
+u_aes/u_core/u_datapath/n2866                                NET DELAY           3.622                 23.158  1       
+u_aes/u_core/u_datapath/mux_8_i87_4_lut/A->u_aes/u_core/u_datapath/mux_8_i87_4_lut/Z
+                                          SLICE_R9C16A       C0_TO_F0_DELAY      0.476                 23.634  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[86]
+                                                             NET DELAY           0.000                 23.634  1       
+u_aes/u_core/u_datapath/state_i86/D                          ENDPOINT            0.000                 23.634  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i86/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_605/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i86/CK   u_aes/u_core/u_datapath/state_i87/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.633)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.500  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i83/D  (SLICE_R11C20C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 84.7% (route), 15.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.527 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i83/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_601/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.007,
+        "delay":5.961
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3227_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_838/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i3227_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_838/F0"
+        },
+        "arrive":19.456,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2854",
+            "phy_name":"u_aes.u_core.u_datapath.n2854"
+        },
+        "arrive":23.131,
+        "delay":3.675
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i84_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_601/B1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i84_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_601/F1"
+        },
+        "arrive":23.607,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[83]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[83]"
+        },
+        "arrive":23.607,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.607,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           5.961                 19.007  130     
+u_aes/u_core/u_datapath/i3227_4_lut/D->u_aes/u_core/u_datapath/i3227_4_lut/Z
+                                          SLICE_R11C13B      A0_TO_F0_DELAY      0.449                 19.456  1       
+u_aes/u_core/u_datapath/n2854                                NET DELAY           3.675                 23.131  1       
+u_aes/u_core/u_datapath/mux_8_i84_4_lut/A->u_aes/u_core/u_datapath/mux_8_i84_4_lut/Z
+                                          SLICE_R11C20C      B1_TO_F1_DELAY      0.476                 23.607  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[83]
+                                                             NET DELAY           0.000                 23.607  1       
+u_aes/u_core/u_datapath/state_i83/D                          ENDPOINT            0.000                 23.607  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i82/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_601/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i82/CK   u_aes/u_core/u_datapath/state_i83/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.606)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.527  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i59/D  (SLICE_R12C9A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 84.7% (route), 15.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.527 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i59/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_577/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":19.087,
+        "delay":6.041
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2911_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_904/A1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2911_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_904/F1"
+        },
+        "arrive":19.536,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2758",
+            "phy_name":"u_aes.u_core.u_datapath.n2758"
+        },
+        "arrive":23.131,
+        "delay":3.595
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i60_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_577/B1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i60_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_577/F1"
+        },
+        "arrive":23.607,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[59]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[59]"
+        },
+        "arrive":23.607,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.607,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           6.041                 19.087  130     
+u_aes/u_core/u_datapath/i2911_4_lut/D->u_aes/u_core/u_datapath/i2911_4_lut/Z
+                                          SLICE_R16C8A       A1_TO_F1_DELAY      0.449                 19.536  1       
+u_aes/u_core/u_datapath/n2758                                NET DELAY           3.595                 23.131  1       
+u_aes/u_core/u_datapath/mux_8_i60_4_lut/A->u_aes/u_core/u_datapath/mux_8_i60_4_lut/Z
+                                          SLICE_R12C9A       B1_TO_F1_DELAY      0.476                 23.607  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[59]
+                                                             NET DELAY           0.000                 23.607  1       
+u_aes/u_core/u_datapath/state_i59/D                          ENDPOINT            0.000                 23.607  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i58/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_577/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i58/CK   u_aes/u_core/u_datapath/state_i59/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.606)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.527  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_ctrl/round_i0/Q  (SLICE_R13C2C)
+Path End         : u_aes/u_core/u_datapath/state_i23/D  (SLICE_R21C10B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 4
+Delay Ratio      : 84.7% (route), 15.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 20.833 ns 
+Path Slack       : 2.580 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+        "phy_name":"SLICE_1095/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":5.499,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":5.499,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                  5.499  160     
+u_aes/u_core/u_ctrl/round_i0/CK                              CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+        "phy_name":"SLICE_1095/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i23/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_541/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/CK",
+            "phy_name":"SLICE_1095/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round_i0/Q",
+            "phy_name":"SLICE_1095/Q1"
+        },
+        "arrive":6.887,
+        "delay":1.388
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/round[0]",
+            "phy_name":"u_aes.u_core.u_ctrl.round[0]"
+        },
+        "arrive":12.597,
+        "delay":5.710
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/B",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/i2_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_658/F0"
+        },
+        "arrive":13.046,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/last_round_N_691",
+            "phy_name":"u_aes.u_core.last_round_N_691"
+        },
+        "arrive":18.492,
+        "delay":5.446
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2983_4_lut/D",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_708/A0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/i2983_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_708/F0"
+        },
+        "arrive":18.941,
+        "delay":0.449
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/n2614",
+            "phy_name":"u_aes.u_core.u_datapath.n2614"
+        },
+        "arrive":23.078,
+        "delay":4.137
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i24_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_541/C1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_8_i24_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_541/F1"
+        },
+        "arrive":23.554,
+        "delay":0.476
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/cyphertext_127__N_1[23]",
+            "phy_name":"u_aes.u_core.u_datapath.cyphertext_127__N_1[23]"
+        },
+        "arrive":23.554,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":23.554,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_aes/u_core/u_ctrl/round_i0/CK->u_aes/u_core/u_ctrl/round_i0/Q
+                                          SLICE_R13C2C       CLK_TO_Q1_DELAY     1.388                  6.887  5       
+u_aes/u_core/u_ctrl/round[0]                                 NET DELAY           5.710                 12.597  5       
+u_aes/u_core/u_ctrl/i2_4_lut/B->u_aes/u_core/u_ctrl/i2_4_lut/Z
+                                          SLICE_R13C22C      A0_TO_F0_DELAY      0.449                 13.046  130     
+u_aes/u_core/u_ctrl/last_round_N_691                         NET DELAY           5.446                 18.492  130     
+u_aes/u_core/u_datapath/i2983_4_lut/D->u_aes/u_core/u_datapath/i2983_4_lut/Z
+                                          SLICE_R16C11B      A0_TO_F0_DELAY      0.449                 18.941  1       
+u_aes/u_core/u_datapath/n2614                                NET DELAY           4.137                 23.078  1       
+u_aes/u_core/u_datapath/mux_8_i24_4_lut/A->u_aes/u_core/u_datapath/mux_8_i24_4_lut/Z
+                                          SLICE_R21C10B      C1_TO_F1_DELAY      0.476                 23.554  1       
+u_aes/u_core/u_datapath/cyphertext_127__N_1[23]
+                                                             NET DELAY           0.000                 23.554  1       
+u_aes/u_core/u_datapath/state_i23/D                          ENDPOINT            0.000                 23.554  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/state_i22/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_541/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":26.332,
+        "delay":5.499
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":26.332,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 20.833  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  160     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY           5.499                 26.332  160     
+{u_aes/u_core/u_datapath/state_i22/CK   u_aes/u_core/u_datapath/state_i23/CK}
+                                                             CLOCK PIN           0.000                 26.332  1       
+                                                             Uncertainty      -(0.000)                 26.332  
+                                                             Setup time       -(0.198)                 26.134  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          26.134  
+Arrival Time                                                                                        -(23.553)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                    2.580  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+<A name="Timing_rpt_HoldFastCornerMinDegreeNoAV"></A><B><U><big>3  Hold at Speed Grade m Corner at -40 Degrees</big></U></B>
+<A name="Timing_rpt_EndpointSlackHoldFastCornerMinDegreeNoAV"></A><B><U><big>3.1  Endpoint slacks</big></U></B>
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+u_aes/u_core/u_datapath/roundkey_i69/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i50/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i46/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i43/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i40/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i41/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i39/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i34/D   |    1.743 ns 
+u_aes/u_core/u_datapath/roundkey_i35/D   |    1.743 ns 
+u_aes/u_core/u_ctrl/state_FSM_i5/D       |    1.743 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+<A name="Timing_rpt_DetailReportHoldFastCornerMinDegreeNoAV"></A><B><U><big>3.2  Detailed Report</big></U></B>
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i69/Q  (SLICE_R22C16B)
+Path End         : u_aes/u_core/u_datapath/roundkey_i69/D  (SLICE_R22C16B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i68/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_453/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i68/CK   u_aes/u_core/u_datapath/roundkey_i69/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i69/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_453/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i69/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_453/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i69/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_453/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i69/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_453/Q1"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[69]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[69]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i70_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_453/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i70_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_453/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[69]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[69]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i69/CK->u_aes/u_core/u_datapath/roundkey_i69/Q
+                                          SLICE_R22C16B      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[69]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i70_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i70_3_lut_4_lut/Z
+                                          SLICE_R22C16B      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[69]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i69/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i68/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_453/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i68/CK   u_aes/u_core/u_datapath/roundkey_i69/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i50/Q  (SLICE_R16C12C)
+Path End         : u_aes/u_core/u_datapath/roundkey_i50/D  (SLICE_R16C12C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i50/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_435/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i50/CK   u_aes/u_core/u_datapath/roundkey_i51/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i50/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_435/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i50/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_435/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i50/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_435/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i50/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_435/Q0"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[50]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[50]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i51_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_435/D0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i51_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_435/F0"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[50]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[50]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i50/CK->u_aes/u_core/u_datapath/roundkey_i50/Q
+                                          SLICE_R16C12C      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[50]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i51_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i51_3_lut_4_lut/Z
+                                          SLICE_R16C12C      D0_TO_F0_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[50]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i50/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i50/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_435/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i50/CK   u_aes/u_core/u_datapath/roundkey_i51/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i46/Q  (SLICE_R13C17D)
+Path End         : u_aes/u_core/u_datapath/roundkey_i46/D  (SLICE_R13C17D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i46/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_431/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i46/CK   u_aes/u_core/u_datapath/roundkey_i47/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i46/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_431/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i46/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_431/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i46/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_431/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i46/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_431/Q0"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[46]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[46]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i47_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_431/D0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i47_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_431/F0"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[46]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[46]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i46/CK->u_aes/u_core/u_datapath/roundkey_i46/Q
+                                          SLICE_R13C17D      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[46]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i47_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i47_3_lut_4_lut/Z
+                                          SLICE_R13C17D      D0_TO_F0_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[46]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i46/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i46/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_431/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i46/CK   u_aes/u_core/u_datapath/roundkey_i47/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i43/Q  (SLICE_R17C17C)
+Path End         : u_aes/u_core/u_datapath/roundkey_i43/D  (SLICE_R17C17C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i42/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_427/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i42/CK   u_aes/u_core/u_datapath/roundkey_i43/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i43/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_427/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i43/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_427/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i43/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_427/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i43/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_427/Q1"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[43]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[43]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i44_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_427/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i44_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_427/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[43]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[43]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i43/CK->u_aes/u_core/u_datapath/roundkey_i43/Q
+                                          SLICE_R17C17C      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[43]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i44_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i44_3_lut_4_lut/Z
+                                          SLICE_R17C17C      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[43]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i43/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i42/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_427/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i42/CK   u_aes/u_core/u_datapath/roundkey_i43/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i40/Q  (SLICE_R12C18A)
+Path End         : u_aes/u_core/u_datapath/roundkey_i40/D  (SLICE_R12C18A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i40/CK   u_aes/u_core/u_datapath/roundkey_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i40/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i40/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/Q0"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[40]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[40]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i41_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/D0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i41_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/F0"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[40]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[40]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i40/CK->u_aes/u_core/u_datapath/roundkey_i40/Q
+                                          SLICE_R12C18A      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[40]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i41_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i41_3_lut_4_lut/Z
+                                          SLICE_R12C18A      D0_TO_F0_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[40]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i40/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i40/CK   u_aes/u_core/u_datapath/roundkey_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i41/Q  (SLICE_R12C18A)
+Path End         : u_aes/u_core/u_datapath/roundkey_i41/D  (SLICE_R12C18A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i40/CK   u_aes/u_core/u_datapath/roundkey_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i41/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i41/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i41/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i41/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/Q1"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[41]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[41]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i42_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i42_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_425/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[41]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[41]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i41/CK->u_aes/u_core/u_datapath/roundkey_i41/Q
+                                          SLICE_R12C18A      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[41]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i42_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i42_3_lut_4_lut/Z
+                                          SLICE_R12C18A      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[41]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i41/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i40/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_425/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i40/CK   u_aes/u_core/u_datapath/roundkey_i41/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i39/Q  (SLICE_R22C18A)
+Path End         : u_aes/u_core/u_datapath/roundkey_i39/D  (SLICE_R22C18A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i38/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_423/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i38/CK   u_aes/u_core/u_datapath/roundkey_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i39/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_423/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i39/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_423/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i39/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_423/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i39/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_423/Q1"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[39]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[39]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i40_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_423/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i40_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_423/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[39]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[39]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i39/CK->u_aes/u_core/u_datapath/roundkey_i39/Q
+                                          SLICE_R22C18A      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[39]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i40_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i40_3_lut_4_lut/Z
+                                          SLICE_R22C18A      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[39]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i39/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i38/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_423/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i38/CK   u_aes/u_core/u_datapath/roundkey_i39/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i34/Q  (SLICE_R16C15C)
+Path End         : u_aes/u_core/u_datapath/roundkey_i34/D  (SLICE_R16C15C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i34/CK   u_aes/u_core/u_datapath/roundkey_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i34/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i34/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/Q0"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[34]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[34]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i35_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/D0"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i35_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/F0"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[34]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[34]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i34/CK->u_aes/u_core/u_datapath/roundkey_i34/Q
+                                          SLICE_R16C15C      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[34]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i35_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i35_3_lut_4_lut/Z
+                                          SLICE_R16C15C      D0_TO_F0_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[34]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i34/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i34/CK   u_aes/u_core/u_datapath/roundkey_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_core/u_datapath/roundkey_i35/Q  (SLICE_R16C15C)
+Path End         : u_aes/u_core/u_datapath/roundkey_i35/D  (SLICE_R16C15C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i34/CK   u_aes/u_core/u_datapath/roundkey_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i35/Q",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i35/D",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i35/CK",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_i35/Q",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/Q1"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/u_keyexpand/roundkey[35]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey[35]"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i36_3_lut_4_lut/A",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_core/u_datapath/mux_9_i36_3_lut_4_lut/Z",
+            "phy_name":"u_aes.u_core.u_datapath.SLICE_419/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_datapath/roundkey_127__N_256[35]",
+            "phy_name":"u_aes.u_core.u_datapath.roundkey_127__N_256[35]"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_core/u_datapath/roundkey_i35/CK->u_aes/u_core/u_datapath/roundkey_i35/Q
+                                          SLICE_R16C15C      CLK_TO_Q1_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_datapath/u_keyexpand/roundkey[35]
+                                                             NET DELAY        0.712                  4.575  3       
+u_aes/u_core/u_datapath/mux_9_i36_3_lut_4_lut/A->u_aes/u_core/u_datapath/mux_9_i36_3_lut_4_lut/Z
+                                          SLICE_R16C15C      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_127__N_256[35]
+                                                             NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_datapath/roundkey_i35/D                       ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_datapath/roundkey_i34/CK",
+        "phy_name":"u_aes.u_core.u_datapath.SLICE_419/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_core/u_datapath/roundkey_i34/CK   u_aes/u_core/u_datapath/roundkey_i35/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_aes/u_load_sync/q/Q  (SLICE_R13C24C)
+Path End         : u_aes/u_core/u_ctrl/state_FSM_i5/D  (SLICE_R13C24C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_load_sync/q/CK",
+        "phy_name":"u_aes.u_load_sync.SLICE_384/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_load_sync/q/CK   u_aes/u_core/u_ctrl/state_FSM_i5/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_load_sync/q/Q",
+        "phy_name":"u_aes.u_load_sync.SLICE_384/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_core/u_ctrl/state_FSM_i5/D",
+        "phy_name":"u_aes.u_load_sync.SLICE_384/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes/u_load_sync/q/CK",
+            "phy_name":"u_aes.u_load_sync.SLICE_384/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes/u_load_sync/q/Q",
+            "phy_name":"u_aes.u_load_sync.SLICE_384/Q0"
+        },
+        "arrive":3.863,
+        "delay":0.779
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/load_sync",
+            "phy_name":"u_aes.load_sync"
+        },
+        "arrive":4.575,
+        "delay":0.712
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"u_aes.u_load_sync.SLICE_384/D1",
+            "phy_name":"u_aes.u_load_sync.SLICE_384/D1"
+        },
+        "pin1":
+        {
+            "log_name":"u_aes.u_load_sync.SLICE_384/F1",
+            "phy_name":"u_aes.u_load_sync.SLICE_384/F1"
+        },
+        "arrive":4.827,
+        "delay":0.252
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes.load_sync.sig_265.FeedThruLUT",
+            "phy_name":"u_aes.load_sync.sig_265.FeedThruLUT"
+        },
+        "arrive":4.827,
+        "delay":0.000
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":4.827,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_aes/u_load_sync/q/CK->u_aes/u_load_sync/q/Q
+                                          SLICE_R13C24C      CLK_TO_Q0_DELAY  0.779                  3.863  3       
+u_aes/u_core/u_ctrl/load_sync                                NET DELAY        0.712                  4.575  3       
+u_aes.u_load_sync.SLICE_384/D1->u_aes.u_load_sync.SLICE_384/F1
+                                          SLICE_R13C24C      D1_TO_F1_DELAY   0.252                  4.827  1       
+u_aes.load_sync.sig_265.FeedThruLUT                          NET DELAY        0.000                  4.827  1       
+u_aes/u_core/u_ctrl/state_FSM_i5/D                           ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"hf_osc/CLKHF",
+        "phy_name":"hf_osc/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"u_aes/u_load_sync/q/CK",
+        "phy_name":"u_aes.u_load_sync.SLICE_384/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"u_aes/u_core/u_ctrl/clk",
+            "phy_name":"clk"
+        },
+        "arrive":3.084,
+        "delay":3.084
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":3.084,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  161     
+u_aes/u_core/u_ctrl/clk                                      NET DELAY        3.084                  3.084  161     
+{u_aes/u_load_sync/q/CK   u_aes/u_core/u_ctrl/state_FSM_i5/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+
+
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"<span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Timing_rpt_top>Timing Report</A></LI>
+<LI><A href=#Timing_rpt_DesignChecking>1  Timing Overview</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_SDCConstraints>1.1  SDC Constraints</A></LI>
+<LI><A href=#Timing_rpt_ConstraintCoverage>1.2  Constraint Coverage</A></LI>
+<LI><A href=#Timing_rpt_OverallSummary>1.3  Overall Summary</A></LI>
+<LI><A href=#Timing_rpt_UnconstrainedReport>1.4  Unconstrained Report</A></LI>
+<LI><A href=#Timing_rpt_CombinationalLoop>1.5  Combinational Loop</A></LI>
+</UL>
+<LI><A href=#Timing_rpt_SetupSlowCornerMaxDegree>2  Setup at User Specified Speed Grade Corner at User Specified Degrees</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_ClockSummarySetupSlowCornerMaxDegree>2.1  Clock Summary</A></LI>
+<LI><A href=#Timing_rpt_EndpointSlackSetupSlowCornerMaxDegree>2.2  Endpoint slacks</A></LI>
+<LI><A href=#Timing_rpt_DetailReportSetupSlowCornerMaxDegree>2.3  Detailed Report</A></LI>
+</UL>
+<LI><A href=#Timing_rpt_HoldFastCornerMinDegreeNoAV>3  Hold at User Specified Speed Grade Corner at Minimum Degrees</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_EndpointSlackHoldFastCornerMinDegreeNoAV>3.1  Endpoint slacks</A></LI>
+<LI><A href=#Timing_rpt_DetailReportHoldFastCornerMinDegreeNoAV>3.2  Detailed Report</A></LI>
+</UL>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+   var funScroll = function() {
+      var top = document.body.scrollTop;
+      if (top == 0) {
+         scrollStep = 0;
+         return;
+      }
+      if (scrollStep == 0)
+         scrollStep = top/20 + 1;
+      top -= scrollStep;
+      if (top < 0)
+         top = 0;
+      document.body.scrollTop = top;
+      requestAnimationFrame(funScroll);
+   };
+   funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+   var backToTop = document.getElementById('back_to_top')
+   if (document.body.scrollTop > 0) {
+      backToTop.style.display = 'block';
+   } else {    backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+   bottom:20px; right:20px;
+   width:30px; height:30px;
+   font-size: 20px;
+   padding: 2px 5px 2px 5px;
+   position:fixed;
+   background-color:rgba(210,210,210,0.1);
+   border-style: solid;
+   border-color: rgba(192,192,192,0.8);
+   border-width:1px;
+   display:none;
+   -webkit-transform: rotate(90deg);
+   -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+   outline-width:0px;
+}
+</style>
+
+</BODY>

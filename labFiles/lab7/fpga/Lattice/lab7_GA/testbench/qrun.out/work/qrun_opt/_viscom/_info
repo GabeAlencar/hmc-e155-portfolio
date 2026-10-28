@@ -1,0 +1,5 @@
+__design_bin_path=U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench
+incr_run_version=16384
+incr_partial_run_stats=0:0
+incr_no_change_stats=0:0
+opt_data_elab=U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/testbench/qrun.out/work/qrun_opt

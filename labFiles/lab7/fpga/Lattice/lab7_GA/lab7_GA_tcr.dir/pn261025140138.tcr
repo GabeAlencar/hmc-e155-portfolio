@@ -1,0 +1,13 @@
+#Start recording tcl command: 10/25/2026 13:42:37
+#Project Location: U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA; Project name: lab7_GA
+prj_create -name "lab7_GA" -impl "impl_1" -dev iCE40UP5K-SG48I -performance "High-Performance_1.2V" -synthesis "lse"
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/addroundkey.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_core.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_ctrl.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_datapath.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/aes_spi.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/galoismult.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/input_to_state.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/keyexpand.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/lab7_GA.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumn.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/mixcolumns.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/sbox_sync.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/shiftrows.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/state_to_output.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/subbytes.sv" "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/src/synchronizer.sv"
+prj_save 
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_add_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.pdc"
+prj_enable_source "U:/home/gabe/hmc-e155-portfolio/labFiles/lab7/fpga/Lattice/lab7_GA/lab7_GA.pdc"
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_run Export -impl impl_1
+#Stop recording: 10/25/2026 14:01:38

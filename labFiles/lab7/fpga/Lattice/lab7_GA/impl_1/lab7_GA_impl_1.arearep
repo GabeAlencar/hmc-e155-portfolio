@@ -1,0 +1,423 @@
+----------------------------------------------------------------------
+Report for cell lab7_GA.TECH
+Register bits:  658 of 5280 (12.462%)
+I/O cells:      5
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        20          100.0
+                            FD1P3XZ       658          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         3          100.0
+                                INV         1          100.0
+                              IOL_B         2          100.0
+                               LUT4       875          100.0
+                                 OB         2          100.0
+SUB MODULES
+                                aes         1
+                           aes_core         1
+                           aes_ctrl         1
+                       aes_datapath         1
+                            aes_spi         1
+                         galoismult         1
+                          keyexpand         1
+                          mixcolumn         1
+                      mixcolumn_U15         1
+                      mixcolumn_U16         1
+                      mixcolumn_U17         1
+                         mixcolumns         1
+                          sbox_sync         1
+                       sbox_sync_U0         1
+                       sbox_sync_U1         1
+                      sbox_sync_U10         1
+                      sbox_sync_U11         1
+                      sbox_sync_U12         1
+                      sbox_sync_U13         1
+                      sbox_sync_U14         1
+                      sbox_sync_U18         1
+                      sbox_sync_U19         1
+                       sbox_sync_U2         1
+                      sbox_sync_U20         1
+                      sbox_sync_U21         1
+                       sbox_sync_U3         1
+                       sbox_sync_U4         1
+                       sbox_sync_U5         1
+                       sbox_sync_U6         1
+                       sbox_sync_U7         1
+                       sbox_sync_U8         1
+                       sbox_sync_U9         1
+                           subbytes         1
+                       synchronizer         1
+                              TOTAL      1596
+----------------------------------------------------------------------
+Report for cell aes.v1
+Instance Path : u_aes
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        20          100.0
+                            FD1P3XZ       658          100.0
+                                INV         1          100.0
+                              IOL_B         2          100.0
+                               LUT4       874           99.9
+SUB MODULES
+                           aes_core         1
+                           aes_ctrl         1
+                       aes_datapath         1
+                            aes_spi         1
+                         galoismult         1
+                          keyexpand         1
+                          mixcolumn         1
+                      mixcolumn_U15         1
+                      mixcolumn_U16         1
+                      mixcolumn_U17         1
+                         mixcolumns         1
+                          sbox_sync         1
+                       sbox_sync_U0         1
+                       sbox_sync_U1         1
+                      sbox_sync_U10         1
+                      sbox_sync_U11         1
+                      sbox_sync_U12         1
+                      sbox_sync_U13         1
+                      sbox_sync_U14         1
+                      sbox_sync_U18         1
+                      sbox_sync_U19         1
+                       sbox_sync_U2         1
+                      sbox_sync_U20         1
+                      sbox_sync_U21         1
+                       sbox_sync_U3         1
+                       sbox_sync_U4         1
+                       sbox_sync_U5         1
+                       sbox_sync_U6         1
+                       sbox_sync_U7         1
+                       sbox_sync_U8         1
+                       sbox_sync_U9         1
+                           subbytes         1
+                       synchronizer         1
+                              TOTAL      1588
+----------------------------------------------------------------------
+Report for cell aes_spi.v1
+Instance Path : u_aes.u_spi
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ       384           58.4
+                                INV         1          100.0
+                              IOL_B         1           50.0
+                               LUT4       128           14.6
+                              TOTAL       514
+----------------------------------------------------------------------
+Report for cell synchronizer.v1
+Instance Path : u_aes.u_load_sync
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         1            0.2
+                              IOL_B         1           50.0
+                              TOTAL         2
+----------------------------------------------------------------------
+Report for cell aes_core.v1
+Instance Path : u_aes.u_core
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        20          100.0
+                            FD1P3XZ       273           41.5
+                               LUT4       746           85.3
+SUB MODULES
+                           aes_ctrl         1
+                       aes_datapath         1
+                         galoismult         1
+                          keyexpand         1
+                          mixcolumn         1
+                      mixcolumn_U15         1
+                      mixcolumn_U16         1
+                      mixcolumn_U17         1
+                         mixcolumns         1
+                          sbox_sync         1
+                       sbox_sync_U0         1
+                       sbox_sync_U1         1
+                      sbox_sync_U10         1
+                      sbox_sync_U11         1
+                      sbox_sync_U12         1
+                      sbox_sync_U13         1
+                      sbox_sync_U14         1
+                      sbox_sync_U18         1
+                      sbox_sync_U19         1
+                       sbox_sync_U2         1
+                      sbox_sync_U20         1
+                      sbox_sync_U21         1
+                       sbox_sync_U3         1
+                       sbox_sync_U4         1
+                       sbox_sync_U5         1
+                       sbox_sync_U6         1
+                       sbox_sync_U7         1
+                       sbox_sync_U8         1
+                       sbox_sync_U9         1
+                           subbytes         1
+                              TOTAL      1069
+----------------------------------------------------------------------
+Report for cell aes_datapath.v1
+Instance Path : u_aes.u_core.u_datapath
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        20          100.0
+                            FD1P3XZ       264           40.1
+                               LUT4       739           84.5
+SUB MODULES
+                         galoismult         1
+                          keyexpand         1
+                          mixcolumn         1
+                      mixcolumn_U15         1
+                      mixcolumn_U16         1
+                      mixcolumn_U17         1
+                         mixcolumns         1
+                          sbox_sync         1
+                       sbox_sync_U0         1
+                       sbox_sync_U1         1
+                      sbox_sync_U10         1
+                      sbox_sync_U11         1
+                      sbox_sync_U12         1
+                      sbox_sync_U13         1
+                      sbox_sync_U14         1
+                      sbox_sync_U18         1
+                      sbox_sync_U19         1
+                       sbox_sync_U2         1
+                      sbox_sync_U20         1
+                      sbox_sync_U21         1
+                       sbox_sync_U3         1
+                       sbox_sync_U4         1
+                       sbox_sync_U5         1
+                       sbox_sync_U6         1
+                       sbox_sync_U7         1
+                       sbox_sync_U8         1
+                       sbox_sync_U9         1
+                           subbytes         1
+                              TOTAL      1051
+----------------------------------------------------------------------
+Report for cell subbytes.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        16           80.0
+SUB MODULES
+                          sbox_sync         1
+                       sbox_sync_U0         1
+                       sbox_sync_U1         1
+                      sbox_sync_U10         1
+                      sbox_sync_U11         1
+                      sbox_sync_U12         1
+                      sbox_sync_U13         1
+                      sbox_sync_U14         1
+                       sbox_sync_U2         1
+                       sbox_sync_U3         1
+                       sbox_sync_U4         1
+                       sbox_sync_U5         1
+                       sbox_sync_U6         1
+                       sbox_sync_U7         1
+                       sbox_sync_U8         1
+                       sbox_sync_U9         1
+                              TOTAL        32
+----------------------------------------------------------------------
+Report for cell sbox_sync.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[9].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U0.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[8].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U1.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[7].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U2.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[6].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U3.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[5].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U4.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[4].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U5.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[3].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U6.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[2].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U7.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[1].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U8.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[15].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U9.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[14].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U10.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[13].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U11.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[12].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U12.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[11].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U13.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[10].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U14.v1
+Instance Path : u_aes.u_core.u_datapath.u_subbytes.sb[0].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell galoismult.v1
+Instance Path : u_aes.u_core.u_datapath.u_rcon
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         3            0.3
+                              TOTAL         3
+----------------------------------------------------------------------
+Report for cell mixcolumns.v1
+Instance Path : u_aes.u_core.u_datapath.u_mixcolumns
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4       109           12.5
+SUB MODULES
+                          mixcolumn         1
+                      mixcolumn_U15         1
+                      mixcolumn_U16         1
+                      mixcolumn_U17         1
+                              TOTAL       113
+----------------------------------------------------------------------
+Report for cell mixcolumn.v1
+Instance Path : u_aes.u_core.u_datapath.u_mixcolumns.mc3
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        23            2.6
+                              TOTAL        23
+----------------------------------------------------------------------
+Report for cell mixcolumn_U15.v1
+Instance Path : u_aes.u_core.u_datapath.u_mixcolumns.mc2
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        26            3.0
+                              TOTAL        26
+----------------------------------------------------------------------
+Report for cell mixcolumn_U16.v1
+Instance Path : u_aes.u_core.u_datapath.u_mixcolumns.mc1
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        31            3.5
+                              TOTAL        31
+----------------------------------------------------------------------
+Report for cell mixcolumn_U17.v1
+Instance Path : u_aes.u_core.u_datapath.u_mixcolumns.mc0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        29            3.3
+                              TOTAL        29
+----------------------------------------------------------------------
+Report for cell keyexpand.v1
+Instance Path : u_aes.u_core.u_datapath.u_keyexpand
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                               LUT4       128           14.6
+SUB MODULES
+                      sbox_sync_U18         1
+                      sbox_sync_U19         1
+                      sbox_sync_U20         1
+                      sbox_sync_U21         1
+                              TOTAL       136
+----------------------------------------------------------------------
+Report for cell sbox_sync_U18.v1
+Instance Path : u_aes.u_core.u_datapath.u_keyexpand.sw[3].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U19.v1
+Instance Path : u_aes.u_core.u_datapath.u_keyexpand.sw[2].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U20.v1
+Instance Path : u_aes.u_core.u_datapath.u_keyexpand.sw[1].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell sbox_sync_U21.v1
+Instance Path : u_aes.u_core.u_datapath.u_keyexpand.sw[0].u_sbox
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell aes_ctrl.v1
+Instance Path : u_aes.u_core.u_ctrl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         9            1.4
+                               LUT4         7            0.8
+                              TOTAL        16
